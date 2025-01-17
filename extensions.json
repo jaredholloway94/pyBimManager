@@ -1,0 +1,58 @@
+{
+    "extensions": [
+        {
+            "authusers": [],
+            "description": "pyRevit Core",
+            "name": "pyRevitCore",
+            "url": "",
+            "rocket_mode_compatible": "True",
+            "builtin": "True",
+            "author_profile": "https://github.com/pyrevitlabs",
+            "website": "https://github.com/pyrevitlabs/pyRevit/",
+            "type": "extension",
+            "author": "pyRevitLabs",
+            "image": "",
+            "dependencies": []
+        },
+        {
+            "description": "Users with this extension installed will have controls applied to their Revit application.",
+            "name": "pyBimManager-User",
+            "url": "",
+            "rocket_mode_compatible": "True",
+            "builtin": "True",
+            "author_profile": "https://github.com/jaredholloway94",
+            "website": "https://github.com/jaredholloway94/pyBimManager",
+            "type": "extension",
+            "author": "Jared Holloway",
+            "image": "",
+            "dependencies": []
+        },
+        {
+            "authusers": [],
+            "description": "Users with this extension installed will be able to edit controls applied to users' Revit application.",
+            "name": "pyBimManager-Admin",
+            "url": "",
+            "rocket_mode_compatible": "True",
+            "builtin": "True",
+            "author_profile": "https://github.com/jaredholloway94",
+            "website": "https://github.com/jaredholloway94/pyBimManager",
+            "type": "extension",
+            "author": "Jared Holloway",
+            "image": "",
+            "dependencies": []
+        },
+        {
+            "description": "Library where user controls are stored. Must be installed for users and admins",
+            "name": "pyBimManager",
+            "url": "",
+            "rocket_mode_compatible": "True",
+            "builtin": "True",
+            "author_profile": "https://github.com/jaredholloway94",
+            "website": "https://github.com/jaredholloway94/pyBimManager",
+            "type": "lib",
+            "author": "Jared Holloway",
+            "image": "",
+            "dependencies": []
+        }
+    ]
+}

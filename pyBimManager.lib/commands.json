@@ -1,0 +1,6161 @@
+{
+    "ID_ROOF_PICK_FACES":
+    {
+        "command_name": "RoofByFace",
+        "command_number": "20",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_SOFFIT_TB":
+    {
+        "command_name": "Soffit",
+        "command_number": "493",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_LOAD_INTO_PROJECTS":
+    {
+        "command_name": "LoadAsGroupIntoOpenProjects",
+        "command_number": "786",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_LOAD_INTO_PROJECTS_REBAR_SHAPE":
+    {
+        "command_name": "LoadIntoProject",
+        "command_number": "791",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_REPEAT_COMPONENT":
+    {
+        "command_name": "RepeatComponent",
+        "command_number": "840",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_STRUCTURAL_CONNECTION_SETTINGS":
+    {
+        "command_name": "ConnectionSettings",
+        "command_number": "996",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_STRUCTURAL_CONNECTION_DIRECT_CREATION":
+    {
+        "command_name": "StructuralConnection",
+        "command_number": "997",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_TOGGLE_STRUCTCONNECTIONS_SHOW_WARNINGS":
+    {
+        "command_name": "ShowWarningsInViews",
+        "command_number": "1000",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_NEW_VIEWLIST":
+    {
+        "command_name": "ViewList",
+        "command_number": "1075",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_DIMENSIONS_LINEAR":
+    {
+        "command_name": "LinearDimensionTypes",
+        "command_number": "1081",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_DIMENSIONS_ANGULAR":
+    {
+        "command_name": "AngularDimensionTypes",
+        "command_number": "1082",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SPLIT":
+    {
+        "command_name": "SplitElement",
+        "command_number": "1100",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SPOT_ELEVATION":
+    {
+        "command_name": "SpotElevation",
+        "command_number": "1109",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SPOT_COORDINATE":
+    {
+        "command_name": "SpotCoordinate",
+        "command_number": "1114",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_ALIGNMENT_STATION_LABEL":
+    {
+        "command_name": "AlignmentStation",
+        "command_number": "1115",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_ALIGNMENT_STATION_LABEL_SET":
+    {
+        "command_name": "AlignmentStationSet",
+        "command_number": "1116",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_ROOF_FOOTPRINT":
+    {
+        "command_name": "RoofByFootprint",
+        "command_number": "1142",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_ROOF_EXTRUSION":
+    {
+        "command_name": "RoofByExtrusion",
+        "command_number": "1143",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_DIMENSIONS_RADIAL":
+    {
+        "command_name": "RadialDimensionTypes",
+        "command_number": "1199",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_WORKSETS_RELOAD_LATEST":
+    {
+        "command_name": "ReloadLatest",
+        "command_number": "1729",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_PHOTO_RENDERING_VIEW":
+    {
+        "command_name": "Render",
+        "command_number": "1782",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_PARTITIONS_SHOW_HISTORY":
+    {
+        "command_name": "ShowHistory",
+        "command_number": "1985",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "2706":
+    {
+        "command_name": "DrawOnFace",
+        "command_number": "2706",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "2707":
+    {
+        "command_name": "DrawOnWorkPlane",
+        "command_number": "2707",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_GRAY_INACTIVE_WORKSET_GRAPHICS":
+    {
+        "command_name": "GrayInactiveWorksets",
+        "command_number": "2765",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_ABS_IMPORT_GBXML":
+    {
+        "command_name": "ImportGBXML",
+        "command_number": "3102",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_ROOM_AREA_REPORT":
+    {
+        "command_name": "ExportReportsRoomOrAreaReport",
+        "command_number": "3125",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_REVISIONS":
+    {
+        "command_name": "SheetIssuesOrRevisions",
+        "command_number": "3153",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_NEW_REVISION_SCHEDULE":
+    {
+        "command_name": "RevisionSchedule",
+        "command_number": "3154",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEWTAGSTYLES_CALLOUTTAGS":
+    {
+        "command_name": "CalloutTags",
+        "command_number": "3167",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEWTAGSTYLES_ELEVATIONTAGS":
+    {
+        "command_name": "ElevationTags",
+        "command_number": "3168",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEWTAGSTYLES_SECTIONTAGS":
+    {
+        "command_name": "SectionTags",
+        "command_number": "3169",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FLOOR_PICK_FACES":
+    {
+        "command_name": "FloorByFaceFloor",
+        "command_number": "3234",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_HIDE_CATEGORY":
+    {
+        "command_name": "HideCategory",
+        "command_number": "3240",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_INTERFERENCE_CHECK":
+    {
+        "command_name": "RunInterferenceCheck",
+        "command_number": "3259",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SPECIFY_SHARED_COORDINATES":
+    {
+        "command_name": "SpecifyCoordinatesAtPoint",
+        "command_number": "3266",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EXPORT_IFC":
+    {
+        "command_name": "ExportIFC",
+        "command_number": "3278",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_SYSTEM_NAVIGATOR":
+    {
+        "command_name": "SystemBrowser",
+        "command_number": "3280",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_IFC_OPTIONS":
+    {
+        "command_name": "ExportOptionsIFCOptions",
+        "command_number": "3292",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EXPORT_DWF":
+    {
+        "command_name": "ExportDWFOrDWFx",
+        "command_number": "3341",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EXPORT_DWG":
+    {
+        "command_name": "ExportCADFormatsDWG",
+        "command_number": "3342",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EXPORT_DXF":
+    {
+        "command_name": "ExportCADFormatsDXF",
+        "command_number": "3343",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EXPORT_DGN":
+    {
+        "command_name": "ExportCADFormatsDGN",
+        "command_number": "3344",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EXPORT_SAT":
+    {
+        "command_name": "ExportCADFormatsACIS_SAT",
+        "command_number": "3345",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EXPORT_PDF":
+    {
+        "command_name": "ExportPDF",
+        "command_number": "3346",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EXPORT_STL":
+    {
+        "command_name": "ExportCADFormatsSTL",
+        "command_number": "3347",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EXPORT_OBJ":
+    {
+        "command_name": "ExportCADFormatsOBJ",
+        "command_number": "3348",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_IMPORT_IFC":
+    {
+        "command_name": "OpenIFC",
+        "command_number": "3355",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RELINQUISH_ALL_MINE":
+    {
+        "command_name": "RelinquishAllMine",
+        "command_number": "3363",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_NEW_MATERIAL_TAKEOFF":
+    {
+        "command_name": "MaterialTakeoff",
+        "command_number": "3388",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_MARKUPS_LOAD":
+    {
+        "command_name": "DWFMarkup",
+        "command_number": "3401",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "IDC_COMBOBOX_CONTROL":
+    {
+        "command_name": "ImportTypes",
+        "command_number": "3404",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EXPORT_FAM_TYPES":
+    {
+        "command_name": "ExportExportTypes",
+        "command_number": "3405",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_IFC_IMPORT_OPTIONS":
+    {
+        "command_name": "OpenIFCOptions",
+        "command_number": "3409",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_NEW_KEYNOTE_LEGEND":
+    {
+        "command_name": "KeynoteLegend",
+        "command_number": "3449",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_KEYNOTING":
+    {
+        "command_name": "KeynotingSettings",
+        "command_number": "3450",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_TRUSS_WEB_CURVE":
+    {
+        "command_name": "Web",
+        "command_number": "3619",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_TRUSS_TOP_CHORD_CURVE":
+    {
+        "command_name": "TopChord",
+        "command_number": "3620",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_TRUSS_BOTTOM_CHORD_CURVE":
+    {
+        "command_name": "BottomChord",
+        "command_number": "3621",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SHAPE_STATUS":
+    {
+        "command_name": "ShapeStatus",
+        "command_number": "3640",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_TOGGLE_PROPERTIES_PALETTE":
+    {
+        "command_name": "TogglePropertiesPalette",
+        "command_number": "4534",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_STATUSBAR_WORKSETS":
+    {
+        "command_name": "StatusBarWorksets",
+        "command_number": "4609",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_STATUSBAR_DESIGNOPTIONS":
+    {
+        "command_name": "StatusBarDesignOptions",
+        "command_number": "4610",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_NUMBERING_REINF_PARTITIONS":
+    {
+        "command_name": "ReinforcementNumbers",
+        "command_number": "4700",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_FAMILYHOST":
+    {
+        "command_name": "FamilyCategoryAndParameters",
+        "command_number": "10133",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RM_ANIMATION":
+    {
+        "command_name": "ExportImagesandAnimationsWalkthrough",
+        "command_number": "12059",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FILE_EXPORT_SOLAR_STUDY":
+    {
+        "command_name": "ExportImagesandAnimationsSolarStudy",
+        "command_number": "12075",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_SUNANDSHADOWSSETTINGS":
+    {
+        "command_name": "SunSettings",
+        "command_number": "12299",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_GRID":
+    {
+        "command_name": "Grid",
+        "command_number": "32770",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_WALL":
+    {
+        "command_name": "ArchitecturalWall",
+        "command_number": "32771",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_DOOR":
+    {
+        "command_name": "Door",
+        "command_number": "32772",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_WINDOW":
+    {
+        "command_name": "Window",
+        "command_number": "32773",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_BUTTON_DELETE":
+    {
+        "command_name": "Delete",
+        "command_number": "32778",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_MEP_SPACE":
+    {
+        "command_name": "Space",
+        "command_number": "32784",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_MEP_SPACE_TAG":
+    {
+        "command_name": "SpaceTag",
+        "command_number": "32785",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_MEP_SPACE_SEPARATION":
+    {
+        "command_name": "SpaceSeparator",
+        "command_number": "32786",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_TYPE":
+    {
+        "command_name": "TypeProperties",
+        "command_number": "32790",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_LEVEL":
+    {
+        "command_name": "Level",
+        "command_number": "32794",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_BUTTON_BRACING_ELEVATION":
+    {
+        "command_name": "FramingElevation",
+        "command_number": "32814",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_FLOOR":
+    {
+        "command_name": "ArchitecturalFloor",
+        "command_number": "32914",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_STAIRS":
+    {
+        "command_name": "Stair",
+        "command_number": "32916",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_COLUMN":
+    {
+        "command_name": "ArchitecturalColumn",
+        "command_number": "32918",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_MIRROR_PROJECT":
+    {
+        "command_name": "MirrorProject",
+        "command_number": "32919",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_ROTATE_PROJECT":
+    {
+        "command_name": "RotateProjectNorth",
+        "command_number": "32920",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_ROTATE":
+    {
+        "command_name": "Rotate",
+        "command_number": "32934",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_MIRROR":
+    {
+        "command_name": "MirrorPickAxis",
+        "command_number": "32936",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_PENS":
+    {
+        "command_name": "LineWeights",
+        "command_number": "32946",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_OBJECTSTYLES":
+    {
+        "command_name": "ObjectStyles",
+        "command_number": "32947",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_ANALYSIS_DISPLAY_STYLES":
+    {
+        "command_name": "AnalysisDisplayStyles",
+        "command_number": "32948",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_SNAPPING":
+    {
+        "command_name": "Snaps",
+        "command_number": "32949",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_UNITS":
+    {
+        "command_name": "ProjectUnits",
+        "command_number": "32950",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_NEW_STRUCTURAL_PLAN":
+    {
+        "command_name": "StructuralPlan",
+        "command_number": "32952",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_NEW_PLAN":
+    {
+        "command_name": "FloorPlan",
+        "command_number": "32953",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_NEW_SECTION":
+    {
+        "command_name": "Section",
+        "command_number": "32955",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_NEW_3DVIEW":
+    {
+        "command_name": "Camera",
+        "command_number": "32956",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_PROJECTEXPLORER":
+    {
+        "command_name": "ProjectBrowser",
+        "command_number": "32957",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_NEW_SHEET":
+    {
+        "command_name": "NewSheet",
+        "command_number": "32958",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FILE_IMPORT":
+    {
+        "command_name": "ImportCAD",
+        "command_number": "32959",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FILE_CADFORMAT_LINK":
+    {
+        "command_name": "LinkCAD",
+        "command_number": "32961",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_POINT_CLOUD":
+    {
+        "command_name": "PointCloud",
+        "command_number": "32963",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FAMILY_NEW":
+    {
+        "command_name": "NewFamily",
+        "command_number": "32983",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FAMILY_LOAD":
+    {
+        "command_name": "LoadShapes",
+        "command_number": "32984",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_NEW_REVIT_DESIGN_MODEL":
+    {
+        "command_name": "NewConceptualMass",
+        "command_number": "32986",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FAMILY_LOAD_CLOUD":
+    {
+        "command_name": "LoadAutodeskFamily",
+        "command_number": "32990",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_LOCK_ELEMENTS":
+    {
+        "command_name": "Pin",
+        "command_number": "32997",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_NEW_WALKTHROUGH":
+    {
+        "command_name": "Walkthrough",
+        "command_number": "33000",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_UNLOCK_ELEMENTS":
+    {
+        "command_name": "Unpin",
+        "command_number": "33001",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_EXTRUSION":
+    {
+        "command_name": "SolidExtrusion",
+        "command_number": "33002",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_FAMSYM":
+    {
+        "command_name": "PlaceAComponent",
+        "command_number": "33003",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_PROJECT_CURVE":
+    {
+        "command_name": "ModelLine",
+        "command_number": "33006",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_STAIRS_PATH":
+    {
+        "command_name": "StairPath",
+        "command_number": "33010",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_CLINE":
+    {
+        "command_name": "ReferencePlane",
+        "command_number": "33026",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_BUTTON_REDO":
+    {
+        "command_name": "Redo",
+        "command_number": "33031",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_BUTTON_UNDO":
+    {
+        "command_name": "Undo",
+        "command_number": "33032",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_CONTROL":
+    {
+        "command_name": "Control",
+        "command_number": "33034",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_PICK_WORKPLANE":
+    {
+        "command_name": "PickAPlane",
+        "command_number": "33078",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_FILTERS":
+    {
+        "command_name": "Filters",
+        "command_number": "33099",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_DIMENSIONS":
+    {
+        "command_name": "TemporaryDimensions",
+        "command_number": "33100",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_PEN_FONTS":
+    {
+        "command_name": "LinePatterns",
+        "command_number": "33120",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_CREATE_PATTERN":
+    {
+        "command_name": "Array",
+        "command_number": "33121",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_MOVE":
+    {
+        "command_name": "Move",
+        "command_number": "33127",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_MOVE_COPY":
+    {
+        "command_name": "Copy",
+        "command_number": "33129",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_PLACE_VIEW":
+    {
+        "command_name": "PlaceView",
+        "command_number": "33132",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_TEXT_NOTE":
+    {
+        "command_name": "Text",
+        "command_number": "33134",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_TITLEBLOCK_NEW":
+    {
+        "command_name": "NewTitleBlock",
+        "command_number": "33140",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_CEILING":
+    {
+        "command_name": "AutomaticCeiling",
+        "command_number": "33158",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_FILLPATTERNS":
+    {
+        "command_name": "FillPatterns",
+        "command_number": "33163",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_DEFAULT_3DVIEW":
+    {
+        "command_name": "Default3DView",
+        "command_number": "33169",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_TAG_NOTE":
+    {
+        "command_name": "Label",
+        "command_number": "33174",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_CATEGORY_VISIBILITY":
+    {
+        "command_name": "VisibilityOrGraphics",
+        "command_number": "33175",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_OPENING":
+    {
+        "command_name": "Opening",
+        "command_number": "33177",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FILE_NEW_CHOOSE_TEMPLATE":
+    {
+        "command_name": "NewProject",
+        "command_number": "33179",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEWPORT_ACTIVATE":
+    {
+        "command_name": "ActivateView",
+        "command_number": "33181",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_MATERIALS":
+    {
+        "command_name": "Materials",
+        "command_number": "33184",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEWPORT_ACTIVATE_BASE":
+    {
+        "command_name": "DeactivateView",
+        "command_number": "33185",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_RENDERING_APPEARANCE":
+    {
+        "command_name": "MaterialAssets",
+        "command_number": "33186",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_DECAL_TYPES":
+    {
+        "command_name": "DecalTypes",
+        "command_number": "33188",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OPTIONS":
+    {
+        "command_name": "Options",
+        "command_number": "33195",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_ROOM":
+    {
+        "command_name": "Room",
+        "command_number": "33198",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_CW_GRID":
+    {
+        "command_name": "CurtainGrid",
+        "command_number": "33199",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_MULLION":
+    {
+        "command_name": "CurtainWallMullion",
+        "command_number": "33200",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FAMILY_TYPE":
+    {
+        "command_name": "FamilyTypes",
+        "command_number": "33203",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_FILLED_REGION":
+    {
+        "command_name": "FilledRegion",
+        "command_number": "33204",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_ROOM_TAG":
+    {
+        "command_name": "RoomTag",
+        "command_number": "33208",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_ALIGN":
+    {
+        "command_name": "Align",
+        "command_number": "33218",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_FAM_ANN_INST":
+    {
+        "command_name": "Symbol",
+        "command_number": "33221",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_PRJBROWSER_COPY":
+    {
+        "command_name": "DuplicateView",
+        "command_number": "33245",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_EXPORT_SETUPS_DGN":
+    {
+        "command_name": "ExportOptionsExportSetupsDGN",
+        "command_number": "33248",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_EXPORT_SETUPS_DWGDXF":
+    {
+        "command_name": "ExportOptionsExportSetupsDWGOrDXF",
+        "command_number": "33251",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_ROOM_FILL":
+    {
+        "command_name": "ColorFillLegend",
+        "command_number": "33252",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_BUTTON_INTERIOR_ROOM_ELEVATION":
+    {
+        "command_name": "BuildingElevation",
+        "command_number": "33255",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_JOIN_ROOF":
+    {
+        "command_name": "JoinOrUnjoinRoof",
+        "command_number": "33277",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_BLEND":
+    {
+        "command_name": "SolidBlend",
+        "command_number": "33278",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_LINKED_DWG":
+    {
+        "command_name": "ManageLinks",
+        "command_number": "33279",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_REVOLUTION":
+    {
+        "command_name": "SolidRevolve",
+        "command_number": "33287",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_NEW_SCHEDULE":
+    {
+        "command_name": "ScheduleOrQuantities",
+        "command_number": "33296",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_NEW_CALLOUT":
+    {
+        "command_name": "Callout",
+        "command_number": "33298",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_SWEEP":
+    {
+        "command_name": "SolidSweep",
+        "command_number": "33300",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_GROUP":
+    {
+        "command_name": "CreateGroup",
+        "command_number": "33305",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_RAMP":
+    {
+        "command_name": "Ramp",
+        "command_number": "33316",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_AREA_SEPARATION":
+    {
+        "command_name": "RoomSeparator",
+        "command_number": "33318",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_PASTE_ALIGNED":
+    {
+        "command_name": "AlignedToCurrentView",
+        "command_number": "33320",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_PASTE_ALIGNED_PICK_LEVEL":
+    {
+        "command_name": "AlignedToPickedLevel",
+        "command_number": "33321",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_WALL_JOINS":
+    {
+        "command_name": "WallJoins",
+        "command_number": "33323",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_STARTING_VIEW":
+    {
+        "command_name": "StartingView",
+        "command_number": "33327",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_PASTE_ALIGNED_LEVEL_BY_NAME":
+    {
+        "command_name": "AlignedToSelectedLevels",
+        "command_number": "33328",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_BUTTON_TAG":
+    {
+        "command_name": "TagByCategory",
+        "command_number": "33329",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_PASTE_ALIGNED_VIEWS_BY_NAME":
+    {
+        "command_name": "AlignedToSelectedViews",
+        "command_number": "33332",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_TAGS":
+    {
+        "command_name": "LoadedTagsAndSymbols",
+        "command_number": "33338",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_ANNOTATION_SYMBOL_NEW":
+    {
+        "command_name": "NewAnnotationSymbol",
+        "command_number": "33339",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_PASTE_ALIGNED_SAME_PLACE":
+    {
+        "command_name": "AlignedToSamePlace",
+        "command_number": "33341",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_SPOT_SLOPE":
+    {
+        "command_name": "SpotSlopeTypes",
+        "command_number": "33348",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_ANNOTATIONS_LEADERS":
+    {
+        "command_name": "Arrowheads",
+        "command_number": "33349",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_SPOT_ELEVATION":
+    {
+        "command_name": "SpotElevationTypes",
+        "command_number": "33350",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_SPOT_COORDINATE":
+    {
+        "command_name": "SpotCoordinateTypes",
+        "command_number": "33351",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_REVIEW_WARNINGS":
+    {
+        "command_name": "ReviewWarnings",
+        "command_number": "33352",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_ALIGNMENT_STATION_LABEL":
+    {
+        "command_name": "AlignmentStationLabelTypes",
+        "command_number": "33354",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_LINE_STYLES":
+    {
+        "command_name": "LineStyles",
+        "command_number": "33360",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_NEW_RCP":
+    {
+        "command_name": "ReflectedCeilingPlan",
+        "command_number": "33380",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_DETAIL_LEVEL":
+    {
+        "command_name": "DetailLevel",
+        "command_number": "33384",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_EXTRUSION_CUT":
+    {
+        "command_name": "VoidExtrusion",
+        "command_number": "33397",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_BLEND_CUT":
+    {
+        "command_name": "VoidBlend",
+        "command_number": "33398",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_REVOLUTION_CUT":
+    {
+        "command_name": "VoidRevolve",
+        "command_number": "33399",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_SWEEP_CUT":
+    {
+        "command_name": "VoidSweep",
+        "command_number": "33400",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CUT_HOST":
+    {
+        "command_name": "CutGeometry",
+        "command_number": "33407",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_UNCUT_HOST":
+    {
+        "command_name": "UncutGeometry",
+        "command_number": "33408",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_PLACE_DETAIL_GROUP":
+    {
+        "command_name": "PlaceDetailGroup",
+        "command_number": "33421",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_OVERRIDE_CATEGORY":
+    {
+        "command_name": "OverrideByCategory",
+        "command_number": "33422",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_FAMDETAIL":
+    {
+        "command_name": "DetailComponent",
+        "command_number": "33424",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_DETAIL_CURVES":
+    {
+        "command_name": "DetailLine",
+        "command_number": "33425",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_INSULATION":
+    {
+        "command_name": "Insulation",
+        "command_number": "33432",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_CREATE_SIMILAR":
+    {
+        "command_name": "CreateSimilar",
+        "command_number": "33441",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_PARTITIONS":
+    {
+        "command_name": "Worksets",
+        "command_number": "33460",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_PHASES":
+    {
+        "command_name": "Phases",
+        "command_number": "33472",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SITE_PROPERTYLINE":
+    {
+        "command_name": "PropertyLine",
+        "command_number": "33480",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_RASTER":
+    {
+        "command_name": "ImportImage",
+        "command_number": "33499",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_RASTER_PDF":
+    {
+        "command_name": "ImportPDF",
+        "command_number": "33503",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_MATCH_TYPE":
+    {
+        "command_name": "MatchTypeProperties",
+        "command_number": "33513",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VOLUME_OF_INTEREST":
+    {
+        "command_name": "ScopeBox",
+        "command_number": "33519",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_LINEWORK":
+    {
+        "command_name": "Linework",
+        "command_number": "33520",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SKETCH_PLANE_TOOL":
+    {
+        "command_name": "SetWorkPlane",
+        "command_number": "33527",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_NEW_DRAFTING":
+    {
+        "command_name": "DraftingView",
+        "command_number": "33530",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_NEW_LEGEND":
+    {
+        "command_name": "Legend",
+        "command_number": "33531",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_DEMOLISH":
+    {
+        "command_name": "Demolish",
+        "command_number": "33534",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_CLOUD":
+    {
+        "command_name": "RevisionCloud",
+        "command_number": "33540",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FILE_SAVE_TO_CENTRAL":
+    {
+        "command_name": "SynchronizeAndModifySettings",
+        "command_number": "33542",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_PROJECT_INFORMATION":
+    {
+        "command_name": "ProjectInformation",
+        "command_number": "33543",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_INPLACE_COMPONENT":
+    {
+        "command_name": "ModelInPlace",
+        "command_number": "33544",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_NEW_DRAWING_LIST":
+    {
+        "command_name": "SheetList",
+        "command_number": "33631",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_NEW_AREASCHEME":
+    {
+        "command_name": "AreaPlan",
+        "command_number": "33638",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SITE_GRADE":
+    {
+        "command_name": "GradedRegion",
+        "command_number": "33640",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_RASTER_SYMBOLS":
+    {
+        "command_name": "ManageImages",
+        "command_number": "33648",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_APPLY_VIEW_TEMPLATE":
+    {
+        "command_name": "ApplyTemplatePropertiesToCurrentView",
+        "command_number": "33651",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_REVEAL":
+    {
+        "command_name": "RevealWall",
+        "command_number": "33654",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_CORNICE":
+    {
+        "command_name": "SweepWall",
+        "command_number": "33655",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_PAINT":
+    {
+        "command_name": "Paint",
+        "command_number": "33656",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_UNPAINT":
+    {
+        "command_name": "RemovePaint",
+        "command_number": "33657",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_NEW_NOTE_BLOCK":
+    {
+        "command_name": "NoteBlock",
+        "command_number": "33659",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_MODELTEXT":
+    {
+        "command_name": "ModelText",
+        "command_number": "33660",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_HIDE_ELEMENTS_EDITOR":
+    {
+        "command_name": "ShowHiddenLinesByElement",
+        "command_number": "33671",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_UNHIDE_ELEMENTS_EDITOR":
+    {
+        "command_name": "RemoveHiddenLinesByElement",
+        "command_number": "33673",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_VIEWTEMPLATES":
+    {
+        "command_name": "ManageViewTemplates",
+        "command_number": "33683",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_VIEW_TEMPLATE":
+    {
+        "command_name": "CreateTemplateFromCurrentView",
+        "command_number": "33684",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SPLIT_FACE":
+    {
+        "command_name": "SplitFace",
+        "command_number": "33689",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FILE_BACKUPS":
+    {
+        "command_name": "RestoreBackup",
+        "command_number": "33690",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FILE_EXPORT_ODBC":
+    {
+        "command_name": "ExportODBCDatabase",
+        "command_number": "33693",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_LOAD_GROUP":
+    {
+        "command_name": "LoadAsGroup",
+        "command_number": "33695",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SAVE_GROUP":
+    {
+        "command_name": "SaveAsLibraryGroup",
+        "command_number": "33696",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SITE_PARKING_COMPONENT":
+    {
+        "command_name": "ParkingComponent",
+        "command_number": "33698",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_TRANSFER_PROJECT_STANDARDS":
+    {
+        "command_name": "TransferProjectStandards",
+        "command_number": "33699",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_VIEW_DIR_SPEC_CURVE":
+    {
+        "command_name": "SymbolicLine",
+        "command_number": "33700",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_CUT_BOUNDARY":
+    {
+        "command_name": "CutProfile",
+        "command_number": "33709",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FILE_EXPORT_SCHEDULE":
+    {
+        "command_name": "ExportReportsSchedule",
+        "command_number": "33710",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_CLOSE_INACTIVE":
+    {
+        "command_name": "CloseInactiveViews",
+        "command_number": "33712",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_AREA_TAG":
+    {
+        "command_name": "AreaTag",
+        "command_number": "33718",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_AREASCHEME_BOUNDARY":
+    {
+        "command_name": "AreaBoundary",
+        "command_number": "33719",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_AREA":
+    {
+        "command_name": "Area",
+        "command_number": "33720",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_JOIN_ELEMENTS_EDITOR":
+    {
+        "command_name": "JoinGeometry",
+        "command_number": "33729",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_UNJOIN_ELEMENTS_EDITOR":
+    {
+        "command_name": "UnjoinGeometry",
+        "command_number": "33730",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SWITCH_JOIN_ORDER_EDITOR":
+    {
+        "command_name": "SwitchJoinOrder",
+        "command_number": "33731",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_BUTTON_TAG_ALL":
+    {
+        "command_name": "TagAllNotTagged",
+        "command_number": "33735",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FILE_EXTERNAL_PARAMETERS":
+    {
+        "command_name": "SharedParameters",
+        "command_number": "33748",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_LEGEND_COMPONENT":
+    {
+        "command_name": "LegendComponent",
+        "command_number": "33751",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OFFSET":
+    {
+        "command_name": "Offset",
+        "command_number": "33757",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_PURGE_UNUSED":
+    {
+        "command_name": "PurgeUnused",
+        "command_number": "33780",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RM_CREATE_DECAL":
+    {
+        "command_name": "PlaceDecal",
+        "command_number": "33789",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_PLACE_TITLEBLOCK":
+    {
+        "command_name": "TitleBlock",
+        "command_number": "33806",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_REBAR_CURVE":
+    {
+        "command_name": "RebarLine",
+        "command_number": "33810",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SITE_LABEL_CONTOURS":
+    {
+        "command_name": "LabelContours",
+        "command_number": "33820",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SPLIT_WITH_GAP":
+    {
+        "command_name": "SplitWithGap",
+        "command_number": "33829",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_THIN_LINES":
+    {
+        "command_name": "ThinLines",
+        "command_number": "33834",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RVTDOC_LINK":
+    {
+        "command_name": "LinkRevit",
+        "command_number": "33836",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FILE_PRINT_TO_IMAGE":
+    {
+        "command_name": "ExportImagesandAnimationsImage",
+        "command_number": "33838",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_PROJECT_PARAMETERS":
+    {
+        "command_name": "ProjectParameters",
+        "command_number": "33855",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RELOCATE_SHARED_COORDINATES":
+    {
+        "command_name": "RelocateProject",
+        "command_number": "33856",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_ROTATE_SHARED_COORDINATES":
+    {
+        "command_name": "RotateTrueNorth",
+        "command_number": "33857",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_DUPLICATE_WITH_DETAILING":
+    {
+        "command_name": "DuplicateWithDetailing",
+        "command_number": "33858",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_GEO_MANAGE_LOCATIONS":
+    {
+        "command_name": "Location",
+        "command_number": "33862",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_GEO_ACQUIRE_COORDINATES":
+    {
+        "command_name": "AcquireCoordinates",
+        "command_number": "33863",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_REPORT_SHARED_COORDINATES":
+    {
+        "command_name": "ReportSharedCoordinates",
+        "command_number": "33865",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_IDS_OF_SELECTION":
+    {
+        "command_name": "IdsOfSelection",
+        "command_number": "33866",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SELECT_BY_ID":
+    {
+        "command_name": "SelectById",
+        "command_number": "33867",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_GEO_PUBLISH_COORDINATES":
+    {
+        "command_name": "PublishCoordinates",
+        "command_number": "33869",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_FORGE_PARAMETERS":
+    {
+        "command_name": "ParametersService",
+        "command_number": "33870",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_NEW_PLAN_REGION":
+    {
+        "command_name": "PlanRegion",
+        "command_number": "33900",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_BROWSER_ORGANIZATION":
+    {
+        "command_name": "BrowserOrganization",
+        "command_number": "33904",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_NEW_MATCHLINE":
+    {
+        "command_name": "Matchline",
+        "command_number": "33905",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_NEW_REFERENCE_VIEWER":
+    {
+        "command_name": "ViewReference",
+        "command_number": "33906",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_DESIGNOPTIONS":
+    {
+        "command_name": "DesignOptions",
+        "command_number": "33907",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_ADDTODESIGNOPTIONSET":
+    {
+        "command_name": "AddToSet",
+        "command_number": "33908",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_PICKS_OPTION":
+    {
+        "command_name": "PickToEdit",
+        "command_number": "33910",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_WORKSET_EDITING_REQUESTS":
+    {
+        "command_name": "EditingRequests",
+        "command_number": "33911",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SAVE_FAMILY_ANY":
+    {
+        "command_name": "SaveAsLibraryFamily",
+        "command_number": "33923",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_RAILING":
+    {
+        "command_name": "Railing",
+        "command_number": "34969",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_BEAM":
+    {
+        "command_name": "Beam",
+        "command_number": "34972",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_BRACE":
+    {
+        "command_name": "Brace",
+        "command_number": "34973",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_STRUCTURAL_COLUMN":
+    {
+        "command_name": "StructuralColumn",
+        "command_number": "34974",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_STRUCTURAL_WALL":
+    {
+        "command_name": "StructuralWall",
+        "command_number": "34975",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_SPAN_DIR_SYM":
+    {
+        "command_name": "SpanDirectionSymbol",
+        "command_number": "34980",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_SLAB":
+    {
+        "command_name": "StructuralFloor",
+        "command_number": "34985",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_SCALE":
+    {
+        "command_name": "Scale",
+        "command_number": "34986",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_STRUCTURAL_SETTINGS":
+    {
+        "command_name": "StructuralSettings",
+        "command_number": "34993",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_REFERENCE_CURVE":
+    {
+        "command_name": "ReferenceLine",
+        "command_number": "34994",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_REBAR_COVER_SETTINGS":
+    {
+        "command_name": "RebarCoverSettings",
+        "command_number": "35003",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SHOW_MASS_STANDARD":
+    {
+        "command_name": "ShowMassFormAndFloors",
+        "command_number": "35060",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CURTA_SYSTEM_PICK_FACES":
+    {
+        "command_name": "CurtainSystemByFace",
+        "command_number": "35072",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_WALL_PICK_FACES":
+    {
+        "command_name": "WallByFaceWall",
+        "command_number": "35074",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SHOW_MASS_NO_OVERRIDE":
+    {
+        "command_name": "ShowMassByViewSettings",
+        "command_number": "35075",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SHOW_MASS_SURFACES":
+    {
+        "command_name": "ShowMassSurfaceTypes",
+        "command_number": "35078",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SHOW_MASS_ZONES":
+    {
+        "command_name": "ShowMassZonesAndShades",
+        "command_number": "35079",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_REBAR_PLACE":
+    {
+        "command_name": "StructuralRebar",
+        "command_number": "35098",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_COPY_WATCH_CURRENT":
+    {
+        "command_name": "CopyMonitorUseCurrentProject",
+        "command_number": "35107",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_COPY_WATCH_LINK":
+    {
+        "command_name": "CopyMonitorSelectLink",
+        "command_number": "35108",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RECONCILE_CURRENT":
+    {
+        "command_name": "CoordinationReviewUseCurrentProject",
+        "command_number": "35110",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RECONCILE_LINK":
+    {
+        "command_name": "CoordinationSelectLink",
+        "command_number": "35111",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_CONTINUOUS_FOOTING":
+    {
+        "command_name": "Wall",
+        "command_number": "35113",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_ISOLATED_FOOTING":
+    {
+        "command_name": "Isolated",
+        "command_number": "35114",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_TAG_MATERIAL":
+    {
+        "command_name": "MaterialTag",
+        "command_number": "35145",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_COPY_SETTINGS":
+    {
+        "command_name": "CoordinationSettings",
+        "command_number": "35149",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_FOOTING_SLAB":
+    {
+        "command_name": "Slab",
+        "command_number": "35156",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_KEYNOTE_ELEMENT":
+    {
+        "command_name": "ElementKeynote",
+        "command_number": "35158",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_KEYNOTE_MATERIAL":
+    {
+        "command_name": "MaterialKeynote",
+        "command_number": "35159",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_KEYNOTE_USER":
+    {
+        "command_name": "UserKeynote",
+        "command_number": "35160",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RETRIEVE_FILTERS":
+    {
+        "command_name": "LoadSelection",
+        "command_number": "35180",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FILTERS_SELECTION_SAVE":
+    {
+        "command_name": "SaveSelection",
+        "command_number": "35181",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_SELECTIONS":
+    {
+        "command_name": "EditSelection",
+        "command_number": "35183",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_TOGGLE_ACTIVATE_CONTROLS":
+    {
+        "command_name": "ActivateControlsAndDimensions",
+        "command_number": "35194",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_TOGGLE_SHOW_MAKE_ELEMENT_EDITABLE_CONTROLS":
+    {
+        "command_name": "ShowWorksharingMakeEditableControls",
+        "command_number": "35195",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_TAG_MULTI":
+    {
+        "command_name": "MultiCategoryTag",
+        "command_number": "35203",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECT_BC":
+    {
+        "command_name": "BoundaryConditions",
+        "command_number": "35223",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_PATH_REIN_SKETCH":
+    {
+        "command_name": "StructuralPathReinforcement",
+        "command_number": "35225",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_PATH_REIN_SPAN_SYM":
+    {
+        "command_name": "PathReinforcementSymbol",
+        "command_number": "35228",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_OPENING_BY_FACE_TB":
+    {
+        "command_name": "OpeningByFace",
+        "command_number": "35253",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_VERTICAL_OPENING_TB":
+    {
+        "command_name": "VerticalOpening",
+        "command_number": "35254",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_DORMER_OPENING_TB":
+    {
+        "command_name": "DormerOpening",
+        "command_number": "35255",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_WALL_OPENING_TB":
+    {
+        "command_name": "WallOpening",
+        "command_number": "35256",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_SHAFT_OPENING_TB":
+    {
+        "command_name": "ShaftOpening",
+        "command_number": "35257",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SPOT_SLOPE":
+    {
+        "command_name": "SpotSlope",
+        "command_number": "35259",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_HIDE_ELEMENTS":
+    {
+        "command_name": "HideElements",
+        "command_number": "35261",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_FRAME_REVEALHIDDEN":
+    {
+        "command_name": "ToggleRevealHiddenElementsMode",
+        "command_number": "35263",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_OVERRIDE_ELEMENTS":
+    {
+        "command_name": "OverrideByElement",
+        "command_number": "35265",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_GO_FILTER":
+    {
+        "command_name": "OverrideByFilter",
+        "command_number": "35266",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_DEPENDENT_VIEW":
+    {
+        "command_name": "DuplicateAsDependent",
+        "command_number": "35280",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_MASKING_REGION":
+    {
+        "command_name": "MaskingRegion",
+        "command_number": "35287",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_MAJOR_SEGMENT":
+    {
+        "command_name": "MajorSegment",
+        "command_number": "35293",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_REBAR_ABBREVIATION":
+    {
+        "command_name": "ReinforcementSettings",
+        "command_number": "35300",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EXPORT_FBX":
+    {
+        "command_name": "ExportFBX",
+        "command_number": "35350",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FAMILY_OPEN":
+    {
+        "command_name": "OpenFamily",
+        "command_number": "35365",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_PARTS":
+    {
+        "command_name": "CreateParts",
+        "command_number": "35425",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SHOW_VIEWCUBE":
+    {
+        "command_name": "ViewCube",
+        "command_number": "35458",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_BEAM_ANNOTATION_PLACEMENT":
+    {
+        "command_name": "BeamAnnotations",
+        "command_number": "35585",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_REBAR_SHAPE_ALLOWABLE_BAR_TYPES":
+    {
+        "command_name": "AllowableBarTypes",
+        "command_number": "35599",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_TOOLS_MACROS":
+    {
+        "command_name": "MacroManager",
+        "command_number": "35602",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_TOOLS_MACROSECURITY":
+    {
+        "command_name": "MacroSecurity",
+        "command_number": "35603",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_NAVIGATION_BAR":
+    {
+        "command_name": "NavigationBar",
+        "command_number": "35631",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_WORKPLANE_VIEW":
+    {
+        "command_name": "FormWorkPlaneView",
+        "command_number": "35703",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_TOGGLE_HOST_BY_LINK_BROWSER":
+    {
+        "command_name": "ReconcileHosting",
+        "command_number": "35708",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_ANNOTATIONS_DIMENSION_DIAMETER":
+    {
+        "command_name": "DiameterDimension",
+        "command_number": "35778",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_DIMENSIONS_DIAMETER":
+    {
+        "command_name": "DiameterDimensionTypes",
+        "command_number": "35779",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FABRIC_DISTR_SYSTEM_SKETCH":
+    {
+        "command_name": "StructuralFabricArea",
+        "command_number": "35781",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FABRIC_SYSTEM_PLACE_SPANSYMBOL":
+    {
+        "command_name": "FabricReinforcementSymbol",
+        "command_number": "35793",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_RAILING_ON_HOST":
+    {
+        "command_name": "PlaceOnStairOrRamp",
+        "command_number": "35807",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_MEP_DUCT_PRESSURE_LOSS_REPORT":
+    {
+        "command_name": "DuctPressureLossReport",
+        "command_number": "35811",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_MEP_PIPE_PRESSURE_LOSS_REPORT":
+    {
+        "command_name": "PipePressureLossReport",
+        "command_number": "35812",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SAMPLES_OPEN":
+    {
+        "command_name": "OpenSampleFiles",
+        "command_number": "35815",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FABRIC_SINGLE_PLACEMENT":
+    {
+        "command_name": "SingleFabricSheetPlacement",
+        "command_number": "35823",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_MULTI_REFERENCE_ANNOTATION_ALIGNED":
+    {
+        "command_name": "AlignedMultiRebarAnnotation",
+        "command_number": "35831",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_MULTI_REFERENCE_ANNOTATION_LINEAR":
+    {
+        "command_name": "LinearMultiRebarAnnotation",
+        "command_number": "35832",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_MEP_FABRICATION_SETTINGS":
+    {
+        "command_name": "FabricationSettings",
+        "command_number": "35839",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_IFC_LINK":
+    {
+        "command_name": "LinkIFC",
+        "command_number": "35853",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_APPLY_SELECTION_BOX":
+    {
+        "command_name": "SelectionBox",
+        "command_number": "35857",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_REBAR_COUPLER":
+    {
+        "command_name": "InsertCoupler",
+        "command_number": "35862",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_MEP_PNID_MODELER":
+    {
+        "command_name": "PAndIDModeler",
+        "command_number": "35882",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_MEP_PNID_SETTINGS":
+    {
+        "command_name": "PAndIDSettings",
+        "command_number": "35883",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_MEP_TOGGLE_PNID_BROWSER":
+    {
+        "command_name": "TogglePAndIDModelerBrowser",
+        "command_number": "35884",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_MECHANICAL_ACCESSORY":
+    {
+        "command_name": "DuctAccessory",
+        "command_number": "37004",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_MECHANICAL_DIFFUSER":
+    {
+        "command_name": "AirTerminal",
+        "command_number": "37005",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_MECHANICAL_DUCT":
+    {
+        "command_name": "Duct",
+        "command_number": "37006",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_MECHANICAL_EQUIPMENT":
+    {
+        "command_name": "MechanicalEquipment",
+        "command_number": "37008",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_MECHANICAL_FITTING":
+    {
+        "command_name": "DuctFitting",
+        "command_number": "37009",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_MECHANICAL_FLEX":
+    {
+        "command_name": "FlexDuct",
+        "command_number": "37010",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_MECHANICAL_CONVERTTOFLEX":
+    {
+        "command_name": "ConvertToFlexDuct",
+        "command_number": "37014",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_MECHANICAL_COLOR_FILL":
+    {
+        "command_name": "DuctLegend",
+        "command_number": "37027",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_VIEW_PANEL_SCHEDULE":
+    {
+        "command_name": "PanelSchedules",
+        "command_number": "37053",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_ELECTRICAL_SETTINGS":
+    {
+        "command_name": "ElectricalSettings",
+        "command_number": "37054",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_ELECTRICAL_LOAD_CLASSIFICATION":
+    {
+        "command_name": "LoadClassifications",
+        "command_number": "37055",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_LIGHTING_FIXTURE":
+    {
+        "command_name": "LightingFixture",
+        "command_number": "37059",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_ELECTRICAL_EQUIPMENT":
+    {
+        "command_name": "ElectricalEquipment",
+        "command_number": "37060",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_ELECTRICAL_DEVICE":
+    {
+        "command_name": "ElectricalFixture",
+        "command_number": "37061",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_CHECK_CIRCUITS":
+    {
+        "command_name": "CheckCircuits",
+        "command_number": "37062",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_ELECTRICAL_DEMAND_FACTOR":
+    {
+        "command_name": "DemandFactors",
+        "command_number": "37068",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_PIPE_PIPE":
+    {
+        "command_name": "Pipe",
+        "command_number": "37100",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_PIPE_FLEX":
+    {
+        "command_name": "FlexPipe",
+        "command_number": "37102",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_PIPE_FITTING":
+    {
+        "command_name": "PipeFitting",
+        "command_number": "37103",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_PIPE_ACCESSORY":
+    {
+        "command_name": "PipeAccessory",
+        "command_number": "37105",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_ELECTRICAL_WIRE":
+    {
+        "command_name": "ArcWire",
+        "command_number": "37106",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_PIPING_COLOR_FILL":
+    {
+        "command_name": "PipeLegend",
+        "command_number": "37149",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_CHECK_PIPE_SYSTEMS":
+    {
+        "command_name": "CheckPipeSystems",
+        "command_number": "37155",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_CHECK_DUCT_SYSTEMS":
+    {
+        "command_name": "CheckDuctSystems",
+        "command_number": "37167",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_MECHANICAL_SETTINGS":
+    {
+        "command_name": "MechanicalSettings",
+        "command_number": "37168",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_PLUMBING_FIXTURE":
+    {
+        "command_name": "PlumbingFixture",
+        "command_number": "37203",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_SPRINKLER":
+    {
+        "command_name": "Sprinkler",
+        "command_number": "37206",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_ADD_ELECTRICAL_CONNECTOR":
+    {
+        "command_name": "ElectricalConnector",
+        "command_number": "37217",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_ADD_DUCT_CONNECTOR":
+    {
+        "command_name": "DuctConnector",
+        "command_number": "37218",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_ADD_PIPE_CONNECTOR":
+    {
+        "command_name": "PipeConnector",
+        "command_number": "37219",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_HVAC_ZONE":
+    {
+        "command_name": "Zone",
+        "command_number": "37244",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_BUILDINGSPACE_TYPE_SETTINGS":
+    {
+        "command_name": "BuildingOrSpaceTypeSettings",
+        "command_number": "37259",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_ELECTRICAL_WIRE_CHAMFER":
+    {
+        "command_name": "ChamferedWire",
+        "command_number": "37260",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_ELECTRICAL_WIRE_SPLINE":
+    {
+        "command_name": "SplineWire",
+        "command_number": "37261",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_ELECTRICAL_COMMUNICATION_DEVICE":
+    {
+        "command_name": "Communication",
+        "command_number": "37278",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_ELECTRICAL_DATA_DEVICE":
+    {
+        "command_name": "Data",
+        "command_number": "37279",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_ELECTRICAL_FIREALARM_DEVICE":
+    {
+        "command_name": "FireAlarm",
+        "command_number": "37280",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_ELECTRICAL_LIGHTING_DEVICE":
+    {
+        "command_name": "Lighting",
+        "command_number": "37281",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_ELECTRICAL_NURSECALL_DEVICE":
+    {
+        "command_name": "NurseCall",
+        "command_number": "37282",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_ELECTRICAL_SECURITY_DEVICE":
+    {
+        "command_name": "Security",
+        "command_number": "37283",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_ELECTRICAL_TELEPHONE_DEVICE":
+    {
+        "command_name": "Telephone",
+        "command_number": "37284",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_ADD_CABLETRAY_CONNECTOR":
+    {
+        "command_name": "CableTrayConnector",
+        "command_number": "37291",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_ADD_CONDUIT_CONNECTOR":
+    {
+        "command_name": "ConduitConnector",
+        "command_number": "37292",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_CABLETRAY_FITTING":
+    {
+        "command_name": "CableTrayFitting",
+        "command_number": "37295",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_CONDUIT_FITTING":
+    {
+        "command_name": "ConduitFitting",
+        "command_number": "37296",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_CABLE_TRAY":
+    {
+        "command_name": "CableTray",
+        "command_number": "37297",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_CONDUIT":
+    {
+        "command_name": "Conduit",
+        "command_number": "37298",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_PANEL_SCHEDULE_MANAGE_TEMPLATES":
+    {
+        "command_name": "ManageTemplates",
+        "command_number": "37314",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_PANEL_SCHEDULE_EDIT_A_TEMPLATE":
+    {
+        "command_name": "EditATemplate",
+        "command_number": "37315",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_PARALLEL_CONDUIT":
+    {
+        "command_name": "ParallelConduits",
+        "command_number": "37361",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_DUCT_1LINE_PATH":
+    {
+        "command_name": "DuctPlaceholder",
+        "command_number": "37427",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_PIPE_1LINE_PATH":
+    {
+        "command_name": "PipePlaceholder",
+        "command_number": "37428",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_PARALLEL_PIPES":
+    {
+        "command_name": "ParallelPipes",
+        "command_number": "37441",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SHOWDISCONNECTS_BUTTON":
+    {
+        "command_name": "ShowDisconnects",
+        "command_number": "37444",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FABRICATION_PART_START_MPR":
+    {
+        "command_name": "MultiPointRouting",
+        "command_number": "37574",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_MEP_CREATE_SYSTEM_ZONE":
+    {
+        "command_name": "SystemZone",
+        "command_number": "37617",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SITE_COMPONENT":
+    {
+        "command_name": "SiteComponent",
+        "command_number": "40239",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTING_AREACALCULATIONS":
+    {
+        "command_name": "AreaAndVolumeComputations",
+        "command_number": "40382",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SKETCH_GRID_VIS":
+    {
+        "command_name": "ShowWorkPlane",
+        "command_number": "40484",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_FASCIA_TB":
+    {
+        "command_name": "Fascia",
+        "command_number": "40601",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_GUTTER_TB":
+    {
+        "command_name": "Gutter",
+        "command_number": "40602",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_SLAB_EDGE_TB":
+    {
+        "command_name": "SlabEdgeFloor",
+        "command_number": "40603",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CHECK_SPELLING":
+    {
+        "command_name": "CheckSpelling",
+        "command_number": "40986",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_REPEATING_DETAIL":
+    {
+        "command_name": "RepeatingDetailComponent",
+        "command_number": "42058",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_INSERT_VIEWS_FROM_FILE":
+    {
+        "command_name": "InsertViewsFromFile",
+        "command_number": "42309",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_INSERT_2D_ELEMENTS_FROM_FILE":
+    {
+        "command_name": "Insert2DElementsFromFile",
+        "command_number": "42310",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SAVE_VIEWS_TO_FILE":
+    {
+        "command_name": "SaveAsLibraryView",
+        "command_number": "42312",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_JOIST_SYSTEM":
+    {
+        "command_name": "AutomaticBeamSystem",
+        "command_number": "42398",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_MASS":
+    {
+        "command_name": "PlaceMass",
+        "command_number": "42644",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_INPLACE_MASS":
+    {
+        "command_name": "InPlaceMass",
+        "command_number": "42645",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FILE_SAVE_TO_CENTRAL_SHORTCUT":
+    {
+        "command_name": "SynchronizeNow",
+        "command_number": "42654",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_TRUSS":
+    {
+        "command_name": "StructuralTrusses",
+        "command_number": "43213",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "IDS_RBS_ANALYTICAL_LOADZONE":
+    {
+        "command_name": "CreateAnAreaBasedLoad",
+        "command_number": "43641",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_ANALYTICAL_AREA_BASED_LOAD_BOUNDARY":
+    {
+        "command_name": "AreaBasedLoadBoundary",
+        "command_number": "43647",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_ELECTRICAL_ANALYSIS_ADD_EQUIPMENT_LOAD":
+    {
+        "command_name": "EquipmentLoad",
+        "command_number": "43648",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_FABRICATION_DUCTWORK_STIFFENER":
+    {
+        "command_name": "MEPFabricationDuctworkStiffener",
+        "command_number": "43659",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_SHOW_ABL_SEPARATION_LINE_OPEN_END":
+    {
+        "command_name": "ShowBoundaryOpenEnds",
+        "command_number": "45665",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_MECHANICAL_CONTROL_DEVICE":
+    {
+        "command_name": "MechanicalControlDevice",
+        "command_number": "45673",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_PLUMBING_EQUIPMENT":
+    {
+        "command_name": "PlumbingEquipment",
+        "command_number": "45674",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RBS_HIDE_ABL_SEPARATION_LINE_OPEN_END":
+    {
+        "command_name": "HideBoundaryOpenEnds",
+        "command_number": "45676",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_INTERFERENCE_REPORT":
+    {
+        "command_name": "ShowLastReport",
+        "command_number": "46061",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_NEW_GRAPH_SCHED_COLUMN":
+    {
+        "command_name": "GraphicalColumnSchedule",
+        "command_number": "46139",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_COPING":
+    {
+        "command_name": "ApplyCoping",
+        "command_number": "46450",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_UNCOPING":
+    {
+        "command_name": "RemoveCoping",
+        "command_number": "46451",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_BEAM_SYSTEM_TAG":
+    {
+        "command_name": "BeamSystemSymbol",
+        "command_number": "46567",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_REBAR_SYSTEM_SKETCH":
+    {
+        "command_name": "StructuralAreaReinforcement",
+        "command_number": "46932",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_REBAR_SYSTEM_SPAN_SYM":
+    {
+        "command_name": "AreaReinforcementSymbol",
+        "command_number": "46959",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_SWEPTBLEND":
+    {
+        "command_name": "SolidSweptBlend",
+        "command_number": "47163",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_OBJECTS_SWEPTBLEND_CUT":
+    {
+        "command_name": "VoidSweptBlend",
+        "command_number": "47164",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CONCRETE_COVER":
+    {
+        "command_name": "EditRebarCover",
+        "command_number": "48583",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_COLORFILLSCHEMES":
+    {
+        "command_name": "ColorSchemes",
+        "command_number": "48739",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_ANALYTICAL_LINK":
+    {
+        "command_name": "AnalyticalLink",
+        "command_number": "48756",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_TRIM_EXTEND_CORNER":
+    {
+        "command_name": "TrimOrExtendToCorner",
+        "command_number": "48952",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_TRIM_EXTEND_SINGLE":
+    {
+        "command_name": "TrimOrExtendSingleElement",
+        "command_number": "48953",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_TRIM_EXTEND_MULTIPLE":
+    {
+        "command_name": "TrimOrExtendMultipleElements",
+        "command_number": "48954",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_ANNOTATIONS_DIMENSION_ALIGNED":
+    {
+        "command_name": "AlignedDimension",
+        "command_number": "48955",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_ANNOTATIONS_DIMENSION_LINEAR":
+    {
+        "command_name": "LinearDimension",
+        "command_number": "48956",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_ANNOTATIONS_DIMENSION_ANGULAR":
+    {
+        "command_name": "AngularDimension",
+        "command_number": "48957",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_ANNOTATIONS_DIMENSION_RADIAL":
+    {
+        "command_name": "RadialDimension",
+        "command_number": "48958",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_ANNOTATIONS_DIMENSION_ARCLENGTH":
+    {
+        "command_name": "ArcLengthDimension",
+        "command_number": "48959",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_MEASURE_LINE":
+    {
+        "command_name": "MeasureBetweenTwoReferences",
+        "command_number": "48962",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_MEASURE_PICK_LINES":
+    {
+        "command_name": "MeasureAlongAnElement",
+        "command_number": "48963",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_MIRROR_LINE":
+    {
+        "command_name": "MirrorDrawAxis",
+        "command_number": "49000",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_KEYBOARD_SHORTCUT_DIALOG":
+    {
+        "command_name": "KeyboardShortcuts",
+        "command_number": "49211",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_BEAM_JOINS":
+    {
+        "command_name": "BeamOrColumnJoins",
+        "command_number": "49543",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_REVIT_SAVE_AS_TEMPLATE":
+    {
+        "command_name": "SaveAsTemplate",
+        "command_number": "49783",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_REVIT_SAVE_AS_FAMILY":
+    {
+        "command_name": "SaveAsFamily",
+        "command_number": "49784",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_HALFTONE":
+    {
+        "command_name": "HalftoneOrUnderlay",
+        "command_number": "49786",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_TURN_ON_MULTI_PLANAR_SHAPE":
+    {
+        "command_name": "Multiplanar",
+        "command_number": "50051",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_APPMENU_PROJECT_OPEN":
+    {
+        "command_name": "OpenProject",
+        "command_number": "51800",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_STRUCTURAL_SETTINGS_LOAD_CASES":
+    {
+        "command_name": "LoadCases",
+        "command_number": "53531",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_STRUCTURAL_SETTINGS_LOAD_COMB":
+    {
+        "command_name": "LoadCombinations",
+        "command_number": "53532",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_STRUCTURAL_SETTINGS_BOUND_COND":
+    {
+        "command_name": "BoundaryConditionsSettings",
+        "command_number": "53534",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_STRUCTURAL_SETTINGS_LOADS_SCALING_DISPLAY":
+    {
+        "command_name": "LoadsScalingDisplay",
+        "command_number": "53538",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FIND_REPLACE":
+    {
+        "command_name": "FindOrReplace",
+        "command_number": "53591",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CEA_VIEW_ENERGY_DATA":
+    {
+        "command_name": "EnergySettings",
+        "command_number": "53612",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CEA_LAUNCH_ANALYSIS":
+    {
+        "command_name": "Generate",
+        "command_number": "53613",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EXPORT_GBXML":
+    {
+        "command_name": "ExportGBXML",
+        "command_number": "53615",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_GUIDE_GRID":
+    {
+        "command_name": "GuideGrid",
+        "command_number": "53675",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_ASSEMBLY":
+    {
+        "command_name": "CreateAssembly",
+        "command_number": "53677",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_STAIRS_TRISER_NUMBER":
+    {
+        "command_name": "StairTreadOrRiserNumber",
+        "command_number": "53827",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_MANAGE_CONNECTION_TO_A_REVIT_SERVER_ACCELERATOR":
+    {
+        "command_name": "ManageConnectionToARevitServerAccelerator",
+        "command_number": "53949",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_PHOTO_RENDER_IN_CLOUD":
+    {
+        "command_name": "RenderInCloud",
+        "command_number": "53961",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_PHOTO_RENDER_GALLERY":
+    {
+        "command_name": "RenderGallery",
+        "command_number": "53962",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_ENABLE_ENERGY_ANALYSIS":
+    {
+        "command_name": "CreateEnergyModel",
+        "command_number": "53964",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_DISPLACEMENT_CREATE":
+    {
+        "command_name": "DisplaceElements",
+        "command_number": "54029",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_GLOBAL_PARAMETERS":
+    {
+        "command_name": "GlobalParameters",
+        "command_number": "54055",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_COLLABORATE":
+    {
+        "command_name": "Collaborate",
+        "command_number": "54057",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_COLLABORATE_360":
+    {
+        "command_name": "CollaborateInCloud",
+        "command_number": "54058",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEWS_FOR_A360":
+    {
+        "command_name": "PublishSettings",
+        "command_number": "54064",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SETTINGS_ASSEMBLY_CODE":
+    {
+        "command_name": "AssemblyCode",
+        "command_number": "54096",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_PATH_OF_TRAVEL_SHOW_OBSTACLES":
+    {
+        "command_name": "RevealObstacles",
+        "command_number": "54111",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_PATH_OF_TRAVEL":
+    {
+        "command_name": "PathOfTravel",
+        "command_number": "54122",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_MULTIPLE_VALUES_INDICATOR_SETTINGS":
+    {
+        "command_name": "MultipleValuesIndication",
+        "command_number": "54124",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_MULTIPLE_PATHS":
+    {
+        "command_name": "MultiplePaths",
+        "command_number": "54125",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_ONE_WAY_INDICATOR":
+    {
+        "command_name": "OneWayIndicator",
+        "command_number": "54126",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_PEOPLE_CONTENT":
+    {
+        "command_name": "PeopleContent",
+        "command_number": "54127",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SPATIAL_GRID":
+    {
+        "command_name": "SpatialGrid",
+        "command_number": "54128",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_LOAD_INTO_PROJECTS_CLOSE":
+    {
+        "command_name": "LoadFamilyIntoProjectAndClose",
+        "command_number": "54133",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_TOGGLE_FABPART_BROWSER":
+    {
+        "command_name": "FabricationPart",
+        "command_number": "54149",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_LOAD_INTO_PROJECTS_CLOSE_REBAR_SHAPE":
+    {
+        "command_name": "LoadRebarShapeIntoProjectAndClose",
+        "command_number": "54151",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VISUAL_PROGRAMMING_DYNAMO":
+    {
+        "command_name": "Dynamo",
+        "command_number": "54157",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_DISABLE_ENERGY_ANALYSIS":
+    {
+        "command_name": "DeleteEnergyModel",
+        "command_number": "54224",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_EXT_ENTITY_SHORTENING":
+    {
+        "command_name": "Shorten",
+        "command_number": "54264",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_EXT_ENTITY_BEAM_COPE":
+    {
+        "command_name": "CopeSkewed",
+        "command_number": "54286",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_EXT_ENTITY_CORNER_CUT":
+    {
+        "command_name": "CornerCut",
+        "command_number": "54288",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_EXT_ENTITY_WELD":
+    {
+        "command_name": "Welds",
+        "command_number": "54290",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_EXT_ENTITY_PLATE":
+    {
+        "command_name": "Plate",
+        "command_number": "54292",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_EXT_ENTITY_BOLT":
+    {
+        "command_name": "Bolts",
+        "command_number": "54293",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_EXT_ENTITY_HOLE":
+    {
+        "command_name": "Holes",
+        "command_number": "54294",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_EXT_ENTITY_ANCHOR":
+    {
+        "command_name": "Anchors",
+        "command_number": "54295",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_EXT_ENTITY_SHEAR_STUD":
+    {
+        "command_name": "ShearStuds",
+        "command_number": "54296",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_EXT_ENTITY_CONTOUR":
+    {
+        "command_name": "ContourCut",
+        "command_number": "54297",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_STEEL_PARAM_CUT_COPE":
+    {
+        "command_name": "Cope",
+        "command_number": "55304",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_STEEL_PARAM_CUT_MITER":
+    {
+        "command_name": "Miter",
+        "command_number": "55305",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_STEEL_PARAM_CUT_SAW_CUT_FLANGE":
+    {
+        "command_name": "SawCutFlange",
+        "command_number": "55306",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_STEEL_PARAM_CUT_SAW_CUT_WEB":
+    {
+        "command_name": "SawCutWeb",
+        "command_number": "55307",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_STEEL_PARAM_CUT_THROUGH":
+    {
+        "command_name": "CutThrough",
+        "command_number": "55308",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_STEEL_PARAM_CUT_BY":
+    {
+        "command_name": "CutBy",
+        "command_number": "55309",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_REVIT_MODEL_BROWSER":
+    {
+        "command_name": "ToggleHome",
+        "command_number": "56242",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_REVIT_FILE_SAVE_AS_CLOUD_MODEL":
+    {
+        "command_name": "SaveAsCloudModel",
+        "command_number": "56243",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RUN_SYSTEMS_ANALYSIS":
+    {
+        "command_name": "SystemsAnalysis",
+        "command_number": "56254",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_LINK_PDF":
+    {
+        "command_name": "LinkPDF",
+        "command_number": "56281",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_LINK_IMAGE":
+    {
+        "command_name": "LinkImage",
+        "command_number": "56282",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_ANALYTICAL_MODEL_MEMBERS":
+    {
+        "command_name": "AnalyticalMember",
+        "command_number": "56298",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_BATCH_PRINT":
+    {
+        "command_name": "BatchPrint",
+        "command_number": "56308",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_WORKSHARING_MONITOR":
+    {
+        "command_name": "WorksharingMonitor",
+        "command_number": "56309",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SHARED_VIEWS":
+    {
+        "command_name": "SharedViews",
+        "command_number": "56329",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_RESET_SHARED_COORDINATES":
+    {
+        "command_name": "ResetSharedCoordinates",
+        "command_number": "56335",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_MEP_ELECTRICAL_ANALYSIS_SETTINGS":
+    {
+        "command_name": "ElectricalAnalyticalLoadTypeSettings",
+        "command_number": "56345",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SYSTEMS_ANALYSIS_INSIGHT":
+    {
+        "command_name": "GenerateAnalysis",
+        "command_number": "56376",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SYSTEMS_ANALYSIS_RESULTS_INSIGHT":
+    {
+        "command_name": "ViewAnalysis",
+        "command_number": "56377",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_FILE_OPEN_CLOUD_MODEL":
+    {
+        "command_name": "OpenCloudModel",
+        "command_number": "56379",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_STEEL_PLAYLIST_DYNAMO":
+    {
+        "command_name": "DynamoPlayerForSteel",
+        "command_number": "56443",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_ANALYTICAL_MODEL_PANEL":
+    {
+        "command_name": "PanelByBoundary",
+        "command_number": "56448",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SITE_TOPO_SOLID":
+    {
+        "command_name": "Toposolid",
+        "command_number": "56481",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_SITE_TOPO_SOLID_FROM_IMPORT":
+    {
+        "command_name": "CreateFromImport",
+        "command_number": "56504",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_ANALYTICAL_AUTOMATION_PLAYLIST_DYNAMO":
+    {
+        "command_name": "AnalyticalAutomation",
+        "command_number": "56516",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_PLACE_BENDING_DETAIL":
+    {
+        "command_name": "RebarBendingDetail",
+        "command_number": "56523",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CREATE_ANALYTICAL_MODEL_PANEL_BY_EXTRUSION":
+    {
+        "command_name": "PanelByExtrusion",
+        "command_number": "56525",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_COORDINATIONMODEL_ADD_LOCAL":
+    {
+        "command_name": "CoordinationModelLocal",
+        "command_number": "56559",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_COORDINATIONMODEL_ADD_AUTODESKDOCS":
+    {
+        "command_name": "CoordinationModelAutodeskDocs",
+        "command_number": "56560",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_ANALYTICAL_MODEL_LOADS":
+    {
+        "command_name": "Loads",
+        "command_number": "56584",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_PROPERTY_LINE_DATA":
+    {
+        "command_name": "PropertyLineData",
+        "command_number": "56663",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EXPORT_PDF_IN_PRINT":
+    {
+        "command_name": "PDF",
+        "command_number": "56711",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_MEP_SPACE_NAMING_UTILITY":
+    {
+        "command_name": "SpaceNaming",
+        "command_number": "57269",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_PLAYLIST_DYNAMO":
+    {
+        "command_name": "DynamoPlayer",
+        "command_number": "57282",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_REPAIR_CENTRAL_MODEL":
+    {
+        "command_name": "RepairCentralModel",
+        "command_number": "57283",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_TOPOGRAPHY_LINK":
+    {
+        "command_name": "LinkTopography",
+        "command_number": "57288",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CEA_OPTIMIZE":
+    {
+        "command_name": "Optimize",
+        "command_number": "57289",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_REVIT_FILE_OPEN":
+    {
+        "command_name": "OpenRevitFile",
+        "command_number": "57601",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_REVIT_FILE_CLOSE":
+    {
+        "command_name": "Close",
+        "command_number": "57602",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_REVIT_FILE_SAVE":
+    {
+        "command_name": "Save",
+        "command_number": "57603",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_REVIT_FILE_SAVE_AS":
+    {
+        "command_name": "SaveAsProject",
+        "command_number": "57604",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_REVIT_FILE_PRINT_SETUP":
+    {
+        "command_name": "PrintSetup",
+        "command_number": "57606",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_REVIT_FILE_PRINT":
+    {
+        "command_name": "Print",
+        "command_number": "57607",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_REVIT_FILE_PRINT_PREVIEW":
+    {
+        "command_name": "PrintPreview",
+        "command_number": "57609",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_COPY":
+    {
+        "command_name": "CopyToClipboard",
+        "command_number": "57634",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_CUT":
+    {
+        "command_name": "CutToClipboard",
+        "command_number": "57635",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_EDIT_PASTE":
+    {
+        "command_name": "PasteFromClipboard",
+        "command_number": "57637",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_TAB":
+    {
+        "command_name": "TabViews",
+        "command_number": "57650",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_WINDOW_TILE_VERT":
+    {
+        "command_name": "TileViews",
+        "command_number": "57652",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_CANVAS_THEME_SWITCH":
+    {
+        "command_name": "CanvasTheme",
+        "command_number": "57654",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_APP_EXIT":
+    {
+        "command_name": "ExitRevit",
+        "command_number": "57665",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    },
+
+    "ID_VIEW_STATUS_BAR":
+    {
+        "command_name": "StatusBar",
+        "command_number": "59393",
+        "message": "This command has been disabled by your BIM Manager.",
+        "allowed_users": 
+        [
+            
+        ]
+    }
+}
