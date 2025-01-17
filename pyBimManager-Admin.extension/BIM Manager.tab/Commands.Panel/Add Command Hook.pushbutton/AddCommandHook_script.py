@@ -11,12 +11,12 @@ from os.path import basename
 
 COMMAND_ID = basename(__file__)[20:-4]
 
-from pyBimManager import admins
-if HOST_APP.username in admins:
+from pyBimManager import ADMINS
+if HOST_APP.username in ADMINS:
     pass
 else:
-    from pyBimManager import commands
-    COMMAND = commands[COMMAND_ID]
+    from pyBimManager import COMMANDS
+    COMMAND = COMMANDS[COMMAND_ID]
     if HOST_APP.username not in COMMAND['allowed_users']:
         TaskDialog.Show(COMMAND['command_name'],COMMAND['message'])
         EXEC_PARAMS.event_args.Cancel = True
