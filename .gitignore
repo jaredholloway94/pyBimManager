@@ -1,0 +1,4 @@
+venv/
+extensions.json
+pyBimManager.lib/*.json
+pyBimManager-User.extension/hooks/
