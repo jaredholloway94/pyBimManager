@@ -1,4 +1,10 @@
 venv/
+
+# company-specific extension auth-users (admins)
 extensions.json
+
+# company-specific USERS, ADMINS, COMMANDS
 pyBimManager.lib/*.json
+
+# company-specific user hooks
 pyBimManager-User.extension/hooks/
