@@ -4,7 +4,7 @@ import os.path as op
 from os import listdir
 
 
-COMMANDS = load_commands
+COMMANDS = load_commands()
 
 existing_hooks = [op.basename(f)[20:-4] for f in listdir(HOOKS_DIR)]
 available_hooks = [c for c in COMMANDS if c not in existing_hooks]
