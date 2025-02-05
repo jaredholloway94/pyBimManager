@@ -1,28 +1,19 @@
 from pyrevit import HOST_APP
-from pyBimManager import ADMINS, USERS, COMMANDS
+from pyBimManager import USERS, USERS_FILE, register_user
 
 
-# Register new user
-if HOST_APP.username not in USERS:
-    from pyBimManager import USERS_FILE
-    from pyrevit.forms import ask_for_string
+#### USER REGISTRATION ####
+autodesk_id = HOST_APP.app.LoginUserId
+
+# register new users
+if autodesk_id not in USERS:
+    register_user()
+
+# if autodesk_id IS in USERS, but username is missing (because ADMIN added user from ACC), update username
+# see "../../pyBimManager-Admin.extension/BIM Manager.tab/Users.panel/Add User From ACC.pushbutton/AddUserFromAcc_script.py"
+elif USERS[autodesk_id]['username'] == '':
+    USERS[autodesk_id]['username'] = HOST_APP.username
     import json
-    name = ask_for_string(
-        default="",
-        prompt="Enter your First and Last name:",
-        title="Register User"
-    )
-    email = ask_for_string(
-        default="",
-        prompt="Enter your company email address:",
-        title="Register User"
-    )
-    autodesk_id = HOST_APP.app.LoginUserId
-    USERS[HOST_APP.username] = {
-        "name": name,
-        "email": email,
-        "autodesk_id": autodesk_id
-    }
     try:
         with open(USERS_FILE,'w') as json_file:
             json.dump(USERS,json_file)

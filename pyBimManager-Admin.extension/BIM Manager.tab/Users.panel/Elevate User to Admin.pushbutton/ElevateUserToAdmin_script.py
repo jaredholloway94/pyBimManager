@@ -1,4 +1,4 @@
-from pyrevit.forms import SelectFromList
+from pyrevit.forms import SelectFromList, ask_for_string
 from pyBimManager import ADMINS, ADMINS_FILE, USERS, EXTENSIONS, EXTENSIONS_FILE
 import json
 
@@ -13,12 +13,7 @@ if len(non_admins) < 1:
 else:
     # format list for user selection
     non_admins_list = [
-        "{}  |  {}  |  {}  |  {}".format(
-            USERS[u]['name'],
-            USERS[u]['email'],
-            u,
-            USERS[u]['autodesk_id']
-            )
+        "  |  ".join( (u, USERS[u]['name'], USERS[u]['email'], USERS[u]['username']) )
         for u in non_admins
         ]
 
@@ -32,15 +27,25 @@ else:
         multiselect=True
         )
 
-    # user election is empty, print and exit.
-    if selection == None or []:
-        print("No Users selected.")
-
-    else:
+    if selection:
         # update in-memory copy of ADMINS registry
         for i in selection:
-            i = i.split('  |  ')[2]
-            ADMINS[i] = USERS[i]
+            autodesk_id, name, email, username = i.split('  |  ')
+
+            if username == '':
+                print("ERROR: Cannot elevate the following user to Admin, because their username has not been registered:\n" + 
+                      "       {}\n\n".format(i) +
+                      "       Have the user open a new instance of Revit. This will register their username.\n" +
+                      "       Then you can return here to elevate the user to Admin.\n\n" +
+                      "       Any other users selected in the previous window will not be affected - they will still be elevated to Admin.\n"
+                )
+
+
+            ADMINS[autodesk_id] = {
+                'name':name,
+                'email':email,
+                'username':username
+            }
 
         # update stored copy of ADMINS registry
         try:
@@ -54,7 +59,7 @@ else:
         # update extensions.json (pyRevitCore and pyBimManager-Admin "authusers" fields)
         for i,e in enumerate(EXTENSIONS['extensions']):
             if 'authusers' in e:
-                EXTENSIONS['extensions'][i]['authusers']=ADMINS.keys()
+                EXTENSIONS['extensions'][i]['authusers'] = [ ADMINS[a]['username'] for a in ADMINS ]
 
         try:
             with open(EXTENSIONS_FILE,'w') as json_file:
@@ -63,3 +68,7 @@ else:
             raise Exception("Could not update extensions.json.")
         else:    
             print("Updated: {}".format(EXTENSIONS_FILE))
+    
+    else:
+        # user closed the window
+        pass

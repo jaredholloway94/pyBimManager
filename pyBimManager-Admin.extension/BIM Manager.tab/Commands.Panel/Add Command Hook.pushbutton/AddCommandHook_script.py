@@ -35,30 +35,34 @@ selection = SelectFromList.show(
     button_name="Add Command Hook(s)",
     multiselect=True
     )
+    
+if selection:
+    succeeded = []
+    failed = []
 
-succeeded = []
-failed = []
+    for i in selection:
+        try:
+            command_id = i.split('  |  ')[1]
+            hook_path = op.join(
+                HOOKS_DIR,
+                "command-before-exec[{}].py".format(command_id)
+                )
+            with open(hook_path,'w') as hook_file:
+                hook_file.write(COMMAND_HOOK_TEMPLATE)
+        except:
+            failed.append(i)
+        else:
+            succeeded.append(i)
 
-for i in selection:
-    try:
-        command_id = i.split('  |  ')[1]
-        hook_path = op.join(
-            HOOKS_DIR,
-            "command-before-exec[{}].py".format(command_id)
-            )
-        with open(hook_path,'w') as hook_file:
-            hook_file.write(COMMAND_HOOK_TEMPLATE)
-    except:
-        failed.append(i)
-    else:
-        succeeded.append(i)
+    if len(succeeded) > 0:
+        print("Successfully added hooks for these commands:\n")
+        for s in succeeded:
+            print("\t{}\n".format(s))
 
-if len(succeeded) > 0:
-    print("Successfully added hooks for these commands:\n")
-    for s in succeeded:
-        print("\t{}\n".format(s))
-
-if len(failed) > 0:
-    print("Failed to add hooks for these commands:\n")
-    for f in failed:
-        print("\t{}\n".format(f))
+    if len(failed) > 0:
+        print("Failed to add hooks for these commands:\n")
+        for f in failed:
+            print("\t{}\n".format(f))
+else:
+    # user closed the selection window
+    pass

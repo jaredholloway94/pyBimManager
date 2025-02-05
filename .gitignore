@@ -1,4 +1,6 @@
-venv/
+# testing
+.venv/
+__pycache__/
 
 # company-specific extension auth-users (admins)
 extensions.json
