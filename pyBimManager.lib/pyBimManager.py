@@ -57,6 +57,7 @@ def load_admins(ADMINS_FILE=ADMINS_FILE):
 def load_commands(COMMANDS_FILE=COMMANDS_FILE):
     with open(COMMANDS_FILE,'r') as json_file:
         COMMANDS = json.load(json_file)
+    return COMMANDS
 
 
 def load_extensions(EXTENSIONS_FILE=EXTENSIONS_FILE):
