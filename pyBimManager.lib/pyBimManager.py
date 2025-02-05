@@ -54,7 +54,7 @@ def load_admins(ADMINS_FILE=ADMINS_FILE):
     return ADMINS
 
 
-def load_commands(COMMANDS_FILE=SECRETS_FILE):
+def load_commands(COMMANDS_FILE=COMMANDS_FILE):
     with open(COMMANDS_FILE,'r') as json_file:
         COMMANDS = json.load(json_file)
 
