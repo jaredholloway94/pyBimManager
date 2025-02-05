@@ -1,7 +1,11 @@
 from pyrevit.forms import SelectFromList, ask_for_string
-from pyBimManager import ADMINS, ADMINS_FILE, USERS, EXTENSIONS, EXTENSIONS_FILE
+from pyBimManager import ADMINS_FILE, load_admins, USERS_FILE, load_users, EXTENSIONS_FILE, load_extensions
 import json
 
+
+USERS = load_users()
+ADMINS = load_admins()
+EXTENSIONS = load_extensions()
 
 # get list of users to elevate to admin, from user
 non_admins = [u for u in USERS if u not in ADMINS]

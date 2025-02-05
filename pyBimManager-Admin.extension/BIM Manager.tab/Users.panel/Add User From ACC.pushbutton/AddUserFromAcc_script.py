@@ -1,7 +1,10 @@
 from pyrevit.forms import SelectFromList
 from APS_auth import get_2legged_access_token
 from APS_b360 import get_accounts, get_account_users
-from pyBimManager import USERS, register_user
+from pyBimManager import load_users, register_user
+
+
+USERS = load_users()
 
 # get users list from acc
 acc_users = get_account_users()

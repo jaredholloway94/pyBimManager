@@ -1,27 +1,10 @@
 from pyrevit.forms import SelectFromList
-from pyBimManager import HOOKS_DIR, COMMANDS
+from pyBimManager import load_commands, HOOKS_DIR, COMMAND_HOOK_TEMPLATE
 import os.path as op
 from os import listdir
 
 
-COMMAND_HOOK_TEMPLATE = '''
-from pyrevit.revit import HOST_APP, EXEC_PARAMS
-from Autodesk.Revit.UI import TaskDialog
-from os.path import basename
-
-COMMAND_ID = basename(__file__)[20:-4]
-
-from pyBimManager import ADMINS
-if HOST_APP.app.LoginUserId in ADMINS:
-    pass
-else:
-    from pyBimManager import COMMANDS
-    COMMAND = COMMANDS[COMMAND_ID]
-    if HOST_APP.app.LoginUserId not in COMMAND['allowed_users']:
-        TaskDialog.Show(COMMAND['command_name'],COMMAND['message'])
-        EXEC_PARAMS.event_args.Cancel = True
-
-'''
+COMMANDS = load_commands
 
 existing_hooks = [op.basename(f)[20:-4] for f in listdir(HOOKS_DIR)]
 available_hooks = [c for c in COMMANDS if c not in existing_hooks]
