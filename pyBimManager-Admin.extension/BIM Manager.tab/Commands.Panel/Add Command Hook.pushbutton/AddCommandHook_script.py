@@ -49,3 +49,7 @@ if selection:
 else:
     # user closed the selection window
     pass
+
+
+# lite icon: https://img.icons8.com/?size=100&id=85479&format=png&color=000000
+# dark icon: https://img.icons8.com/?size=100&id=85479&format=png&color=ffffff
