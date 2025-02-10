@@ -1,0 +1,5 @@
+title:
+  en_us: "Add Command Hook"
+tooltip:
+  en_us: "Create a new command hook file in the pyBimManager-Users.extension/hooks directory.\nBy default, creating a new command hook will disable this command for users."
+context: zero-doc

@@ -1,0 +1,5 @@
+title:
+  en_us: "Open\nUSERS\nFile"
+tooltip:
+  en_us: "Open the USERS.json file in the default text editor."
+context: zero-doc

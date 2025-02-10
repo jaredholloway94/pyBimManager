@@ -1,0 +1,5 @@
+title:
+  en_us: "Select\nCommand\nHooks"
+tooltip:
+  en_us: "Check/Uncheck command hooks to enable/disable control of each command.\nBy default, checked commands will be disabled for users."
+context: zero-doc

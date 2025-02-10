@@ -1,0 +1,5 @@
+title:
+  en_us: "Elevate User(s)\nto Admin"
+tooltip:
+  en_us: "Turns a normal user into an admin, giving them access to the BIM Manger tab, the pyRevit core tools, and access to all Revit commands."
+context: zero-doc

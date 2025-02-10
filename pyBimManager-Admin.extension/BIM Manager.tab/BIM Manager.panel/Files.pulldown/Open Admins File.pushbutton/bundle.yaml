@@ -1,0 +1,5 @@
+title:
+  en_us: "Open\nADMINS\nFile"
+tooltip:
+  en_us: "Open the ADMINS.json file in the default text editor."
+context: zero-doc
