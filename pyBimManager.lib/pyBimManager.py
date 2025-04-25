@@ -134,6 +134,3 @@ else:
         EXEC_PARAMS.event_args.Cancel = True
 
 '''
-
-# lite icon:
-# dark icon: 
