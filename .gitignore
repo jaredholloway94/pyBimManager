@@ -10,3 +10,4 @@ pyBimManager.lib/*.json
 
 # company-specific user hooks
 pyBimManager-User.extension/hooks/
+.vscode/settings.json
