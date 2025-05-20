@@ -117,7 +117,7 @@ def register_user(USERS_FILE=USERS_FILE,autodesk_id=None,name=None,email=None,us
 
 #### TEMPLATES ####
 COMMAND_HOOK_TEMPLATE = '''
-from pyrevit.revit import HOST_APP, EXEC_PARAMS
+from pyrevit import HOST_APP, EXEC_PARAMS
 from Autodesk.Revit.UI import TaskDialog
 from os.path import basename
 
