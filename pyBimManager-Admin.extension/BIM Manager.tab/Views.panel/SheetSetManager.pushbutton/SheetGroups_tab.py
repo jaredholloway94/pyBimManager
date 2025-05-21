@@ -1,16 +1,28 @@
-import json
 from pyrevit import revit, forms
+from Autodesk.Revit.DB import FilteredElementCollector, ViewFamilyType
 from Autodesk.Revit.DB.ExtensibleStorage import Schema, SchemaBuilder, AccessLevel, Entity
 from System import Guid
+import json
 
 
-SHEET_GROUPS_SCHEMA_GUID = Guid('c2d3e4f5-6a7b-8c9d-0e1f-2a3b4c5d6e7f')
-SHEET_GROUPS_SCHEMA_NAME = 'SheetSetManager_SheetGroups'
 
 
 class SheetGroupsTab(object):
-    def __init__(self, main_window):
+
+
+    def __init__(self, main_window, schema):
+
+        # Register parent window and schema
         self.main = main_window
+        self.doc = self.main.doc
+        self.uidoc = self.main.uidoc
+        self.schema = schema
+
+
+        floor_plan_view_type_collector = FilteredElementCollector(self.doc).OfClass(ViewFamilyType).WhereElementIsElementType()
+        floor_plan_view_type = sorted([v for v in floor_plan_view_type_collector if v.FamilyName == 'Floor Plan'], key=lambda x: x.Name)
+
+        # Register UI Event Handlers
         self.main.NewSheetGroup.Click += self.new_sheet_group
         self.main.RenameSheetGroup.Click += self.rename_sheet_group
         self.main.DeleteSheetGroup.Click += self.delete_sheet_group
@@ -18,8 +30,6 @@ class SheetGroupsTab(object):
         self.main.SheetGroupsListBox.SelectionChanged += self._sheet_group_selected
         self.refresh_list()
 
-    def get_project_info(self, doc):
-        return doc.ProjectInformation
 
     def get_or_create_sheet_groups_schema(self):
         SHEET_GROUPS_SCHEMA_GUID = Guid('c2d3e4f5-6a7b-8c9d-0e1f-2a3b4c5d6e7f')
@@ -34,6 +44,7 @@ class SheetGroupsTab(object):
             schema = schema_builder.Finish()
         return schema
 
+
     def get_sheet_groups_from_project_info(self, doc):
         pi = self.get_project_info(doc)
         schema = self.get_or_create_sheet_groups_schema()
@@ -47,6 +58,7 @@ class SheetGroupsTab(object):
                     return []
         return []
 
+
     def save_sheet_groups_to_project_info(self, doc, groups):
         pi = self.get_project_info(doc)
         schema = self.get_or_create_sheet_groups_schema()
@@ -55,12 +67,14 @@ class SheetGroupsTab(object):
         with revit.Transaction('Save Sheet Groups to Project Info'):
             pi.SetEntity(entity)
 
+
     def refresh_list(self):
         self.main.sheet_groups = self.main._load_sheet_groups()
         self.main.SheetGroupsListBox.ItemsSource = [g['name'] for g in self.main.sheet_groups]
         self.main.SheetGroupNameValue.Text = ''
         self.main.SheetGroupDescriptionValue.Text = ''
         self.main.SheetGroupOtherValue.Text = ''
+
 
     def new_sheet_group(self, sender, args):
         name = forms.ask_for_string(prompt='Enter a name for the new sheet group:', title='New Sheet Group')
@@ -78,6 +92,7 @@ class SheetGroupsTab(object):
         self.main._save_sheet_groups(groups)
         self.refresh_list()
         self.main.SheetGroupsListBox.SelectedIndex = len(groups) - 1
+
 
     def rename_sheet_group(self, sender, args):
         idx = self.main.SheetGroupsListBox.SelectedIndex
@@ -97,6 +112,7 @@ class SheetGroupsTab(object):
         self.refresh_list()
         self.main.SheetGroupsListBox.SelectedIndex = idx
 
+
     def delete_sheet_group(self, sender, args):
         idx = self.main.SheetGroupsListBox.SelectedIndex
         if idx < 0 or idx >= len(self.main.sheet_groups):
@@ -109,6 +125,7 @@ class SheetGroupsTab(object):
         del self.main.sheet_groups[idx]
         self.main._save_sheet_groups(self.main.sheet_groups)
         self.refresh_list()
+
 
     def edit_sheet_group(self, sender, args):
         idx = self.main.SheetGroupsListBox.SelectedIndex
@@ -129,6 +146,7 @@ class SheetGroupsTab(object):
         self.main._save_sheet_groups(self.main.sheet_groups)
         self.refresh_list()
         self.main.SheetGroupsListBox.SelectedIndex = idx
+
 
     def _sheet_group_selected(self, sender, args):
         idx = self.main.SheetGroupsListBox.SelectedIndex
