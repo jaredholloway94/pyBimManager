@@ -21,7 +21,7 @@ class SheetSetManagerWindow(forms.WPFWindow):
 
     def __init__(self, xaml_file):
 
-        super().__init__(self, xaml_file)
+        super().__init__(xaml_file)
         self.doc = revit.doc
         self.uidoc = revit.uidoc
 
@@ -29,117 +29,152 @@ class SheetSetManagerWindow(forms.WPFWindow):
         self.schemas = {}
 
         # Collect model elements
-        # 'Bake' to python lists to ensure consistent ordering
-        self.title_blocks = list(
-            FilteredElementCollector(self.doc)
-                .OfCategory(BuiltInCategory.OST_TitleBlocks)
-                .WhereElementIsElementType()
-        )
+        self.title_blocks = {self.display_name(tb): tb
+            for tb in list(
+                FilteredElementCollector(self.doc)
+                    .OfCategory(BuiltInCategory.OST_TitleBlocks)
+                    .WhereElementIsElementType()
+            )
+        }
 
-        self.scope_boxes = list(
-            FilteredElementCollector(self.doc)
-                .OfCategory(BuiltInCategory.OST_VolumeOfInterest)
-                .WhereElementIsNotElementType()
-        )
+        self.scope_boxes = {sb.Name: sb
+            for sb in list(
+                FilteredElementCollector(self.doc)
+                    .OfCategory(BuiltInCategory.OST_VolumeOfInterest)
+                    .WhereElementIsNotElementType()
+                )
+            }
 
-        self.levels = list(
-            FilteredElementCollector(self.doc)
-                .OfCategory(BuiltInCategory.OST_Levels)
-                .WhereElementIsNotElementType()
-        )
+        self.levels = {lvl.Name: lvl
+            for lvl in list(
+                FilteredElementCollector(self.doc)
+                    .OfCategory(BuiltInCategory.OST_Levels)
+                    .WhereElementIsNotElementType()
+                )
+            }
 
-        self.view_templates = list(filter(lambda v: v.IsTemplate,
-            FilteredElementCollector(self.doc)
-                .OfCategory(BuiltInCategory.OST_Views)
-                .WhereElementIsNotElementType()
-        ))
+        self.view_templates = {vt.Name: vt
+            for vt in list(
+                filter(
+                    lambda v: v.IsTemplate,
+                    FilteredElementCollector(self.doc)
+                        .OfCategory(BuiltInCategory.OST_Views)
+                        .WhereElementIsNotElementType()
+                    )
+                )
+            }
 
         # Register UI Tabs
         self.title_blocks_tab = TitleBlocksTab(self)
         self.sector_groups_tab = SectorGroupsTab(self)
         # self.sheet_groups_tab = SheetGroupsTab(self)
 
-        # self._applied = False
-        # self._original_sector_groups = self._load_sector_groups()
-        # self._original_sheet_groups = self._load_sheet_groups()
+        return None
 
 
-    def get_schema(self, schema_suffix):
+    def display_name(self, title_block):
+        display_name = '{} : {}'.format(
+            title_block.FamilyName,
+            title_block.LookupParameter('Type Name').AsString()
+            )
 
+        return display_name
+
+
+    def get_schema(self, schema_suffix, create=True):
         # Look for the schema in the main window's schema dictionary
-        if schema_suffix in self.schemas:
+        if schema_suffix in self.schemas.keys():
             schema = self.schemas[schema_suffix]
-
-        else:
-            schema_name = 'JH94_SheetSetManager_{}'.format(schema_suffix)
-
-            # Look for the schema in the Revit application memory
-            app_schemas = list(filter(lambda s: s.SchemaName == schema_name, Schema.ListSchemas()))
-            
-            # If multiple schemas are found, raise an exception
-            # This should not happen, but it's a good practice to check
-            if len(app_schemas) > 1:
-                raise Exception('Multiple schemas found with the same name: {}'.format(schema_name))
-            
-            # If one schema is found, use it
-            elif len(app_schemas) == 1:
-                schema = app_schemas[0]
-            
-            # If no schema is found, create a new schema
-            elif len(app_schemas) < 1:
-                schema_guid = Guid.NewGuid()
-                schema_builder = SchemaBuilder(schema_guid)
-                schema_builder.SetSchemaName(schema_name)
-                schema_builder.AddSimpleField(COMMON_FIELD_NAME, str)
-                # schema_builder.SetVendorId('JH94')
-                schema_builder.SetReadAccessLevel(AccessLevel.Public)
-                schema_builder.SetWriteAccessLevel(AccessLevel.Public)
-                schema = schema_builder.Finish()
-
-            # If the schema had to be loaded from the application memory or created,
-            # add it to the main window's schema dictionary.
+        
+        elif self.lookup_schema(schema_suffix):
+            schema = self.lookup_schema(schema_suffix)
             self.schemas[schema_suffix] = schema
+
+        elif create:
+            schema = self.create_schema(schema_suffix)
+            self.schemas[schema_suffix] = schema
+        else:
+            schema = None
+
+        return schema
+
+    
+    def lookup_schema(self, schema_suffix):
+        schema_name = 'JH94_SheetSetManager_{}'.format(schema_suffix)
+        app_schemas = list(filter(lambda s: s.SchemaName == schema_name, Schema.ListSchemas()))
+        if app_schemas:
+            schema = app_schemas[0]
+            self.schemas[schema_suffix] = schema
+        else:
+            schema = None
+
+        return schema
+
+
+    def create_schema(self, schema_suffix):
+        schema_name = 'JH94_SheetSetManager_{}'.format(schema_suffix)
+        schema_guid = Guid.NewGuid()
+        schema_builder = SchemaBuilder(schema_guid)
+        schema_builder.SetSchemaName(schema_name)
+        schema_builder.AddSimpleField(COMMON_FIELD_NAME, str)
+        schema_builder.SetReadAccessLevel(AccessLevel.Public)
+        schema_builder.SetWriteAccessLevel(AccessLevel.Public)
+        schema = schema_builder.Finish()
+        self.schemas[schema_suffix] = schema
 
         return schema
     
 
-    def get_entity(self, schema, element):
-        '''
-        '''
-
+    def get_entity(self, schema, element, create=True):
         entity = element.GetEntity(schema)
+        
+        if not entity:
+            if create:
+                entity = self.create_entity(schema, element)
+            else:
+                entity = None
 
-        if entity:
-            return entity
-        else:
-            return None
+        if not entity.IsValid():
+            if create:
+                entity = self.create_entity(schema, element)
+            else:
+                entity = None
+
+        return entity
+
+
+    def create_entity(self, schema, element):
+        entity = Entity(schema)
+        schema_suffix = schema.SchemaName.split('_')[-1]
+        with revit.Transaction('Sheet Set Manager - Create {} Entity'.format(schema_suffix)):
+            element.SetEntity(entity)
+
+        return entity
         
         
     def get_data(self, entity):
-        '''
-        '''
+        if not entity.IsValid():
 
-        json_str = entity.Get[str](COMMON_FIELD_NAME)
-        
-        if not json_str:
-            # raise Exception('No data found on Field "{}" in Entity for Schema "{}"'.format(COMMON_FIELD_NAME, schema.SchemaName))
             return None
-            
+        json_str = entity.Get[str](COMMON_FIELD_NAME)
+
+        if not json_str:
+            return None
+
         data = json.loads(json_str)
+        
+        if not data:
+            return None
 
         return data
     
     
     def set_data(self, schema, element, data):
-        '''
-        Set the data for the given schema and element.
-        '''
         entity = Entity(schema)
         json_str = json.dumps(data)
         entity.Set[str](COMMON_FIELD_NAME, json_str)
         
         schema_suffix = schema.SchemaName.split('_')[-1]
-
         with revit.Transaction('Sheet Set Manager - Update {} Data'.format(schema_suffix)):
             element.SetEntity(entity)
         

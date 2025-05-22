@@ -17,97 +17,90 @@ class TitleBlocksTab(object):
 
         # Register UI Event Handlers
         self.main.Configure.Click += self.configure_title_block
-        self.main.ConfiguredTitleBlocksListBox.SelectionChanged += self.display_title_block_details
+        self.main.ConfiguredTitleBlocksListBox.SelectionChanged += self.update_details
 
         # Initialize lists
-        self.update_title_block_lists()
+        self.update_lists()
 
         return None
 
 
-    def get_title_block_entity(self, title_block):
-        '''
-        Get the TitleBlock schema Entity for the given Element.
-        '''
-        return self.main.get_entity(schema=self.schema, element=title_block)
-    
-
-    def get_title_block_data(self, title_block):
-        '''
-        Get the TitleBlock schema Data from the given Element.
-        '''
-        entity = self.get_title_block_entity(title_block)
-        
-        if entity and entity.IsValid():
-            return self.main.get_data(entity)
-        else:
-            return None
-        
-
-    def set_title_block_data(self, title_block, data):
-        self.main.set_data(schema=self.schema, element=title_block, data=data)
-        
-        return None
-    
-
-    def get_title_block_display_name(self, tb):
-        display_name = '{} : {}'.format(
-            tb.FamilyName,
-            tb.LookupParameter('Type Name').AsString()
+    def get_entity(self, title_block, create=False):
+        entity = self.main.get_entity(
+            schema=self.schema,
+            element=title_block,
+            create=create
             )
 
-        return display_name
+        return entity
+    
+
+    def get_data(self, title_block):
+        entity = self.get_entity(title_block)
+        data = self.main.get_data(entity=entity)
+        
+        return data
 
 
-    def update_title_block_lists(self):
+    def set_data(self, title_block, data):
+        self.main.set_data(
+            schema=self.schema,
+            element=title_block,
+            data=data
+            )
+        
+        return None
+
+
+    def update_lists(self):
         '''
         Refresh the lists of 'Configured' and 'Not Configured' Title Blocks.
         '''
-        self.main.configured_title_blocks = []
-        self.main.not_configured_title_blocks = []
+        self.main.configured_title_blocks = {} # 'Name': Element
+        self.main.not_configured_title_blocks = {} # 'Name': Element
 
         # Sort Title Blocks into 'Configured' and 'Not Configured' lists
         # by checking if they have an entity in the Extensible Storage
-        for tb in self.main.title_blocks:
+        for tb_name, tb in self.main.title_blocks.items():
             if self.get_entity(tb):
-                self.main.configured_title_blocks.append(tb)
+                self.main.configured_title_blocks[tb_name] = tb
             else:
-                self.main.not_configured_title_blocks.append(tb)
+                self.main.not_configured_title_blocks[tb_name] = tb
 
         # Populate the UI lists
         if len(self.main.configured_title_blocks) == 0:
             self.main.ConfiguredTitleBlocksListBox.ItemsSource = []
         else:
-            self.main.ConfiguredTitleBlocksListBox.ItemsSource = [self.get_title_block_display_name(tb) for tb in self.main.configured_title_blocks]
+            self.main.ConfiguredTitleBlocksListBox.ItemsSource = sorted(self.main.configured_title_blocks.keys())
 
         if len(self.main.not_configured_title_blocks) == 0:
             self.main.NotConfiguredTitleBlocksListBox.ItemsSource = []
         else:
-            self.main.NotConfiguredTitleBlocksListBox.ItemsSource = [self.get_title_block_display_name(tb) for tb in self.main.not_configured_title_blocks]
+            self.main.NotConfiguredTitleBlocksListBox.ItemsSource = sorted(self.main.not_configured_title_blocks.keys())
 
         return
 
 
-    def update_title_block_details(self):
+    def update_details(self):
         '''
         In the Details pane, display the configuration details of the Title Block that's selected in the 'Configured' list.
         '''
         # Get the selected Title Block from the UI
-        i = self.main.ConfiguredTitleBlocksListBox.SelectedIndex
+        tb_name = self.main.ConfiguredTitleBlocksListBox.SelectedItem
 
         # If no Title Block is selected, clear the details
-        if i < 0:
+        if not tb_name:
             width = height = center_x = center_y = ''
 
         # Otherwise, get the details from the selected Title Block's entity
         else:
-            tb = self.main.configured_title_blocks[i]
-            data = self.get_title_block_data(tb)
+            tb = self.main.configured_title_blocks[tb_name]
+            data = self.get_data(tb)
 
-            width = data['drawing_area_width']
-            height = data['drawing_area_height']
-            center_x = data['drawing_area_center_x']
-            center_y = data['drawing_area_center_y']
+            width = data['width']
+            height = data['height']
+            center_x = data['center_x']
+            center_y = data['center_y']
 
         # Set the details in the UI
         self.main.TitleBlockDetails_Width.Text = width
@@ -120,16 +113,16 @@ class TitleBlocksTab(object):
 
     def configure_title_block(self, sender, args):
         '''
-        Configure the Title Block selected in the 'Not Configured' list.
+        Configure the Title Block that's selected in the 'Not Configured' list.
         '''
         # Get the selected Title Block from the UI
-        i = self.main.NotConfiguredTitleBlocksListBox.SelectedIndex
-        
-        if i < 0:
+        tb_name = self.main.NotConfiguredTitleBlocksListBox.SelectedItem
+
+        if not tb_name:
             forms.alert("Please select a Title Block to configure.")
             return
         else:
-            tb = self.main.not_configured_title_blocks[i]
+            tb = self.main.not_configured_title_blocks[tb_name]
 
         # Close the main window so we can prompt the user
         self.main.Close()
@@ -151,7 +144,7 @@ class TitleBlocksTab(object):
         Workflow to configure the Title Block.
         '''
         # Create a temporary sheet to get the drawing area dimensions
-        with revit.Transaction("Create Temp Sheet"):
+        with revit.Transaction("Sheet Set Manager - Create Temp Sheet"):
             temp_sheet = ViewSheet.Create(self.main.doc, title_block.Id)
             temp_sheet.SheetNumber = "temp"
             temp_sheet.Name = "temp"
@@ -174,7 +167,7 @@ class TitleBlocksTab(object):
 
         # Delete the temporary sheet
         if temp_sheet and temp_sheet.Id and temp_sheet.Id.IntegerValue > 0:
-            with revit.Transaction("Delete Temp Sheet"):
+            with revit.Transaction("Sheet Set Manager - Delete Temp Sheet"):
                 self.main.doc.Delete(temp_sheet.Id)
 
 
@@ -188,6 +181,7 @@ class TitleBlocksTab(object):
 
         
         # Store the title_block configuration in the Extensible Storage
-        self.set_title_block_data(title_block, data)
+        self.set_data(title_block, data)
+        # don't need to update the lists here, bc it will happen when the main window is respawned
 
         return None
