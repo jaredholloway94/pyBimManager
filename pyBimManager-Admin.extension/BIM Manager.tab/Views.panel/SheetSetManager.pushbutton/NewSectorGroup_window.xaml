@@ -17,8 +17,8 @@
         <TextBlock Text="Name:" Grid.Row="0" Grid.Column="0" Margin="0,0,10,10" VerticalAlignment="Center"/>
         <TextBox x:Name="NameTextBox" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10" MinWidth="200"/>
 
-        <TextBlock Text="Titleblock:" Grid.Row="1" Grid.Column="0" Margin="0,0,10,10" VerticalAlignment="Center"/>
-        <ComboBox x:Name="TitleblockComboBox" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" MinWidth="200"/>
+        <TextBlock Text="Title Block:" Grid.Row="1" Grid.Column="0" Margin="0,0,10,10" VerticalAlignment="Center"/>
+        <ComboBox x:Name="TitleBlockComboBox" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" MinWidth="200"/>
 
         <TextBlock Text="Overall Scope Box:" Grid.Row="2" Grid.Column="0" Margin="0,0,10,10" VerticalAlignment="Center"/>
         <ComboBox x:Name="ScopeBoxComboBox" Grid.Row="2" Grid.Column="1" Margin="0,0,0,10" MinWidth="200"/>

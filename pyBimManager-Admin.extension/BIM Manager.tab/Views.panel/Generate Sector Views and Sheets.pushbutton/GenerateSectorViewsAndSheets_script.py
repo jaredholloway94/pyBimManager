@@ -1,4 +1,4 @@
-from Autodesk.Revit.DB import *
+from Autodesk.Revit.DB import FilteredElementCollector, BuiltInCategory, Level, ViewPlan, Viewport, ViewFamilyType, ViewSheet
 from pyrevit import revit
 from pyrevit.forms import SelectFromList, ask_for_string
 from pprint import pprint
@@ -144,12 +144,12 @@ def main():
     t.Commit()
 
     print("Created Views:\n")
-    for view in created_views: print(f"  {view.Name}")
+    for view in created_views: print("  {}".format(view.Name))
 
     print("\n\n")
 
     print("Created Sheets:\n")
-    for sheet in created_sheets: print(f"  {sheet.SheetNumber} - {sheet.Name}")
+    for sheet in created_sheets: print("  {} - {}".format(sheet.SheetNumber,sheet.Name))
 
 
 if __name__ == '__main__':

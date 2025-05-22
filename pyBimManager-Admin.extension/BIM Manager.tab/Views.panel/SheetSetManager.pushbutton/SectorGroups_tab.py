@@ -10,17 +10,13 @@ class SectorGroupsTab(object):
     Class to manage the Sector Groups tab in the Sheet Set Manager.
     '''
 
-    def __init__(self, main_window, schema):
+    def __init__(self, main_window):
         '''
         Initialize the Sector Groups tab.
         '''
         # Register parent window and schema
         self.main = main_window
-        self.schema = schema
-        self.field = schema.GetField('sector_groups')
-
-        # Initialize Sector Groups Entity
-        self.entity = self.get_or_create_sector_groups_entity()
+        self.schema = self.main.get_schema('SectorGroups')
 
         # Register UI Event Handlers
         self.main.NewSectorGroup.Click += self.new_sector_group
@@ -29,60 +25,113 @@ class SectorGroupsTab(object):
         self.main.SectorGroupsListBox.SelectionChanged += self.display_sector_group_details
 
         # Initialize lists
-        self.refresh_sector_groups_list()
+        self.main.sector_groups = {}
+        self.update_sector_groups_dict()
 
-        return
+        return None
 
 
-    def get_or_create_sector_groups_entity(self):
+    def get_sector_groups_entity(self):
         '''
-        Try to retrieve the Sector Groups entity from the Project Information element.
-        If it does not exist, create it and set its initial value to an empty list.
-        Return the entity.
+        Get the TitleBlock schema Entity for the given Element.
         '''
-        # Try to get the Sector Groups entity from the Project Information element
-        entity = self.main.doc.ProjectInformation.GetEntity(self.schema)
-        # If the sector groups entity is not valid, create a new one
-        if not entity.IsValid():
-            self.main.sector_groups = []
+        entity = self.main.get_entity(schema=self.schema, element=self.main.doc.ProjectInformation)
+
+        if entity and entity.IsValid():
+            return entity
+        
+        else:
             entity = Entity(self.schema)
-            entity.Set[str](self.field, json.dumps(self.main.sector_groups))
-            with revit.Transaction('Create Sector Groups Entity on Project Information element'):
+
+            with revit.Transaction('Create Sector Groups Entity'):
                 self.main.doc.ProjectInformation.SetEntity(entity)
 
-        return entity
+            return entity
+    
+
+    def get_sector_groups_data(self):
+        entity = self.get_sector_groups_entity()
+        
+        if entity and entity.IsValid():
+            return self.main.get_data(entity)
+        else:
+            return None
+        
+
+    def set_sector_groups_data(self):
+        self.main.set_data(schema=self.schema, element=self.main.doc.ProjectInformation, data=self.main.sector_groups)
+        
+        return None
 
 
-    def refresh_sector_groups_list(self):
+    def get_sector_group_data(self, name):
+        '''
+        Get the TitleBlock schema Data from the given Element.
+        '''
+        entity = self.get_sector_groups _entity()
+        
+        if entity and entity.IsValid():
+            return self.main.get_data(entity)
+        else:
+            return None
+        
+
+    def add_sector_group(self, data):
+
+        return None
+    
+
+    def remove_sector_group(self, index):
+        '''
+        Remove the Sector Group at the given index from the list.
+        '''
+        if index < 0 or index >= len(self.main.sector_groups):
+            return
+
+        del self.main.sector_groups[index]
+
+        # Save the updated Sector Groups array to the Project Information element
+        self.entity.Set[str](self.field, json.dumps(self.main.sector_groups))
+
+        # Update the UI
+        self.update_sector_groups_list()
+
+        return None
+
+
+    def update_sector_groups_dict(self):
         '''
         Deserialize the Sector Groups JSON from the Project Information element into a variable on the main window class.
         Populate the Sector Groups ListBox from the variable.
         '''
-        self.main.sector_groups = json.loads(self.entity.Get[str](self.field))
-        self.main.SectorGroupsListBox.ItemsSource = [sg['name'] for sg in self.main.sector_groups]
+        self.main.sector_groups = self.get_sector_groups_dict()
+        self.main.SectorGroupsListBox.ItemsSource = self.main.sector_groups.keys()
 
 
     def new_sector_group(self, sender, args):
         '''
         Create a new sector group.
         '''
+        # Verify that the user has configured at least one titleblock
+        if len(self.main.configured_titleblocks) == 0:
+            forms.alert('You must configure at least one titleblock before creating a Sector Group.')
+            return
+        
+        # Verify that the user has created at least one scope box
+        if len(self.main.scope_boxes) == 0:
+            forms.alert('You must create at least one Scope Box before creating a Sector Group.')
+            return
+
+
         # Spawn the New Sector Group dialog
-        dlg = forms.WPFWindow('NewSectorGroupWindow.xaml')
+        dlg = forms.WPFWindow('NewSectorGroup_window.xaml')
 
         # Populate the Titleblock and Scope Box dropdown lists
-        dlg.TitleblockComboBox.ItemsSource = ['{} : {}'.format(tb.Symbol.FamilyName, tb.Name) for tb in self.main.configured_titleblocks]
+        dlg.TitleblockComboBox.ItemsSource = [self.main.get_tb_display_name(tb) for tb in self.main.configured_titleblocks]
         dlg.ScopeBoxComboBox.ItemsSource = [sb.Name for sb in self.main.scope_boxes]
 
-        # Set default values for the dropdowns
-        if len(self.main.configured_titleblocks) > 0:
-            dlg.TitleblockComboBox.SelectedIndex = 0
-        else:
-            raise forms.RevitException('No configured titleblocks found.')
-
-        if len(self.main.scope_boxes) > 0:
-            dlg.ScopeBoxComboBox.SelectedIndex = 0
-        else:
-            raise forms.RevitException('No scope boxes found.')
+        dlg.TitleblockComboBox.SelectedIndex = 0
+        dlg.ScopeBoxComboBox.SelectedIndex = 0
 
 
         def ok_handler(sender, args):
@@ -96,7 +145,7 @@ class SectorGroupsTab(object):
                 return
 
             # Check if the name already exists
-            existing_sector_groups = self.main._load_sector_groups()
+            existing_sector_groups = self.main.sector_groups
             if any(sg['name'] == new_sector_group_name for sg in existing_sector_groups):
                 forms.alert('A sector group with this name already exists.')
                 return
@@ -110,7 +159,7 @@ class SectorGroupsTab(object):
 
             # Get the selected titleblock and scope box
             tb = self.main.configured_titleblocks[tb_i]
-            sb = self.main._get_scope_boxes()[sb_i]
+            sb = self.main.scope_boxes[sb_i]
 
             # Get and validate the entered View Scale
             try:
@@ -152,8 +201,8 @@ class SectorGroupsTab(object):
             overall_width = overall_max_pt.X - overall_min_pt.X
             overall_height = overall_max_pt.Y - overall_min_pt.Y
 
-            n_cols = ceil(overall_width / model_space_vp_width)
-            n_rows = ceil(overall_height / model_space_vp_height)
+            n_cols = int(ceil(overall_width / model_space_vp_width))
+            n_rows = int(ceil(overall_height / model_space_vp_height))
 
             if n_cols < 1 or n_rows < 1:
                 forms.alert('Viewport is larger than the overall scope box at this scale.')
@@ -170,11 +219,7 @@ class SectorGroupsTab(object):
                     col_name = '{}-Col{}'.format(new_sector_group_name, col + 1)
                     ref_plane = self.main.doc.Create.NewReferencePlane(p0, p1, XYZ(0, 0, 1), self.main.doc.ActiveView)
                     ref_plane.Name = col_name
-                    new_reference_planes.append({
-                        'name': col_name,
-                        'id': ref_plane.Id.IntegerValue,
-                        'type': 'vertical'
-                    })
+                    new_reference_planes.append(ref_plane.Id.IntegerValue)
 
                 for row in range(n_rows + 1):
                     y = overall_y + row * model_space_vp_height
@@ -183,21 +228,19 @@ class SectorGroupsTab(object):
                     row_name = '{}-Row{}'.format(new_sector_group_name, row + 1)
                     ref_plane = self.main.doc.Create.NewReferencePlane(p0, p1, XYZ(0, 0, 1), self.main.doc.ActiveView)
                     ref_plane.Name = row_name
-                    new_reference_planes.append({
-                        'name': row_name,
-                        'id': ref_plane.Id.IntegerValue,
-                        'type': 'horizontal'
-                    })
+                    new_reference_planes.append(ref_plane.Id.IntegerValue)
 
             # Collect the Sector Group data
             new_sector_group_data = {
                 'name': new_sector_group_name,
-                'titleblock': tb.Name,
+                'titleblock_family': tb.FamilyName,
+                'titleblock_type': tb.LookupParameter('Type Name').AsString(),
                 'titleblock_id': tb.Id.IntegerValue,
                 'scope_box': sb.Name,
                 'scope_box_id': sb.Id.IntegerValue,
                 'view_scale': view_scale,
-                'tiled_reference_planes': new_reference_planes
+                'reference_plane_ids': new_reference_planes,
+                'matchline_ids': [],
             }
 
             # Append the new Sector Group data dict to the existing Sector Groups array
@@ -207,7 +250,7 @@ class SectorGroupsTab(object):
             self.entity.Set[str](self.field, json.dumps(self.main.sector_groups))
 
             # Update the UI
-            self.refresh_sector_groups_list()
+            self.update_sector_groups_list()
 
             # Close the dialog
             dlg.Close()
@@ -279,36 +322,21 @@ class SectorGroupsTab(object):
         i = self.main.SectorGroupsListBox.SelectedIndex
 
         if i < 0 or i >= len(self.main.sector_groups):
-            if hasattr(self.main, 'SectorGroupDetails_Name'):           self.main.SectorGroupDetails_Name.Text = ''
-            if hasattr(self.main, 'SectorGroupDetails_TitleblockName'): self.main.SectorGroupDetails_TitleblockName.Text = ''
-            if hasattr(self.main, 'SectorGroupDetails_TitleblockId'):   self.main.SectorGroupDetails_TitleblockId.Text = ''
-            if hasattr(self.main, 'SectorGroupDetails_ScopeBoxName'):   self.main.SectorGroupDetails_ScopeBoxName.Text = ''
-            if hasattr(self.main, 'SectorGroupDetails_ScopeBoxId'):     self.main.SectorGroupDetails_ScopeBoxId.Text = ''
-            if hasattr(self.main, 'SectorGroupDetails_ViewScale'):      self.main.SectorGroupDetails_ViewScale.Text = ''
-            if hasattr(self.main, 'SectorGroupDetails_RefPlaneIds'):    self.main.SectorGroupDetails_RefPlaneIds.Text = ''
-            if hasattr(self.main, 'SectorGroupDetails_RefPlaneIds'):    self.main.SectorGroupDetails_RefPlaneIds.Text = ''
-            return
 
-        sg = self.main.sector_groups[i]
+            self.main.SectorGroupDetails_TitleblockFamily.Text =    ''
+            self.main.SectorGroupDetails_TitleblockType.Text =      ''
+            self.main.SectorGroupDetails_OverallScopeBox.Text =     ''
+            self.main.SectorGroupDetails_ViewScale.Text =           ''
+            self.main.SectorGroupDetails_ReferencePlaneIds =        ''
+            self.main.SectorGroupDetails_MatchlineIds =             ''
+        
+        else:
 
-        if hasattr(self.main, 'SectorGroupNameValue'):
-            self.main.SectorGroupNameValue.Text = sg.get('name', '')
-        if hasattr(self.main, 'SectorGroupTitleblockValue'):
-            self.main.SectorGroupTitleblockValue.Text = sg.get('titleblock', '')
-        if hasattr(self.main, 'SectorGroupTitleblockIdValue'):
-            self.main.SectorGroupTitleblockIdValue.Text = str(sg.get('titleblock_id', ''))
-        if hasattr(self.main, 'SectorGroupScopeBoxValue'):
-            self.main.SectorGroupScopeBoxValue.Text = sg.get('scope_box', '')
-        if hasattr(self.main, 'SectorGroupScopeBoxIdValue'):
-            self.main.SectorGroupScopeBoxIdValue.Text = str(sg.get('scope_box_id', ''))
-        if hasattr(self.main, 'SectorGroupViewScaleValue'):
-            self.main.SectorGroupViewScaleValue.Text = str(sg.get('view_scale', ''))
-        if hasattr(self.main, 'SectorGroupRefPlanesValue'):
-            ref_planes = sg.get('tiled_reference_planes', [])
-            if ref_planes:
-                lines = []
-                for rp in ref_planes:
-                    lines.append(u"{} ({}): {}".format(rp.get('name',''), rp.get('type',''), rp.get('id','')))
-                self.main.SectorGroupRefPlanesValue.Text = '\n'.join(lines)
-            else:
-                self.main.SectorGroupRefPlanesValue.Text = ''
+            sg = self.main.sector_groups[i]
+
+            self.main.SectorGroupDetails_TitleblockFamily.Text =    sg['titleblock_family']
+            self.main.SectorGroupDetails_TitleblockType.Text =      sg['titleblock_type']
+            self.main.SectorGroupDetails_OverallScopeBox.Text =     sg['scope_box']
+            self.main.SectorGroupDetails_ViewScale.Text =           '1 : {}'.format(sg['view_scale'])
+            self.main.SectorGroupDetails_ReferencePlaneIds =        ', '.join(sg['reference_plane_ids'])
+            self.main.SectorGroupDetails_MatchlineIds =             ', '.join(sg['matchline_ids'])

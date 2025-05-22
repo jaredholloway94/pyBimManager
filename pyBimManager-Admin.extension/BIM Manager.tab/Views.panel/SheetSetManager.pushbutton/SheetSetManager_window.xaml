@@ -7,7 +7,7 @@
             <RowDefinition Height="Auto" /> <!-- Buttons row -->
         </Grid.RowDefinitions>
         <TabControl Grid.Row="0">
-            <TabItem Header="Titleblocks">
+            <TabItem Header="Title Blocks">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
@@ -20,7 +20,7 @@
                     </Grid.ColumnDefinitions>
 
                     <!-- ListBox for Not Configured -->
-                    <ListBox Grid.Row="0" Name="NotConfiguredTitleblocksList" Margin="10" />
+                    <ListBox Grid.Row="0" Name="NotConfiguredTitleBlocksListBox" Margin="10" />
 
                     <!-- Buttons -->
                     <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,2,0,2">
@@ -29,7 +29,7 @@
                     </StackPanel>
 
                     <!-- ListBox for Configured -->
-                    <ListBox Grid.Row="2" Name="ConfiguredTitleblocksList" Margin="10" />
+                    <ListBox Grid.Row="2" Name="ConfiguredTitleBlocksListBox" Margin="10" />
 
                     <!-- Details Pane -->
                     <Border Grid.Row="3" BorderBrush="Gray" BorderThickness="1" Margin="10">
@@ -57,16 +57,16 @@
                             
                             <!-- Actual Table Content for Details -->
                             <TextBlock Grid.Row="1" Grid.Column="0" Text="Width" Margin="5,0" VerticalAlignment="Center" />
-                            <TextBlock Grid.Row="1" Grid.Column="1" Name="TitleblockDetails_Width" Margin="5,0" VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="1" Grid.Column="1" Name="TitleBlockDetails_Width" Margin="5,0" VerticalAlignment="Center" />
                             
                             <TextBlock Grid.Row="2" Grid.Column="0" Text="Height" Margin="5,0" VerticalAlignment="Center" />
-                            <TextBlock Grid.Row="2" Grid.Column="1" Name="TitleblockDetails_Height" Margin="5,0" VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="2" Grid.Column="1" Name="TitleBlockDetails_Height" Margin="5,0" VerticalAlignment="Center" />
                             
                             <TextBlock Grid.Row="3" Grid.Column="0" Text="Center X" Margin="5,0" VerticalAlignment="Center" />
-                            <TextBlock Grid.Row="3" Grid.Column="1" Name="TitleblockDetails_CenterX" Margin="5,0" VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="3" Grid.Column="1" Name="TitleBlockDetails_CenterX" Margin="5,0" VerticalAlignment="Center" />
                            
                             <TextBlock Grid.Row="4" Grid.Column="0" Text="Center Y" Margin="5,0" VerticalAlignment="Center" />
-                            <TextBlock Grid.Row="4" Grid.Column="1" Name="TitleblockDetails_CenterY" Margin="5,0" VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="4" Grid.Column="1" Name="TitleBlockDetails_CenterY" Margin="5,0" VerticalAlignment="Center" />
                         
                         </Grid>
                     </Border>
@@ -84,7 +84,7 @@
                     </Grid.ColumnDefinitions>
 
                     <!-- ListBox for Sector Groups -->
-                    <ListBox Grid.Row="0" Name="SectorGroupsList" Margin="10" />
+                    <ListBox Grid.Row="0" Name="SectorGroupsListBox" Margin="10" />
 
                     <!-- Buttons -->
                     <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,2,0,2">
@@ -104,6 +104,8 @@
                                 <RowDefinition Height="22" />
                                 <RowDefinition Height="22" />
                                 <RowDefinition Height="22" />
+                                <RowDefinition Height="22" />
+                                <RowDefinition Height="22" />
                             </Grid.RowDefinitions>
                             
                             <Grid.ColumnDefinitions>
@@ -116,29 +118,31 @@
                             <Border Grid.Row="2" Grid.ColumnSpan="2" Background="#FFF" />
                             <Border Grid.Row="3" Grid.ColumnSpan="2" Background="#F3F3F3" />
                             <Border Grid.Row="4" Grid.ColumnSpan="2" Background="#FFF" />
+                            <Border Grid.Row="5" Grid.ColumnSpan="2" Background="#F3F3F3" />
+                            <Border Grid.Row="6" Grid.ColumnSpan="2" Background="#FFF" />
                             
                             <!-- Table Header -->
                             <TextBlock Grid.Row="0" Grid.Column="0" Text="Field" FontWeight="Bold" Margin="5,0" VerticalAlignment="Center" />
                             <TextBlock Grid.Row="0" Grid.Column="1" Text="Value" FontWeight="Bold" Margin="5,0" VerticalAlignment="Center" />
                             
                             <!-- Table Data -->
-                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Titleblock Family" Margin="5,0" VerticalAlignment="Center" />
-                            <TextBlock Grid.Row="2" Grid.Column="1" Name="SectorGroupDetails_TitleblockFamily" Margin="5,0" VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Title Block Family" Margin="5,0" VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="1" Grid.Column="1" Name="SectorGroupDetails_TitleBlockFamily" Margin="5,0" VerticalAlignment="Center" />
 
-                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Titleblock Type" Margin="5,0" VerticalAlignment="Center" />
-                            <TextBlock Grid.Row="3" Grid.Column="1" Name="SectorGroupDetails_TitleblockType" Margin="5,0" VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Title Block Type" Margin="5,0" VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="2" Grid.Column="1" Name="SectorGroupDetails_TitleBlockType" Margin="5,0" VerticalAlignment="Center" />
 
-                            <TextBlock Grid.Row="4" Grid.Column="0" Text="Overall Scope Box" Margin="5,0" VerticalAlignment="Center" />
-                            <TextBlock Grid.Row="4" Grid.Column="1" Name="SectorGroupDetails_OverallScopeBox" Margin="5,0" VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Overall Scope Box" Margin="5,0" VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="3" Grid.Column="1" Name="SectorGroupDetails_OverallScopeBox" Margin="5,0" VerticalAlignment="Center" />
                             
-                            <TextBlock Grid.Row="6" Grid.Column="0" Text="View Scale" Margin="5,0" VerticalAlignment="Center" />
-                            <TextBlock Grid.Row="6" Grid.Column="1" Name="SectorGroupDetails_ViewScale" Margin="5,0" VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="4" Grid.Column="0" Text="View Scale" Margin="5,0" VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="4" Grid.Column="1" Name="SectorGroupDetails_ViewScale" Margin="5,0" VerticalAlignment="Center" />
 
-                            <TextBlock Grid.Row="6" Grid.Column="0" Text="Reference Planes" Margin="5,0" VerticalAlignment="Center" />
-                            <TextBlock Grid.Row="6" Grid.Column="1" Name="SectorGroupDetails_ReferencePlanes" Margin="5,0" VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="5" Grid.Column="0" Text="Reference Plane Ids" Margin="5,0" VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="5" Grid.Column="1" Name="SectorGroupDetails_ReferencePlaneIds" Margin="5,0" VerticalAlignment="Center" />
 
-                            <TextBlock Grid.Row="6" Grid.Column="0" Text="Matchlines" Margin="5,0" VerticalAlignment="Center" />
-                            <TextBlock Grid.Row="6" Grid.Column="1" Name="SectorGroupDetails_Matchlines" Margin="5,0" VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="6" Grid.Column="0" Text="Matchline Ids" Margin="5,0" VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="6" Grid.Column="1" Name="SectorGroupDetails_MatchlineIds" Margin="5,0" VerticalAlignment="Center" />
 
                         </Grid>
                     </Border>
