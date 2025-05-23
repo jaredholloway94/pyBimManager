@@ -78,15 +78,13 @@ class SectorGroupsTab(object):
             self.main.SectorGroupDetails_OverallScopeBox.Text =     ''
             self.main.SectorGroupDetails_ViewScale.Text =           ''
             self.main.SectorGroupDetails_ReferencePlaneIds =        ''
-            self.main.SectorGroupDetails_MatchlineIds =             ''
         else:
             sg_data = self.main.sector_groups[sg_name]
             self.main.SectorGroupDetails_TitleBlockFamily.Text =    sg_data['title_block_family']
             self.main.SectorGroupDetails_TitleBlockType.Text =      sg_data['title_block_type']
             self.main.SectorGroupDetails_OverallScopeBox.Text =     sg_data['scope_box']
             self.main.SectorGroupDetails_ViewScale.Text =           '1 : {}'.format(sg_data['view_scale'])
-            self.main.SectorGroupDetails_ReferencePlaneIds =        ', '.join(sg_data['reference_plane_ids'])
-            self.main.SectorGroupDetails_MatchlineIds =             ', '.join(sg_data['matchline_ids'])
+            self.main.SectorGroupDetails_ReferencePlaneIds =        ', '.join(str(rp_id) for rp_id in sg_data['reference_plane_ids'])
 
         return None
     
@@ -131,46 +129,47 @@ class SectorGroupsTab(object):
         dlg.show_dialog()
 
 
-    def rename_sector_group(self, sender, args):
-        i = self.main.SectorGroupsListBox.SelectedIndex
-        if i < 0 or i >= len(self.main.sector_groups):
-            forms.alert('Please select a sector group to rename.')
-            return
-        group = self.main.sector_groups[i]
-        new_name = forms.ask_for_string(default=group.get('name', ''), prompt='Enter a new name for the sector group:', title='Rename Sector Group')
-        if not new_name:
-            forms.alert('Name cannot be empty.')
-            return
-        if any(g['name'] == new_name for i, g in enumerate(self.main.sector_groups) if i != i):
-            forms.alert('A sector group with this name already exists.')
-            return
-        self.main.sector_groups[i]['name'] = new_name
-        self.main._save_sector_groups(self.main.sector_groups)
-        self.refresh_list()
-        self.main.SectorGroupsListBox.SelectedIndex = i
+    def rename_sector_group(self, sender, args): pass
+    #     i = self.main.SectorGroupsListBox.SelectedIndex
+    #     if i < 0 or i >= len(self.main.sector_groups):
+    #         forms.alert('Please select a sector group to rename.')
+    #         return
+    #     group = self.main.sector_groups[i]
+    #     new_name = forms.ask_for_string(default=group.get('name', ''), prompt='Enter a new name for the sector group:', title='Rename Sector Group')
+    #     if not new_name:
+    #         forms.alert('Name cannot be empty.')
+    #         return
+    #     if any(g['name'] == new_name for i, g in enumerate(self.main.sector_groups) if i != i):
+    #         forms.alert('A sector group with this name already exists.')
+    #         return
+    #     self.main.sector_groups[i]['name'] = new_name
+    #     self.main._save_sector_groups(self.main.sector_groups)
+    #     self.refresh_list()
+    #     self.main.SectorGroupsListBox.SelectedIndex = i
 
 
-    def delete_sector_group(self, sender, args):
-        i = self.main.SectorGroupsListBox.SelectedIndex
-        if i < 0 or i >= len(self.main.sector_groups):
-            forms.alert('Please select a sector group to delete.')
-            return
-        group = self.main.sector_groups[i]
-        confirm = forms.alert('Are you sure you want to delete the sector group "{}"?'.format(group.get('name', '')), options=['Yes', 'No'])
-        if confirm != 'Yes':
-            return
-        ref_plane_ids = group.get('reference_plane_ids', [])
-        doc = self.main.doc
-        revit = __import__('pyrevit').revit
-        if ref_plane_ids:
-            with revit.Transaction('Delete Reference Planes for Sector Group'):
-                for ref_id in ref_plane_ids:
-                    try:
-                        ref_elem = doc.GetElement(ref_id)
-                        if ref_elem:
-                            doc.Delete(ref_elem.Id)
-                    except:
-                        pass
-        del self.main.sector_groups[i]
-        self.main._save_sector_groups(self.main.sector_groups)
-        self.refresh_list()
+    def delete_sector_group(self, sender, args): pass
+    #     i = self.main.SectorGroupsListBox.SelectedIndex
+    #     if i < 0 or i >= len(self.main.sector_groups):
+    #         forms.alert('Please select a sector group to delete.')
+    #         return
+    #     group = self.main.sector_groups[i]
+    #     confirm = forms.alert('Are you sure you want to delete the sector group "{}"?'.format(group.get('name', '')), options=['Yes', 'No'])
+    #     if confirm != 'Yes':
+    #         return
+    #     ref_plane_ids = group.get('reference_plane_ids', [])
+    #     doc = self.main.doc
+    #     revit = __import__('pyrevit').revit
+    #     if ref_plane_ids:
+    #         with revit.Transaction('Delete Reference Planes for Sector Group'):
+    #             for ref_id in ref_plane_ids:
+    #                 try:
+    #                     ref_elem = doc.GetElement(ref_id)
+    #                     if ref_elem:
+    #                         doc.Delete(ref_elem.Id)
+    #                 except:
+    #                     pass
+
+    #     del self.main.sector_groups[i]
+    #     self.main._save_sector_groups(self.main.sector_groups)
+    #     self.refresh_list()

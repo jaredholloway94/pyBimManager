@@ -1,5 +1,5 @@
 from pyrevit import revit, forms
-from Autodesk.Revit.DB import ViewSheet
+from Autodesk.Revit.DB import ViewSheet, SubTransaction
 
 
 class TitleBlocksTab(object):
@@ -81,7 +81,7 @@ class TitleBlocksTab(object):
         return
 
 
-    def update_details(self):
+    def update_details(self, sender, args):
         '''
         In the Details pane, display the configuration details of the Title Block that's selected in the 'Configured' list.
         '''
@@ -97,10 +97,10 @@ class TitleBlocksTab(object):
             tb = self.main.configured_title_blocks[tb_name]
             data = self.get_data(tb)
 
-            width = data['width']
-            height = data['height']
-            center_x = data['center_x']
-            center_y = data['center_y']
+            width = '{}"'.format(round(data['width']*12, 2))
+            height = '{}"'.format(round(data['height']*12, 2))
+            center_x = '{}"'.format(round(data['center_x']*12, 2))
+            center_y = '{}"'.format(round(data['center_y']*12, 2))
 
         # Set the details in the UI
         self.main.TitleBlockDetails_Width.Text = width
@@ -134,9 +134,8 @@ class TitleBlocksTab(object):
         
         # Respawn the main window
         new_main_window = self.main.__class__('SheetSetManager_window.xaml')
-        new_main_window.show_dialog()
-
-        return None
+        
+        return  new_main_window.show_dialog()
 
 
     def _configure_title_block_workflow(self, title_block):

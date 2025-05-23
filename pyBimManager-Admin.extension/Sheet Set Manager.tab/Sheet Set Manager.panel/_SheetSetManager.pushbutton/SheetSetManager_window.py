@@ -1,5 +1,5 @@
 from pyrevit import revit, forms
-from Autodesk.Revit.DB import FilteredElementCollector, BuiltInCategory
+from Autodesk.Revit.DB import FilteredElementCollector, BuiltInCategory, Transaction, SubTransaction
 from Autodesk.Revit.DB.ExtensibleStorage import Schema, SchemaBuilder, AccessLevel, Entity
 from System import Guid
 import json
@@ -25,7 +25,6 @@ class SheetSetManagerWindow(forms.WPFWindow):
         self.doc = revit.doc
         self.uidoc = revit.uidoc
 
-        # Initialize the schemas
         self.schemas = {}
 
         # Collect model elements
@@ -68,6 +67,11 @@ class SheetSetManagerWindow(forms.WPFWindow):
         self.title_blocks_tab = TitleBlocksTab(self)
         self.sector_groups_tab = SectorGroupsTab(self)
         # self.sheet_groups_tab = SheetGroupsTab(self)
+
+        # Register UI Event Handlers
+        self.OkButton.Click += self.ok_clicked
+        self.ApplyButton.Click += self.apply_clicked
+        self.CancelButton.Click += self.cancel_clicked
 
         return None
 
@@ -148,6 +152,11 @@ class SheetSetManagerWindow(forms.WPFWindow):
         schema_suffix = schema.SchemaName.split('_')[-1]
         with revit.Transaction('Sheet Set Manager - Create {} Entity'.format(schema_suffix)):
             element.SetEntity(entity)
+        
+        # st = SubTransaction(self.doc)
+        # st.Start()
+        # element.SetEntity(entity)
+        # st.Commit()
 
         return entity
         
@@ -175,48 +184,25 @@ class SheetSetManagerWindow(forms.WPFWindow):
         entity.Set[str](COMMON_FIELD_NAME, json_str)
         
         schema_suffix = schema.SchemaName.split('_')[-1]
+
         with revit.Transaction('Sheet Set Manager - Update {} Data'.format(schema_suffix)):
             element.SetEntity(entity)
         
+        # st = SubTransaction(self.doc)
+        # st.Start()
+        # element.SetEntity(entity)
+        # st.Commit()
+
         return None
 
+    
+    def ok_clicked(self, sender, args):
+        self.DialogResult = True
+        self.Close()
 
-    # def ok_clicked(self, sender, args):
-    #     self.title_block_tab._commit_title_block_configs()
-    #     self.sector_groups_tab._commit_sector_groups()
-    #     self.sheet_groups_tab._commit_sheet_groups()
-    #     self._applied = True
-    #     self.Close()
+    def apply_clicked(self, sender, args):
+        self.DialogResult = True
 
-
-    # def apply_clicked(self, sender, args):
-    #     self.title_block_tab._commit_title_block_configs()
-    #     self.sector_groups_tab._commit_sector_groups()
-    #     self.sheet_groups_tab._commit_sheet_groups()
-    #     self._applied = True
-    #     # Window stays open
-
-
-    # def cancel_clicked(self, sender, args):
-    #     self._pending_sector_groups = list(self._original_sector_groups)
-    #     self._pending_sheet_groups = list(self._original_sheet_groups)
-    #     self._refresh_sector_groups_list()
-    #     self._refresh_sheet_groups_list()
-    #     self._applied = False
-    #     self.Close()
-
-
-    # def OnClosed(self, *args):
-    #     # If not applied, rollback
-    #     if not getattr(self, '_applied', False):
-    #         self._pending_sector_groups = list(self._original_sector_groups)
-    #         self._pending_sheet_groups = list(self._original_sheet_groups)
-    #         self._refresh_sector_groups_list()
-    #         self._refresh_sheet_groups_list()
-    #     super(SheetSetManagerWindow, self).OnClosed(*args)
-
-
-# Main
-if __name__ == "__main__":
-    window = SheetSetManagerWindow('SheetSetManager_window.xaml')
-    window.show_dialog()
+    def cancel_clicked(self, sender, args):
+        self.DialogResult = False
+        self.Close()

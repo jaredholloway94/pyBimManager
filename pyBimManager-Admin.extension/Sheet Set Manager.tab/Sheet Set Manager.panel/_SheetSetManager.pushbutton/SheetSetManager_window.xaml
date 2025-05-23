@@ -141,8 +141,8 @@
                             <TextBlock Grid.Row="5" Grid.Column="0" Text="Reference Plane Ids" Margin="5,0" VerticalAlignment="Center" />
                             <TextBlock Grid.Row="5" Grid.Column="1" Name="SectorGroupDetails_ReferencePlaneIds" Margin="5,0" VerticalAlignment="Center" />
 
-                            <TextBlock Grid.Row="6" Grid.Column="0" Text="Matchline Ids" Margin="5,0" VerticalAlignment="Center" />
-                            <TextBlock Grid.Row="6" Grid.Column="1" Name="SectorGroupDetails_MatchlineIds" Margin="5,0" VerticalAlignment="Center" />
+                            <!-- <TextBlock Grid.Row="6" Grid.Column="0" Text="Matchline Ids" Margin="5,0" VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="6" Grid.Column="1" Name="SectorGroupDetails_MatchlineIds" Margin="5,0" VerticalAlignment="Center" /> -->
 
                         </Grid>
                     </Border>
@@ -205,9 +205,9 @@
             </TabItem>
         </TabControl>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
-            <Button Name="OkButton" Content="OK" Width="75" Height="23" Margin="0,0,10,0" />
+            <Button IsDefault="True" Name="OkButton" Content="OK" Width="75" Height="23" Margin="0,0,10,0" />
             <Button Name="ApplyButton" Content="Apply" Width="75" Height="23" Margin="0,0,10,0" />
-            <Button Name="CancelButton" Content="Cancel" Width="75" Height="23" />
+            <Button IsCancel="True" Name="CancelButton" Content="Cancel" Width="75" Height="23" />
         </StackPanel>
     </Grid>
 </Window>
