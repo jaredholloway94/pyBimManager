@@ -1,25 +1,23 @@
 from pyrevit import revit, forms
-from Autodesk.Revit.DB import ViewSheet
+from Autodesk.Revit.DB import ViewSheet, SubTransaction
 
 
-class TitleBlocksWindow(forms.WPFWindow):
+class TitleBlocksTab(object):
     '''
     Class to manage the Title Blocks tab of the Sheet Set Manager window.
     '''
 
-    def __init__(self, xml_path, main):
+    def __init__(self, main_window):
         '''
         Initialize the Title Blocks tab.
         '''
-        super().__init__(xml_path)
-        self.xml_path = xml_path
         # Register parent window and schema
-        self.main = main
+        self.main = main_window
         self.schema = self.main.get_schema('TitleBlocks')
 
         # Register UI Event Handlers
-        self.Configure.Click += self.configure_title_block
-        self.ConfiguredTitleBlocksListBox.SelectionChanged += self.update_details
+        self.main.Configure.Click += self.configure_title_block
+        self.main.ConfiguredTitleBlocksListBox.SelectionChanged += self.update_details
 
         # Initialize lists
         self.update_lists()
@@ -71,16 +69,14 @@ class TitleBlocksWindow(forms.WPFWindow):
 
         # Populate the UI lists
         if len(self.main.configured_title_blocks) == 0:
-            self.ConfiguredTitleBlocksListBox.ItemsSource = []
+            self.main.ConfiguredTitleBlocksListBox.ItemsSource = []
         else:
-            self.ConfiguredTitleBlocksListBox.ItemsSource = \
-                sorted(self.main.configured_title_blocks.keys())
+            self.main.ConfiguredTitleBlocksListBox.ItemsSource = sorted(self.main.configured_title_blocks.keys())
 
         if len(self.main.not_configured_title_blocks) == 0:
-            self.NotConfiguredTitleBlocksListBox.ItemsSource = []
+            self.main.NotConfiguredTitleBlocksListBox.ItemsSource = []
         else:
-            self.NotConfiguredTitleBlocksListBox.ItemsSource = \
-                sorted(self.main.not_configured_title_blocks.keys())
+            self.main.NotConfiguredTitleBlocksListBox.ItemsSource = sorted(self.main.not_configured_title_blocks.keys())
 
         return
 
@@ -90,7 +86,7 @@ class TitleBlocksWindow(forms.WPFWindow):
         In the Details pane, display the configuration details of the Title Block that's selected in the 'Configured' list.
         '''
         # Get the selected Title Block from the UI
-        tb_name = self.ConfiguredTitleBlocksListBox.SelectedItem
+        tb_name = self.main.ConfiguredTitleBlocksListBox.SelectedItem
 
         # If no Title Block is selected, clear the details
         if not tb_name:
@@ -107,10 +103,10 @@ class TitleBlocksWindow(forms.WPFWindow):
             center_y = '{}"'.format(round(data['center_y']*12, 2))
 
         # Set the details in the UI
-        self.TitleBlockDetails_Width.Text = width
-        self.TitleBlockDetails_Height.Text = height
-        self.TitleBlockDetails_CenterX.Text = center_x
-        self.TitleBlockDetails_CenterY.Text = center_y
+        self.main.TitleBlockDetails_Width.Text = width
+        self.main.TitleBlockDetails_Height.Text = height
+        self.main.TitleBlockDetails_CenterX.Text = center_x
+        self.main.TitleBlockDetails_CenterY.Text = center_y
 
         return None
 
@@ -120,7 +116,7 @@ class TitleBlocksWindow(forms.WPFWindow):
         Configure the Title Block that's selected in the 'Not Configured' list.
         '''
         # Get the selected Title Block from the UI
-        tb_name = self.NotConfiguredTitleBlocksListBox.SelectedItem
+        tb_name = self.main.NotConfiguredTitleBlocksListBox.SelectedItem
 
         if not tb_name:
             forms.alert("Please select a Title Block to configure.")
@@ -129,15 +125,35 @@ class TitleBlocksWindow(forms.WPFWindow):
             tb = self.main.not_configured_title_blocks[tb_name]
 
 
+        # set DialogResult to True, so the transaction group doesn't get aborted
+        # when the main window is closed (see SheetSetManagerWindow.OnClosed method)
         self.DialogResult = True
-        self.Close()
+        self.main.Close()
+
         # Prompt the user to select the corners of the drawing area;
         # calculate the width/height/center;
         # store the values in Extensible Storage;
-        self._configure_title_block_workflow(tb)
-        self.__class__(self.xml_path, self.main).show_dialog()
+        try:
+            self._configure_title_block_workflow(tb)
 
-        return None
+        except Exception as e:
+            forms.alert("Error configuring Title Block: {}. Trying again.".format(e))
+            self.configure_title_block(tb)
+        else:
+            forms.alert(
+                "The Title Block '{}' has been configured successfully.".format(
+                    tb_name
+                    ),
+                title="Title Block Configured"
+                )
+
+        # Respawn the main window
+        new_main_window = self.main.__class__(
+            'SheetSetManager_window.xaml',
+            self.main.transaction_group
+            )
+
+        new_main_window.show_dialog()
 
 
     def _configure_title_block_workflow(self, title_block):
@@ -151,23 +167,17 @@ class TitleBlocksWindow(forms.WPFWindow):
             temp_sheet.Name = "temp"
         
         # Store the current view for later
-        old_view = self.main.uidoc.ActiveView
+        old_view = self.main.uidoc.ActiveGraphicalView
 
         # Set the new sheet as the active view
         self.main.uidoc.ActiveView = temp_sheet
 
         # Prompt the user to select the drawing area dimensions
         forms.alert("Select the bottom-left corner of the drawing area.")
-
-        bottom_left_corner = self.main.uidoc.Selection.PickPoint(
-            "Select the bottom-left corner of the drawing area"
-            )
+        bottom_left_corner = self.main.uidoc.Selection.PickPoint("Select the bottom-left corner of the drawing area")
 
         forms.alert("Select the top-right corner of the drawing area.")
-
-        top_right_corner = self.main.uidoc.Selection.PickPoint(
-            "Select the top-right corner of the drawing area"
-            )
+        top_right_corner = self.main.uidoc.Selection.PickPoint("Select the top-right corner of the drawing area")
 
         # Return to the original view
         self.main.uidoc.ActiveView = old_view
@@ -176,6 +186,7 @@ class TitleBlocksWindow(forms.WPFWindow):
         if temp_sheet and temp_sheet.Id and temp_sheet.Id.IntegerValue > 0:
             with revit.Transaction("Sheet Set Manager - Delete Temp Sheet"):
                 self.main.doc.Delete(temp_sheet.Id)
+
 
         data = {}
 

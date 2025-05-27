@@ -1,5 +1,5 @@
 from pyrevit import revit, forms
-from Autodesk.Revit.DB import FilteredElementCollector, BuiltInCategory, Transaction, SubTransaction
+from Autodesk.Revit.DB import FilteredElementCollector, BuiltInCategory
 from Autodesk.Revit.DB.ExtensibleStorage import Schema, SchemaBuilder, AccessLevel, Entity
 from System import Guid
 import json
@@ -19,11 +19,13 @@ class SheetSetManagerWindow(forms.WPFWindow):
     Class to manage the main Sheet Set Manager window.
     '''
 
-    def __init__(self, xaml_file):
+    def __init__(self, xaml_file, transaction_group):
 
         super().__init__(xaml_file)
         self.doc = revit.doc
         self.uidoc = revit.uidoc
+
+        self.transaction_group = transaction_group
 
         self.schemas = {}
 
@@ -197,12 +199,18 @@ class SheetSetManagerWindow(forms.WPFWindow):
 
     
     def ok_clicked(self, sender, args):
+        self.transaction_group.Assimilate()
         self.DialogResult = True
         self.Close()
 
-    def apply_clicked(self, sender, args):
-        self.DialogResult = True
 
+    def apply_clicked(self, sender, args):
+        self.transaction_group.Assimilate()
+        self.transaction_group.Start()
+
+
+    # doesn't fire when the main window is closed via the 'X' button
     def cancel_clicked(self, sender, args):
+        self.transaction_group.RollBack()
         self.DialogResult = False
         self.Close()

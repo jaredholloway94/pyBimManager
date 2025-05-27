@@ -50,7 +50,26 @@ class main():
                 )
             }
 
+        self.update_title_block_lists()
+
         return None
+
+
+    def update_title_block_lists(self):
+        tb_schema = self.get_schema('TitleBlocks')
+        
+        self.configured_title_blocks = {} # 'Name': Element
+        self.not_configured_title_blocks = {} # 'Name': Element
+
+        # Sort Title Blocks into 'Configured' and 'Not Configured' lists
+        # by checking if they have an entity in the Extensible Storage
+        for tb_name, tb_elem in self.title_blocks.items():
+            tb_entity = self.get_entity(tb_schema, tb_elem, create=False)
+
+            if tb_entity:
+                self.configured_title_blocks[tb_name] = tb_elem
+            else:
+                self.not_configured_title_blocks[tb_name] = tb_elem
 
 
     def display_name(self, title_block):
