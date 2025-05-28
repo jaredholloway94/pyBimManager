@@ -1,5 +1,4 @@
 from pyrevit import revit, forms
-
 from NewSectorGroup_window import NewSectorGroupWindow
 
 

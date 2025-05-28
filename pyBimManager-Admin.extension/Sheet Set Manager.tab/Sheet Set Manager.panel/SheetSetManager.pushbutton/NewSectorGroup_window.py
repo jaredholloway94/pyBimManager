@@ -1,5 +1,5 @@
 from pyrevit import revit, forms
-from Autodesk.Revit.DB import XYZ, SubTransaction
+from Autodesk.Revit.DB import XYZ
 from math import ceil
 
 class NewSectorGroupWindow(forms.WPFWindow):
@@ -85,39 +85,36 @@ class NewSectorGroupWindow(forms.WPFWindow):
         new_reference_planes = []
         # with revit.Transaction('Sheet Set Manager - Draw Sector Grid Ref Planes'):
 
-        st = SubTransaction(self.main.doc)
-        st.Start()
+        with revit.Transaction('Sheet Set Manager - Create Sector Group'):
 
-        for col in range(n_cols + 1):
-            x = overall_x + col * model_space_vp_width
-            p0 = XYZ(x, overall_y, overall_z)
-            p1 = XYZ(x, overall_y + overall_height, overall_z)
-            col_name = '{}-Col{}'.format(name, col + 1)
-            ref_plane = self.main.doc.Create.NewReferencePlane(p0, p1, XYZ(0, 0, 1), self.main.doc.ActiveView)
-            ref_plane.Name = col_name
-            new_reference_planes.append(ref_plane.Id.IntegerValue)
+            for col in range(n_cols + 1):
+                x = overall_x + col * model_space_vp_width
+                p0 = XYZ(x, overall_y, overall_z)
+                p1 = XYZ(x, overall_y + overall_height, overall_z)
+                col_name = '{}-Col{}'.format(name, col + 1)
+                ref_plane = self.main.doc.Create.NewReferencePlane(p0, p1, XYZ(0, 0, 1), self.main.doc.ActiveView)
+                ref_plane.Name = col_name
+                new_reference_planes.append(ref_plane.Id.IntegerValue)
 
-        for row in range(n_rows + 1):
-            y = overall_y + row * model_space_vp_height
-            p0 = XYZ(overall_x, y, overall_z)
-            p1 = XYZ(overall_x + overall_width, y, overall_z)
-            row_name = '{}-Row{}'.format(name, row + 1)
-            ref_plane = self.main.doc.Create.NewReferencePlane(p0, p1, XYZ(0, 0, 1), self.main.doc.ActiveView)
-            ref_plane.Name = row_name
-            new_reference_planes.append(ref_plane.Id.IntegerValue)
+            for row in range(n_rows + 1):
+                y = overall_y + row * model_space_vp_height
+                p0 = XYZ(overall_x, y, overall_z)
+                p1 = XYZ(overall_x + overall_width, y, overall_z)
+                row_name = '{}-Row{}'.format(name, row + 1)
+                ref_plane = self.main.doc.Create.NewReferencePlane(p0, p1, XYZ(0, 0, 1), self.main.doc.ActiveView)
+                ref_plane.Name = row_name
+                new_reference_planes.append(ref_plane.Id.IntegerValue)
 
-        st.Commit()
-
-        # Collect the Sector Group data
-        data = {
-            'title_block_family': tb.FamilyName,
-            'title_block_type': tb.LookupParameter('Type Name').AsString(),
-            'title_block_id': tb.Id.IntegerValue,
-            'scope_box': sb.Name,
-            'scope_box_id': sb.Id.IntegerValue,
-            'view_scale': view_scale,
-            'reference_plane_ids': new_reference_planes
-        }
+            # Collect the Sector Group data
+            data = {
+                'title_block_family': tb.FamilyName,
+                'title_block_type': tb.LookupParameter('Type Name').AsString(),
+                'title_block_id': tb.Id.IntegerValue,
+                'scope_box': sb.Name,
+                'scope_box_id': sb.Id.IntegerValue,
+                'view_scale': view_scale,
+                'reference_plane_ids': new_reference_planes
+            }
 
         return name, data
 
