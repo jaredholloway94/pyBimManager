@@ -1,5 +1,5 @@
 from pyrevit import revit, forms
-from Autodesk.Revit.DB import FilteredElementCollector, BuiltInCategory
+from Autodesk.Revit.DB import FilteredElementCollector, BuiltInCategory, ViewFamilyType, ElementId
 from Autodesk.Revit.DB.ExtensibleStorage import Schema, SchemaBuilder, AccessLevel, Entity
 from System import Guid
 import json
@@ -24,7 +24,6 @@ class SheetSetManagerWindow(forms.WPFWindow):
         super().__init__(xaml_file)
         self.doc = revit.doc
         self.uidoc = revit.uidoc
-
         self.transaction_group = transaction_group
 
         self.schemas = {}
@@ -54,21 +53,42 @@ class SheetSetManagerWindow(forms.WPFWindow):
                 )
             }
 
-        self.view_templates = {vt.Name: vt
-            for vt in list(
-                filter(
-                    lambda v: v.IsTemplate,
-                    FilteredElementCollector(self.doc)
-                        .OfCategory(BuiltInCategory.OST_Views)
-                        .WhereElementIsNotElementType()
-                    )
+        self.view_template_collector = list(
+            filter(lambda v: v.IsTemplate,
+                FilteredElementCollector(self.doc)
+                    .OfCategory(BuiltInCategory.OST_Views)
+                    .WhereElementIsNotElementType()
                 )
-            }
+            )
+        
+        # sort view templates by ViewType
+        self.view_templates = {}
+        for vt in self.view_template_collector:
+            view_family = str(vt.ViewType)
+            if view_family not in self.view_templates:
+                self.view_templates[view_family] = {}
+            self.view_templates[view_family][vt.Name] = vt
+
+        
+        self.view_family_type_collector = list(
+            (
+                FilteredElementCollector(self.doc)
+                    .OfClass(ViewFamilyType)
+                )
+            )
+        
+        # sort view family types by ViewFamily
+        self.view_family_types = {}
+        for vft in self.view_family_type_collector:
+            view_family = str(vft.ViewFamily)
+            if view_family not in self.view_family_types:
+                self.view_family_types[view_family] = {}
+            self.view_family_types[view_family][vft.Name] = vft
 
         # Register UI Tabs
         self.title_blocks_tab = TitleBlocksTab(self)
         self.sector_groups_tab = SectorGroupsTab(self)
-        # self.sheet_groups_tab = SheetGroupsTab(self)
+        self.sheet_groups_tab = SheetGroupsTab(self)
 
         # Register UI Event Handlers
         self.OkButton.Click += self.ok_clicked
@@ -85,6 +105,10 @@ class SheetSetManagerWindow(forms.WPFWindow):
             )
 
         return display_name
+
+
+    def get_element(self, elem_id_int):
+        return self.doc.GetElement(ElementId(elem_id_int))
 
 
     def get_schema(self, schema_suffix, create=True):
@@ -164,9 +188,12 @@ class SheetSetManagerWindow(forms.WPFWindow):
         
         
     def get_data(self, entity):
-        if not entity.IsValid():
-
+        if not entity:
             return None
+
+        if not entity.IsValid():
+            return None
+        
         json_str = entity.Get[str](COMMON_FIELD_NAME)
 
         if not json_str:
