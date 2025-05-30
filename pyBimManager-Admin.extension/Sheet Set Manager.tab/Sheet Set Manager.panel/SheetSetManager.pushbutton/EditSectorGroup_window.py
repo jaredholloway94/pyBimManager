@@ -2,7 +2,7 @@ from pyrevit import revit, forms
 from Autodesk.Revit.DB import XYZ
 from math import ceil
 
-class NewSectorGroupWindow(forms.WPFWindow):
+class EditSectorGroupWindow(forms.WPFWindow):
 
 
     #### Init ####
@@ -15,8 +15,57 @@ class NewSectorGroupWindow(forms.WPFWindow):
         self.parent = parent
         self.main = parent.main
 
+        self.ui_fields = {
+
+            self.main.SectorGroupDetails_TitleBlockFamily:
+                lambda sector_group_data: str(
+                    self.main.get_element(sector_group_data['title_block_id']).FamilyName
+                    ),
+
+            self.main.SectorGroupDetails_TitleBlockType:
+                lambda sector_group_data: str(
+                    self.main.get_element(sector_group_data['title_block_id']).LookupParameter('Type Name').AsString()
+                    ),
+
+            self.main.SectorGroupDetails_OverallScopeBox:
+                lambda sector_group_data: str(
+                    self.main.get_element(sector_group_data['overall_scope_box_id']).Name
+                    ),
+
+            self.main.SectorGroupDetails_OverallViewScale:
+                lambda sector_group_data: str(
+                    '1 : {}'.format(sector_group_data['overall_view_scale'])
+                    ),
+
+            self.main.SectorGroupDetails_SectorScopeBoxes:
+                lambda sector_group_data: str(
+                    ', '.join([ self.main.get_element(sb_id).Name for sb_id in sector_group_data['sector_scope_box_ids'] ])
+                    ),
+
+            self.main.SectorGroupDetails_SectorViewScale:
+                lambda sector_group_data: str(
+                    '1 : {}'.format(sector_group_data['sector_view_scale'])
+                    ),
+
+            self.main.SectorGroupDetails_Levels:
+                lambda sector_group_data: str(
+                    ', '.join([ self.main.get_element(level_id).Name for level_id in sector_group_data['level_ids'] ])
+                    ),
+
+            self.main.SectorGroupDetails_ReferencePlaneIds:
+                lambda sector_group_data: str(
+                    ', '.join([ str(rp_id) for rp_id in sector_group_data['reference_plane_ids'] ])
+                    ),
+            
+            }
+
+
+        sg_name = self.main.SectorGroupsListBox.SelectedItem
+        sg_data = self.main.sector_groups[sg_name]
+
         # Initialize lists
         self.TitleBlockComboBox.ItemsSource = sorted(self.main.configured_title_blocks.keys())
+        self.TitleBlockComboBox.SelectedItem = sg_data['title_block_id']
         self.OverallScopeBoxComboBox.ItemsSource = sorted(self.main.scope_boxes.keys())
         self.OverallScopeBoxComboBox.OnSelectionChanged += self.update_sector_scope_boxes_list
         self.SectorScopeBoxesListBox.ItemsSource = []

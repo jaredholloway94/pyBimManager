@@ -16,6 +16,7 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -32,12 +33,16 @@
                     <!-- ListBox for Configured -->
                     <ListBox Grid.Row="2" Name="ConfiguredTitleBlocksListBox" Margin="10" />
 
+                    <!-- Buttons -->
+                    <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,2,0,2">
+                        <Button Name="Reconfigure" Content="Reconfigure" Margin="0,0,5,0" Width="75" Height="23" />
+                    </StackPanel>
+
                     <!-- Details Pane for Title Blocks -->
-                    <Border Grid.Row="3" BorderBrush="Gray" BorderThickness="1" Margin="10" Height="300" Width="Auto">
+                    <Border Grid.Row="4" BorderBrush="Gray" BorderThickness="1" Margin="10" Height="300" Width="Auto">
                         <ScrollViewer VerticalScrollBarVisibility="Auto">
                             <Grid>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" MinHeight="22" />
                                     <RowDefinition Height="Auto" MinHeight="22" />
                                     <RowDefinition Height="Auto" MinHeight="22" />
                                     <RowDefinition Height="Auto" MinHeight="22" />
@@ -49,24 +54,24 @@
                                 </Grid.ColumnDefinitions>
 
                                 <!-- Alternating row backgrounds -->
-                                <Border Grid.Row="1" Grid.ColumnSpan="2" Background="#FFF"/>
-                                <Border Grid.Row="2" Grid.ColumnSpan="2" Background="#F3F3F3"/>
-                                <Border Grid.Row="3" Grid.ColumnSpan="2" Background="#FFF"/>
-                                <Border Grid.Row="4" Grid.ColumnSpan="2" Background="#F3F3F3"/>
+                                <Border Grid.Row="0" Grid.ColumnSpan="2" Background="#FFF"/>
+                                <Border Grid.Row="1" Grid.ColumnSpan="2" Background="#F3F3F3"/>
+                                <Border Grid.Row="2" Grid.ColumnSpan="2" Background="#FFF"/>
+                                <Border Grid.Row="3" Grid.ColumnSpan="2" Background="#F3F3F3"/>
 
                                 <!-- Actual Table Content for Details -->
-                                <TextBlock Grid.Row="1" Grid.Column="0" Text="Width" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="1" Grid.Column="1" Name="TitleBlockDetails_Width" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="Width" Margin="5,5,5,5" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="0" Grid.Column="1" Name="TitleBlockDetails_Width" Margin="5,5,5,5" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="2" Grid.Column="0" Text="Height" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="2" Grid.Column="1" Name="TitleBlockDetails_Height" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="Height" Margin="5,5,5,5" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="1" Grid.Column="1" Name="TitleBlockDetails_Height" Margin="5,5,5,5" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="3" Grid.Column="0" Text="Center X" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="3" Grid.Column="1" Name="TitleBlockDetails_CenterX" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="2" Grid.Column="0" Text="Center X" Margin="5,5,5,5" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="2" Grid.Column="1" Name="TitleBlockDetails_CenterX" Margin="5,5,5,5" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="4" Grid.Column="0" Text="Center Y" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="4" Grid.Column="1" Name="TitleBlockDetails_CenterY" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                            
+                                <TextBlock Grid.Row="3" Grid.Column="0" Text="Center Y" Margin="5,5,5,5" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="3" Grid.Column="1" Name="TitleBlockDetails_CenterY" Margin="5,5,5,5" VerticalAlignment="Center" TextWrapping="Wrap"/>
+
                             </Grid>
                         </ScrollViewer>
                     </Border>
@@ -90,8 +95,12 @@
                     <!-- Buttons -->
                     <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,2,0,2">
                         <Button Name="NewSectorGroup" Content="New" Margin="0,0,5,0" Width="75" Height="23" />
+                        <!--
                         <Button Name="RenameSectorGroup" Content="Rename" Margin="0,0,5,0" Width="75" Height="23" />
                         <Button Name="AssociateScopeBoxes" Content="Associate Scope Boxes" Margin="0,0,5,0" Width="150" Height="23" />
+                        <Button Name="AssociateLevels" Content="Associate Levels" Margin="0,0,5,0" Width="150" Height="23" />
+                        -->
+                        <Button Name="EditSectorGroup" Content="Edit" Margin="0,0,5,0" Width="75" Height="23" />
                         <Button Name="DeleteSectorGroup" Content="Delete" Margin="0,0,5,0" Width="75" Height="23" />
                     </StackPanel>
 
@@ -108,6 +117,7 @@
                                     <RowDefinition Height="Auto" MinHeight="22" />
                                     <RowDefinition Height="Auto" MinHeight="22" />
                                     <RowDefinition Height="Auto" MinHeight="22" />
+                                    <RowDefinition Height="Auto" MinHeight="22" />
                                 </Grid.RowDefinitions>
                                 
                                 <Grid.ColumnDefinitions>
@@ -116,31 +126,40 @@
                                 </Grid.ColumnDefinitions>
 
                                 <!-- Alternating row backgrounds -->
-                                <Border Grid.Row="1" Grid.ColumnSpan="2" Background="#FFF"/>
-                                <Border Grid.Row="2" Grid.ColumnSpan="2" Background="#F3F3F3"/>
-                                <Border Grid.Row="3" Grid.ColumnSpan="2" Background="#FFF"/>
-                                <Border Grid.Row="4" Grid.ColumnSpan="2" Background="#F3F3F3"/>
-                                <Border Grid.Row="5" Grid.ColumnSpan="2" Background="#FFF"/>
-                                <Border Grid.Row="6" Grid.ColumnSpan="2" Background="#F3F3F3"/>
+                                <Border Grid.Row="0" Grid.ColumnSpan="2" Background="#FFF"/>
+                                <Border Grid.Row="1" Grid.ColumnSpan="2" Background="#F3F3F3"/>
+                                <Border Grid.Row="2" Grid.ColumnSpan="2" Background="#FFF"/>
+                                <Border Grid.Row="3" Grid.ColumnSpan="2" Background="#F3F3F3"/>
+                                <Border Grid.Row="4" Grid.ColumnSpan="2" Background="#FFF"/>
+                                <Border Grid.Row="5" Grid.ColumnSpan="2" Background="#F3F3F3"/>
+                                <Border Grid.Row="6" Grid.ColumnSpan="2" Background="#FFF"/>
+                                <Border Grid.Row="7" Grid.ColumnSpan="2" Background="#F3F3F3"/>
 
                                 <!-- Table Data -->
-                                <TextBlock Grid.Row="1" Grid.Column="0" Text="Title Block Family" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="1" Grid.Column="1" Name="SectorGroupDetails_TitleBlockFamily" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="Title Block Family" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="0" Grid.Column="1" Name="SectorGroupDetails_TitleBlockFamily" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="2" Grid.Column="0" Text="Title Block Type" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="2" Grid.Column="1" Name="SectorGroupDetails_TitleBlockType" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="Title Block Type" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="1" Grid.Column="1" Name="SectorGroupDetails_TitleBlockType" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="3" Grid.Column="0" Text="Overall Scope Box" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="3" Grid.Column="1" Name="SectorGroupDetails_OverallScopeBox" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="2" Grid.Column="0" Text="Overall Scope Box" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="2" Grid.Column="1" Name="SectorGroupDetails_OverallScopeBox" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="4" Grid.Column="0" Text="View Scale" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="4" Grid.Column="1" Name="SectorGroupDetails_ViewScale" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="3" Grid.Column="0" Text="Overall View Scale" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="3" Grid.Column="1" Name="SectorGroupDetails_OverallViewScale" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="5" Grid.Column="0" Text="Reference Plane Ids" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="5" Grid.Column="1" Name="SectorGroupDetails_ReferencePlaneIds" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="4" Grid.Column="0" Text="Sector Scope Boxes" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="4" Grid.Column="1" Name="SectorGroupDetails_SectorScopeBoxes" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="6" Grid.Column="0" Text="Sector Scope Boxes" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="6" Grid.Column="1" Name="SectorGroupDetails_SectorScopeBoxes" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="5" Grid.Column="0" Text="Sector View Scale" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="5" Grid.Column="1" Name="SectorGroupDetails_SectorViewScale" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+
+                                <TextBlock Grid.Row="6" Grid.Column="0" Text="Levels" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="6" Grid.Column="1" Name="SectorGroupDetails_Levels" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+
+                                <TextBlock Grid.Row="7" Grid.Column="0" Text="Reference Plane Ids" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="7" Grid.Column="1" Name="SectorGroupDetails_ReferencePlaneIds" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+
 
                             </Grid>
                         </ScrollViewer>

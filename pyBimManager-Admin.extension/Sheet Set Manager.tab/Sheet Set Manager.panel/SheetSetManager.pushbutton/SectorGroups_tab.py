@@ -1,9 +1,14 @@
 from pyrevit import revit, forms
 from Autodesk.Revit.DB import ElementId
 from NewSectorGroup_window import NewSectorGroupWindow
+from EditSectorGroup_window import EditSectorGroupWindow
 
 
 class SectorGroupsTab(object):
+
+
+    #### Init ####
+
 
     def __init__(self, main_window):
         '''
@@ -15,8 +20,10 @@ class SectorGroupsTab(object):
 
         # Register UI Event Handlers
         self.main.NewSectorGroup.Click += self.new_sector_group
-        self.main.RenameSectorGroup.Click += self.rename_sector_group
-        self.main.AssociateScopeBoxes.Click += self.associate_scope_boxes
+        # self.main.RenameSectorGroup.Click += self.rename_sector_group
+        # self.main.AssociateScopeBoxes.Click += self.associate_scope_boxes
+        # self.main.AssociateLevels.Click += self.associate_levels
+        self.main.EditSectorGroup.Click += self.edit_sector_group
         self.main.DeleteSectorGroup.Click += self.delete_sector_group
         
         self.main.SectorGroupsListBox.SelectionChanged += self.update_details
@@ -41,24 +48,37 @@ class SectorGroupsTab(object):
                     self.main.get_element(sector_group_data['overall_scope_box_id']).Name
                     ),
 
-            self.main.SectorGroupDetails_ViewScale:
+            self.main.SectorGroupDetails_OverallViewScale:
                 lambda sector_group_data: str(
-                    '1 : {}'.format(sector_group_data['view_scale'])
-                    ),
-
-            self.main.SectorGroupDetails_ReferencePlaneIds:
-                lambda sector_group_data: str(
-                    ', '.join([ str(rp_id) for rp_id in sector_group_data['reference_plane_ids'] ])
+                    '1 : {}'.format(sector_group_data['overall_view_scale'])
                     ),
 
             self.main.SectorGroupDetails_SectorScopeBoxes:
                 lambda sector_group_data: str(
                     ', '.join([ self.main.get_element(sb_id).Name for sb_id in sector_group_data['sector_scope_box_ids'] ])
                     ),
+
+            self.main.SectorGroupDetails_SectorViewScale:
+                lambda sector_group_data: str(
+                    '1 : {}'.format(sector_group_data['sector_view_scale'])
+                    ),
+
+            self.main.SectorGroupDetails_Levels:
+                lambda sector_group_data: str(
+                    ', '.join([ self.main.get_element(level_id).Name for level_id in sector_group_data['level_ids'] ])
+                    ),
+
+            self.main.SectorGroupDetails_ReferencePlaneIds:
+                lambda sector_group_data: str(
+                    ', '.join([ str(rp_id) for rp_id in sector_group_data['reference_plane_ids'] ])
+                    ),
             
             }
         
         return None
+
+
+    #### Data Access ####
 
 
     def get_entity(self):
@@ -88,6 +108,9 @@ class SectorGroupsTab(object):
             )
         
         return None
+
+
+    #### UI Updaters ####
 
 
     def update_lists(self):
@@ -120,6 +143,9 @@ class SectorGroupsTab(object):
         return None
 
 
+    #### UI Event Handlers ####
+
+
     def new_sector_group(self, sender, args):
 
         # Verify that the user has configured at least one title block
@@ -148,66 +174,31 @@ class SectorGroupsTab(object):
                     'Due to limitations in the Revit API, this tool cannot create Scope Boxes for you.\n\n' +
                     'After leaving this dialog, please click OK in the main window to save your changes and close the main window, then manually create and name Scope Boxes for this Sector group.\n\n' +
                     'If you chose to create Reference Planes in the last window, you can use them as guides for the Scope Box boundaries.\n\n' +
-                    'When you are done, retun to this window to Associate the Scope Boxes with this new Sector Group.\n\n'
+                    'When you are done, return to this window to Associate the Scope Boxes with this new Sector Group.\n\n'
                 )
 
         return None
-    
-
-    def rename_sector_group(self, sender, args): 
-
-        sg_name = self.main.SectorGroupsListBox.SelectedItem
-        sg_data = self.main.sector_groups[sg_name]
-
-        new_name = forms.ask_for_string(
-            prompt='Enter a new name for the Sector Group "{}":'.format(sg_name),
-            default=sg_name,
-            title='Rename Sector Group'
-            )
-        
-        if not new_name:
-            forms.alert('You must enter a name for the Sector Group.')
-            return None
-        
-        if new_name in self.main.sector_groups:
-            forms.alert('A Sector Group with the name "{}" already exists.'.format(new_name))
-            return None
-        
-        self.main.sector_groups[new_name] = self.main.sector_groups.pop(sg_name)
-
-        self.set_data()
-        self.update_lists()
-        self.update_details(sender, args)
-
-        self.main.SectorGroupsListBox.SelectedItem = new_name
 
 
-    def associate_scope_boxes(self, sender, args):
+    def edit_sector_group(self, sender, args):
 
-        # Get the selected Sector Group and its data
-        sg_name = self.main.SectorGroupsListBox.SelectedItem
-        sg_data = self.main.sector_groups[sg_name]
+        dlg = EditSectorGroupWindow('EditSectorGroup_window.xaml', self)
+        result = dlg.show_dialog()
 
-        # Filter out the Sector Group's overall scope box from the list of available scope boxes
-        overall_scope_box = self.main.get_element(sg_data['overall_scope_box_id'])
-        available_scope_boxes = [ sb_name for sb_name in self.main.scope_boxes if sb_name != overall_scope_box.Name ]
+        if result:
+            self.set_data()
+            self.update_lists()
+            self.update_details(sender, args)
 
-        # Show a dialog to select Scope Boxes to associate with the Sector Group
-        selected_scope_boxes = forms.SelectFromList.show(
-            sorted(available_scope_boxes),
-            title='Select Scope Boxes',
-            multiselect=True,
-        )
-
-        if not selected_scope_boxes:
-            forms.alert('No Scope Boxes selected.')
-            return None
-        
-        sg_data['sector_scope_box_ids'] = [ self.main.scope_boxes[sb_name].Id.IntegerValue for sb_name in selected_scope_boxes ]
-
-        self.set_data()
-        self.update_lists()
-        self.update_details(sender, args)
+            forms.alert(
+                title='Sector Group Updated',
+                msg='Sector Group "{}" updated successfully.\n'.format(dlg.NameTextBox.Text.strip()),
+                sub_msg =
+                    'Due to limitations in the Revit API, this tool cannot modify Scope Boxes for you.\n\n' +
+                    'After leaving this dialog, please click OK in the main window to save your changes and close the main window, then manually create and name Scope Boxes for this Sector group.\n\n' +
+                    'If you chose to create Reference Planes in the last window, you can use them as guides for the Scope Box boundaries.\n\n' +
+                    'When you are done, return to this window to Associate the Scope Boxes with this new Sector Group.\n\n'
+                )
 
         return None
 
@@ -243,5 +234,106 @@ class SectorGroupsTab(object):
             self.set_data()
 
         self.update_lists()
+        self.main.SectorGroupsListBox.SelectedIndex = -1
         self.update_details(sender, args)
+
+        return None
+    
+
+    # def rename_sector_group(self, sender, args): 
+
+    #     sg_name = self.main.SectorGroupsListBox.SelectedItem
+    #     sg_data = self.main.sector_groups[sg_name]
+
+    #     new_name = forms.ask_for_string(
+    #         prompt='Enter a new name for the Sector Group "{}":'.format(sg_name),
+    #         default=sg_name,
+    #         title='Rename Sector Group'
+    #         )
+        
+    #     if not new_name:
+    #         forms.alert('You must enter a name for the Sector Group.')
+    #         return None
+        
+    #     if new_name in self.main.sector_groups:
+    #         forms.alert('A Sector Group with the name "{}" already exists.'.format(new_name))
+    #         return None
+        
+    #     self.main.sector_groups[new_name] = self.main.sector_groups.pop(sg_name)
+
+    #     self.set_data()
+    #     self.update_lists()
+    #     self.main.SectorGroupsListBox.SelectedItem = new_name
+    #     self.update_details(sender, args)
+
+    #     return None
+
+
+    # def associate_scope_boxes(self, sender, args):
+
+    #     try:
+    #         assert self.main.SectorGroupsListBox.SelectedItem, "No Sector Group selected."
+    #     except AssertionError as e:
+    #         forms.alert(str(e))
+    #         return None
+
+    #     # Get the selected Sector Group and its data
+    #     sg_name = self.main.SectorGroupsListBox.SelectedItem
+    #     sg_data = self.main.sector_groups[sg_name]
+
+    #     # Filter out the Sector Group's overall scope box from the list of available scope boxes
+    #     overall_scope_box = self.main.get_element(sg_data['overall_scope_box_id'])
+    #     available_scope_boxes = [ sb_name for sb_name in self.main.scope_boxes if sb_name != overall_scope_box.Name ]
+
+    #     # Show a dialog to select Scope Boxes to associate with the Sector Group
+    #     selected_scope_boxes = forms.SelectFromList.show(
+    #         sorted(available_scope_boxes),
+    #         title='Select Scope Boxes',
+    #         multiselect=True,
+    #     )
+
+    #     if not selected_scope_boxes:
+    #         forms.alert('No Scope Boxes selected.')
+    #         return None
+        
+    #     sg_data['sector_scope_box_ids'] = [ self.main.scope_boxes[sb_name].Id.IntegerValue for sb_name in selected_scope_boxes ]
+
+    #     self.set_data()
+    #     self.update_lists()
+    #     self.update_details(sender, args)
+
+    #     return None
+
+
+    # def associate_levels(self, sender, args):
+
+    #     try:
+    #         assert self.main.SectorGroupsListBox.SelectedItem, "No Sector Group selected."
+    #     except AssertionError as e:
+    #         forms.alert(str(e))
+    #         return None
+
+    #     # Get the selected Sector Group and its data
+    #     sg_name = self.main.SectorGroupsListBox.SelectedItem
+    #     sg_data = self.main.sector_groups[sg_name]
+
+    #     # Show a dialog to select Scope Boxes to associate with the Sector Group
+    #     selected_levels = forms.SelectFromList.show(
+    #         sorted(self.main.levels.keys()),
+    #         title='Select Levels',
+    #         multiselect=True,
+    #     )
+
+    #     if not selected_levels:
+    #         forms.alert('No Levels selected.')
+    #         return None
+
+    #     sg_data['level_ids'] = [ self.main.levels[level_name].Id.IntegerValue for level_name in selected_levels ]
+
+    #     self.set_data()
+    #     self.update_lists()
+    #     self.update_details(sender, args)
+
+    #     return None
+
 

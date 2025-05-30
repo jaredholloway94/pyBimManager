@@ -12,7 +12,7 @@ class NewSheetGroupWindow(forms.WPFWindow):
         self.main = parent.main
 
         # Initialize lists
-        self.NameTextBox.Text = 'A1 - Architectural Floor Plans'
+        self.NameTextBox.Text = 'A1 - Sector Floor Plans'
 
         self.SectorGroupComboBox.ItemsSource = sorted(self.main.sector_groups.keys())
         self.SectorGroupComboBox.SelectedItem = 'Sector Plans'

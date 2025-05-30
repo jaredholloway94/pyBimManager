@@ -17,6 +17,7 @@ class TitleBlocksTab(object):
 
         # Register UI Event Handlers
         self.main.Configure.Click += self.configure_title_block
+        self.main.Reconfigure.Click += self.reconfigure_title_block
         self.main.ConfiguredTitleBlocksListBox.SelectionChanged += self.update_details
 
         # Initialize lists
@@ -156,6 +157,51 @@ class TitleBlocksTab(object):
         new_main_window.show_dialog()
 
 
+    def reconfigure_title_block(self, sender, args):
+        '''
+        ReConfigure the Title Block that's selected in the 'Configured' list.
+        '''
+        # Get the selected Title Block from the UI
+        tb_name = self.main.ConfiguredTitleBlocksListBox.SelectedItem
+
+        if not tb_name:
+            forms.alert("Please select a Title Block to reconfigure.")
+            return
+        else:
+            tb = self.main.configured_title_blocks[tb_name]
+
+
+        # set DialogResult to True, so the transaction group doesn't get aborted
+        # when the main window is closed (see SheetSetManagerWindow.OnClosed method)
+        self.DialogResult = True
+        self.main.Close()
+
+        # Prompt the user to select the corners of the drawing area;
+        # calculate the width/height/center;
+        # store the values in Extensible Storage;
+        try:
+            self._configure_title_block_workflow(tb)
+
+        except Exception as e:
+            forms.alert("Error configuring Title Block: {}. Trying again.".format(e))
+            self.reconfigure_title_block(tb)
+        else:
+            forms.alert(
+                "The Title Block '{}' has been reconfigured successfully.".format(
+                    tb_name
+                    ),
+                title="Title Block Reconfigured"
+                )
+
+        # Respawn the main window
+        new_main_window = self.main.__class__(
+            'SheetSetManager_window.xaml',
+            self.main.transaction_group
+            )
+
+        new_main_window.show_dialog()
+
+
     def _configure_title_block_workflow(self, title_block):
         '''
         Workflow to configure the Title Block.
@@ -191,12 +237,12 @@ class TitleBlocksTab(object):
         data = {}
 
         # Calculate the width, height, and center of the drawing area
-        data['width'] = abs(top_right_corner.X - bottom_left_corner.X)
-        data['height'] = abs(top_right_corner.Y - bottom_left_corner.Y)
-        data['center_x'] = ((bottom_left_corner.X + top_right_corner.X) / 2.0)
-        data['center_y'] = ((bottom_left_corner.Y + top_right_corner.Y) / 2.0)
+        data['width'] = round(abs(top_right_corner.X - bottom_left_corner.X), 3)
+        data['height'] = round(abs(top_right_corner.Y - bottom_left_corner.Y), 3)
+        data['center_x'] = round(((bottom_left_corner.X + top_right_corner.X) / 2.0), 3)
+        data['center_y'] = round(((bottom_left_corner.Y + top_right_corner.Y) / 2.0), 3)
 
-        
+
         # Store the title_block configuration in the Extensible Storage
         self.set_data(title_block, data)
         # don't need to update the lists here, bc it will happen when the main window is respawned
