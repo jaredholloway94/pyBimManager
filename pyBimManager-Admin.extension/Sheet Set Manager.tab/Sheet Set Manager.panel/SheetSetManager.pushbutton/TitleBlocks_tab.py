@@ -102,12 +102,14 @@ class TitleBlocksTab(object):
             height = '{}"'.format(round(data['height']*12, 2))
             center_x = '{}"'.format(round(data['center_x']*12, 2))
             center_y = '{}"'.format(round(data['center_y']*12, 2))
+            margin = '{}"'.format(round(data['margin']*12, 2))
 
         # Set the details in the UI
         self.main.TitleBlockDetails_Width.Text = width
         self.main.TitleBlockDetails_Height.Text = height
         self.main.TitleBlockDetails_CenterX.Text = center_x
         self.main.TitleBlockDetails_CenterY.Text = center_y
+        self.main.TitleBlockDetails_Margin.Text = margin
 
         return None
 
@@ -234,6 +236,15 @@ class TitleBlocksTab(object):
                 self.main.doc.Delete(temp_sheet.Id)
 
 
+        margin_inches = forms.ask_for_number_slider(
+            default=1.5,
+            min=0.0,
+            max=3.0,
+            interval=0.25,
+            prompt="Set the margin for the drawing area (in inches):",
+            title="Drawing Area Margin",
+            )
+
         data = {}
 
         # Calculate the width, height, and center of the drawing area
@@ -241,6 +252,7 @@ class TitleBlocksTab(object):
         data['height'] = round(abs(top_right_corner.Y - bottom_left_corner.Y), 3)
         data['center_x'] = round(((bottom_left_corner.X + top_right_corner.X) / 2.0), 3)
         data['center_y'] = round(((bottom_left_corner.Y + top_right_corner.Y) / 2.0), 3)
+        data['margin'] = round(margin_inches / 12.0, 3)  # Convert inches to feet
 
 
         # Store the title_block configuration in the Extensible Storage

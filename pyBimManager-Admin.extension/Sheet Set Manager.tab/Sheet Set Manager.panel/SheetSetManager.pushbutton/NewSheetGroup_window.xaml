@@ -9,8 +9,6 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -35,22 +33,16 @@
         <TextBlock Text="View Type:" Grid.Row="3" Grid.Column="0" Margin="0,0,10,10" VerticalAlignment="Center"/>
         <ComboBox x:Name="ViewTypeComboBox" Grid.Row="3" Grid.Column="1" Margin="0,0,0,10" MinWidth="200"/>
 
-        <TextBlock Text="Levels:" Grid.Row="4" Grid.Column="0" Margin="0,0,10,10" VerticalAlignment="Center"/>
-        <ListBox x:Name="LevelsListBox" SelectionMode="Extended" Grid.Row="4" Grid.Column="1" Margin="0,0,0,10" MinWidth="200"/>
+        <TextBlock Text="View Name Template:" Grid.Row="4" Grid.Column="0" Margin="0,0,10,10" VerticalAlignment="Center"/>
+        <TextBox x:Name="ViewNameTemplateTextBox" Grid.Row="4" Grid.Column="1" Margin="0,0,0,10" MinWidth="200"/>
 
-        <TextBlock Text="Scope Boxes:" Grid.Row="5" Grid.Column="0" Margin="0,0,10,10" VerticalAlignment="Center"/>
-        <ListBox x:Name="ScopeBoxesListBox" SelectionMode="Extended" Grid.Row="5" Grid.Column="1" Margin="0,0,0,10" MinWidth="200"/>
+        <TextBlock Text="Sheet Number Template:" Grid.Row="5" Grid.Column="0" Margin="0,0,10,10" VerticalAlignment="Center"/>
+        <TextBox x:Name="SheetNumberTemplateTextBox" Grid.Row="5" Grid.Column="1" Margin="0,0,0,10" MinWidth="200"/>
 
-        <TextBlock Text="View Name Template:" Grid.Row="6" Grid.Column="0" Margin="0,0,10,10" VerticalAlignment="Center"/>
-        <TextBox x:Name="ViewNameTemplateTextBox" Grid.Row="6" Grid.Column="1" Margin="0,0,0,10" MinWidth="200"/>
+        <TextBlock Text="Sheet Name Template:" Grid.Row="6" Grid.Column="0" Margin="0,0,10,10" VerticalAlignment="Center"/>
+        <TextBox x:Name="SheetNameTemplateTextBox" Grid.Row="6" Grid.Column="1" Margin="0,0,0,10" MinWidth="200"/>
 
-        <TextBlock Text="Sheet Number Template:" Grid.Row="7" Grid.Column="0" Margin="0,0,10,10" VerticalAlignment="Center"/>
-        <TextBox x:Name="SheetNumberTemplateTextBox" Grid.Row="7" Grid.Column="1" Margin="0,0,0,10" MinWidth="200"/>
-
-        <TextBlock Text="Sheet Name Template:" Grid.Row="8" Grid.Column="0" Margin="0,0,10,10" VerticalAlignment="Center"/>
-        <TextBox x:Name="SheetNameTemplateTextBox" Grid.Row="8" Grid.Column="1" Margin="0,0,0,10" MinWidth="200"/>
-
-        <StackPanel Grid.Row="10" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+        <StackPanel Grid.Row="8" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
             <Button IsDefault="True" x:Name="OkButton" Content="OK" Width="75" Height="23" Margin="0,0,10,0"/>
             <Button IsCancel="True" x:Name="CancelButton" Content="Cancel" Width="75" Height="23"/>
         </StackPanel>

@@ -1,14 +1,12 @@
 from pyrevit import revit, forms
-from Autodesk.Revit.DB import ElementId
+from Autodesk.Revit.DB import ElementId, ViewPlan, ViewSheet, Viewport, XYZ
 from NewSheetGroup_window import NewSheetGroupWindow
 
 
 class SheetGroupsTab(object):
 
     def __init__(self, main_window):
-        '''
-        Initialize the Sheet Groups tab.
-        '''
+
         # Register parent window and schema
         self.main = main_window
         self.schema = self.main.get_schema('SheetGroups')
@@ -18,6 +16,7 @@ class SheetGroupsTab(object):
         self.main.RenameSheetGroup.Click += self.rename_sheet_group
         self.main.EditSheetGroup.Click += self.edit_sheet_group
         self.main.DeleteSheetGroup.Click += self.delete_sheet_group
+        self.main.CreateViewsSheets.Click += self.create_views_sheets
 
         self.main.SheetGroupsListBox.SelectionChanged += self.update_details
 
@@ -31,20 +30,52 @@ class SheetGroupsTab(object):
                     sheet_group_data['sector_group_name']
                     ),
 
-            # self.main.SheetGroupDetails_TitleBlockFamily:
-            #     lambda sheet_group_data: str(
-            #         sheet_group_data['title_block_family']
-            #         ),
+            self.main.SheetGroupDetails_TitleBlockFamily:
+                lambda sheet_group_data: str(
+                    self.main.get_element(
+                        self.main.sector_groups[sheet_group_data['sector_group_name']]['title_block_id']
+                        ).FamilyName
+                    ),
 
-            # self.main.SheetGroupDetails_TitleBlockType:
-            #     lambda sheet_group_data: str(
-            #         sheet_group_data['title_block_type']
-            #         ),
+            self.main.SheetGroupDetails_TitleBlockType:
+                lambda sheet_group_data: str(
+                    self.main.get_element(
+                        self.main.sector_groups[sheet_group_data['sector_group_name']]['title_block_id']
+                        ).LookupParameter('Type Name').AsString()
+                    ),
 
-            # self.main.SheetGroupDetails_ViewScale:
-            #     lambda sheet_group_data: str(
-            #         sheet_group_data['view_scale']
-            #         ),
+            self.main.SheetGroupDetails_OverallScopeBox:
+                lambda sheet_group_data: str(
+                    self.main.get_element(
+                        self.main.sector_groups[sheet_group_data['sector_group_name']]['overall_scope_box_id']
+                    ).Name
+                ),
+
+            self.main.SheetGroupDetails_OverallViewScale:
+                lambda sheet_group_data: str(
+                    self.main.sector_groups[sheet_group_data['sector_group_name']]['overall_view_scale']
+                    ),
+
+            self.main.SheetGroupDetails_SectorScopeBoxes:
+                lambda sheet_group_data: str(
+                    ', '.join([
+                            self.main.get_element(sb_id).Name
+                            for sb_id in self.main.sector_groups[sheet_group_data['sector_group_name']]['sector_scope_box_ids']
+                        ])
+                    ),
+
+            self.main.SheetGroupDetails_SectorViewScale:
+                lambda sheet_group_data: str(
+                    self.main.sector_groups[sheet_group_data['sector_group_name']]['sector_view_scale']
+                    ),
+
+            self.main.SheetGroupDetails_Levels:
+                lambda sheet_group_data: str(
+                    ', '.join([
+                            self.main.get_element(lvl_id).Name
+                            for lvl_id in self.main.sector_groups[sheet_group_data['sector_group_name']]['level_ids']
+                        ])
+                    ),
 
             self.main.SheetGroupDetails_ViewFamily:
                 lambda sheet_group_data: str(
@@ -54,16 +85,6 @@ class SheetGroupsTab(object):
             self.main.SheetGroupDetails_ViewType:
                 lambda sheet_group_data: str(
                     self.main.get_element(sheet_group_data['view_type_id']).Name
-                    ),
-
-            self.main.SheetGroupDetails_Levels:
-                lambda sheet_group_data: str(
-                    ', '.join([ self.main.get_element(lvl_id).Name for lvl_id in sheet_group_data['level_ids'] ])
-                    ),
-
-            self.main.SheetGroupDetails_ScopeBoxes:
-                lambda sheet_group_data: str(
-                    ', '.join([ self.main.get_element(sb_id).Name for sb_id in sheet_group_data['scope_box_ids'] ])
                     ),
 
             self.main.SheetGroupDetails_ViewNameTemplate:
@@ -141,23 +162,6 @@ class SheetGroupsTab(object):
 
         return None
 
-
-    def update_details(self, sender, args):
-        sg_name = self.main.SheetGroupsListBox.SelectedItem
-
-        if not sg_name:
-            for field,value in self.ui_fields.items():
-                field.Text = ''
-
-                return None
-
-        sg_data = self.main.sheet_groups[sg_name]
-
-        for field,value in self.ui_fields.items():
-            field.Text = value(sg_data) if value(sg_data) else ''
-            
-        return None
-    
 
     def update_details(self, sender, args):
         sg_name = self.main.SheetGroupsListBox.SelectedItem
@@ -264,5 +268,92 @@ class SheetGroupsTab(object):
 
             self.set_data()
 
+        self.main.SheetGroupsListBox.SelectedItem = None
         self.update_lists()
         self.update_details(sender, args)
+
+
+
+
+
+
+    def create_views_sheets(self, sender, args):
+        
+        name = self.main.SheetGroupsListBox.SelectedItem
+        data = self.main.sheet_groups[name]
+
+        sector_group_name = data['sector_group_name']
+        sector_group_data = self.main.sector_groups[sector_group_name]
+
+        overall_scope_box = self.main.get_element(sector_group_data['overall_scope_box_id'])
+        overall_view_scale = sector_group_data['overall_view_scale']
+
+        sector_scope_boxes = [ self.main.get_element(sb_id) for sb_id in sector_group_data['sector_scope_box_ids'] ]
+        sector_view_scale = sector_group_data['sector_view_scale']
+
+        levels = [ self.main.get_element(lvl_id) for lvl_id in sector_group_data['level_ids'] ]
+
+        title_block = self.main.get_element(sector_group_data['title_block_id'])
+        tb_data = self.main.title_blocks_tab.get_data(title_block)
+        tb_center = XYZ(tb_data['center_x'], tb_data['center_y'], 0)
+
+        view_family_type = self.main.get_element(data['view_type_id'])
+        view_name_template_str = data['view_name_template_str']
+        sheet_number_template_str = data['sheet_number_template_str']
+        sheet_name_template_str = data['sheet_name_template_str']
+        
+        # Wrap document modifications in a transaction
+        with revit.Transaction('Sheet Set Manager - Generate Views, Sheets, and Viewports'):
+
+            created_views = []
+            created_sheets = []
+
+            # Create Views, Sheets, and Viewports for each combination of level and scope box
+            for level in levels:
+                for scope_box in sector_scope_boxes:
+
+                        # safely expose the level and scope box names for use in naming templates
+                        level_name = level.Name
+                        scope_box_name = scope_box.Name
+
+                        # Create View
+                        new_view = ViewPlan.Create(self.main.doc, view_family_type.Id, level.Id)
+                        new_view.Name = eval(view_name_template_str)
+                        new_view.LookupParameter('Scope Box').Set(scope_box.Id)
+                        created_views.append(new_view)
+                        # Set the View's scale
+                        new_view.Scale = sector_view_scale
+                        # Enable annotation crop
+                        new_view.LookupParameter('Annotation Crop').Set(True)  # Enable annotation crop
+                        # Hide annotations temporarily to set the viewport box center
+                        new_view.AreAnnotationCategoriesHidden = True
+
+                        # Create Sheet
+                        new_sheet = ViewSheet.Create(self.main.doc, title_block.Id)
+                        new_sheet.SheetNumber = eval(sheet_number_template_str)
+                        new_sheet.Name = eval(sheet_name_template_str)
+                        created_sheets.append(new_sheet)
+                        
+                        # Create Viewport
+                        new_viewport = Viewport.Create(self.main.doc, new_sheet.Id, new_view.Id, tb_center)
+
+        with revit.Transaction('Sheet Set Manager - Align Viewport to Title Block'):
+            
+            # Align Viewport to Title Block
+            for sheet in created_sheets:
+                # Get the first viewport of the sheet
+                vp = self.main.doc.GetElement(sheet.GetAllViewports()[0])
+                # Get the View associated with the Viewport
+                vp_view = self.main.doc.GetElement(vp.ViewId)
+                # Set the Viewport box center to the Title Block center
+                vp.SetBoxCenter(tb_center)
+                # Restore annotation visibility
+                vp_view.AreAnnotationCategoriesHidden = False
+
+        self.main.sheet_groups[name]['view_ids'] = [ v.Id.IntegerValue for v in created_views ]
+        self.main.sheet_groups[name]['sheet_ids'] = [ s.Id.IntegerValue for s in created_sheets ]
+
+        self.set_data()
+        self.update_lists()
+        self.update_details(sender, args)
+        forms.alert('Views, Sheets, and Viewports created successfully.')

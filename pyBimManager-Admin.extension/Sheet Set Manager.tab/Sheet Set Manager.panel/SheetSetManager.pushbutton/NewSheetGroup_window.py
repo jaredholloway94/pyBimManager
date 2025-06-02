@@ -1,5 +1,4 @@
-from pyrevit import revit, forms
-from Autodesk.Revit.DB import ElementId, XYZ, ViewPlan, Viewport, ViewSheet
+from pyrevit import forms
 
 
 class NewSheetGroupWindow(forms.WPFWindow):
@@ -12,33 +11,30 @@ class NewSheetGroupWindow(forms.WPFWindow):
         self.main = parent.main
 
         # Initialize lists
-        self.NameTextBox.Text = 'A1 - Sector Floor Plans'
+        self.NameTextBox.Text = None
 
         self.SectorGroupComboBox.ItemsSource = sorted(self.main.sector_groups.keys())
-        self.SectorGroupComboBox.SelectedItem = 'Sector Plans'
+        self.SectorGroupComboBox.SelectedItem = None
 
         self.ViewFamilyComboBox.ItemsSource = sorted(list(filter(
             lambda x: 'Plan' in x,
             self.main.view_family_types.keys()
             )))
         
-        self.ViewFamilyComboBox.SelectedItem = 'FloorPlan'
+        self.ViewFamilyComboBox.SelectedItem = None
+        self.ViewFamilyComboBox.SelectionChanged += self.update_view_family_types_list
 
-        self.ViewTypeComboBox.ItemsSource = sorted(self.main.view_family_types['FloorPlan'].keys())
-        self.ViewTypeComboBox.SelectedItem = 'Architectural Plan'
+        self.update_view_family_types_list(None, None)
+        # self.ViewTypeComboBox.ItemsSource = []
+        # self.ViewTypeComboBox.SelectedItem = None
 
-        self.LevelsListBox.ItemsSource = sorted(self.main.levels.keys())
-        self.ScopeBoxesListBox.ItemsSource = sorted(self.main.scope_boxes.keys())
-
-        self.ViewNameTemplateTextBox.Text = "level_name+' - '+scope_box_name"
-        self.SheetNumberTemplateTextBox.Text = '"A1-"+level_name[0:3]+scope_box_name[-1]'
-        self.SheetNameTemplateTextBox.Text = '"FLOOR PLAN - "+level_name+" - "+scope_box_name'
+        self.ViewNameTemplateTextBox.Text = 'level_name  +  " - "  +  scope_box_name'
+        self.SheetNumberTemplateTextBox.Text = '"A1-"  +  level_name[0:3]  +  scope_box_name[-1]'
+        self.SheetNameTemplateTextBox.Text = '"FLOOR PLAN - "  +  level_name  +  " - "  +  scope_box_name'
 
         # Register UI Event Handlers
         self.OkButton.Click += self.ok_clicked
         self.CancelButton.Click += self.cancel_clicked
-        
-        self.ViewFamilyComboBox.SelectionChanged += self.update_view_family_types_list
 
         return None
 
@@ -47,9 +43,6 @@ class NewSheetGroupWindow(forms.WPFWindow):
         view_family = self.ViewFamilyComboBox.SelectedItem
         if view_family in self.main.view_family_types:
             self.ViewTypeComboBox.ItemsSource = sorted(self.main.view_family_types[view_family].keys())
-        else:
-            self.ViewTypeComboBox.ItemsSource = []
-            self.ViewTypeComboBox.SelectedItem = None
 
 
     def get_name(self):
@@ -88,24 +81,24 @@ class NewSheetGroupWindow(forms.WPFWindow):
         return view_family_type
 
 
-    def get_levels(self):
-        level_names = self.LevelsListBox.SelectedItems
-        levels = [self.main.levels[name] for name in level_names]
+    # def get_levels(self):
+    #     level_names = self.LevelsListBox.SelectedItems
+    #     levels = [self.main.levels[name] for name in level_names]
 
-        if not levels:
-            forms.alert("Please select at least one level.")
+    #     if not levels:
+    #         forms.alert("Please select at least one level.")
 
-        return levels
+    #     return levels
     
 
-    def get_scope_boxes(self):
-        scope_box_names = self.ScopeBoxesListBox.SelectedItems
-        scope_boxes = [self.main.scope_boxes[name] for name in scope_box_names]
+    # def get_scope_boxes(self):
+    #     scope_box_names = self.ScopeBoxesListBox.SelectedItems
+    #     scope_boxes = [self.main.scope_boxes[name] for name in scope_box_names]
 
-        if not scope_boxes:
-            forms.alert("Please select at least one Scope Box.")
+    #     if not scope_boxes:
+    #         forms.alert("Please select at least one Scope Box.")
 
-        return scope_boxes
+    #     return scope_boxes
 
 
     def get_view_name_template_str(self):
@@ -135,28 +128,28 @@ class NewSheetGroupWindow(forms.WPFWindow):
         return sheet_name_template_str
 
 
-    def get_title_block(self, sector_group_name):
-        sg_data = self.main.sector_groups[sector_group_name]
-        title_block = self.main.get_element(sg_data['title_block_id'])
+    # def get_title_block(self, sector_group_name):
+    #     sg_data = self.main.sector_groups[sector_group_name]
+    #     title_block = self.main.get_element(sg_data['title_block_id'])
 
-        return title_block
-
-
-    def get_title_block_center(self, title_block):
-        tb_data = self.main.title_blocks_tab.get_data(title_block)
-        tb_center = XYZ(tb_data['center_x'], tb_data['center_y'], 0)
-
-        return tb_center
+    #     return title_block
 
 
-    def get_view_scale(self, sector_group_name):
-        sg_data = self.main.sector_groups[sector_group_name]
+    # def get_title_block_center(self, title_block):
+    #     tb_data = self.main.title_blocks_tab.get_data(title_block)
+    #     tb_center = XYZ(tb_data['center_x'], tb_data['center_y'], 0)
 
-        view_scale = sg_data['view_scale']
-        if not view_scale:
-            forms.alert("Please enter a View Scale.")
+    #     return tb_center
 
-        return view_scale
+
+    # def get_view_scale(self, sector_group_name):
+    #     sg_data = self.main.sector_groups[sector_group_name]
+
+    #     view_scale = sg_data['view_scale']
+    #     if not view_scale:
+    #         forms.alert("Please enter a View Scale.")
+
+    #     return view_scale
     
 
     def ok_clicked(self, sender, args):
@@ -164,71 +157,21 @@ class NewSheetGroupWindow(forms.WPFWindow):
         # Get and validate inputs from the UI
         name = self.get_name()
         sector_group_name = self.get_sector_group_name()
-        view_scale = self.get_view_scale(sector_group_name)
-        title_block = self.get_title_block(sector_group_name)
-        tb_center = self.get_title_block_center(title_block)
         view_family_type = self.get_view_family_type()
-        levels = self.get_levels()
-        scope_boxes = self.get_scope_boxes()
         view_name_template_str = self.get_view_name_template_str()
         sheet_number_template_str = self.get_sheet_number_template_str()
         sheet_name_template_str = self.get_sheet_name_template_str()
-
-        # Wrap document modifications in a transaction
-        with revit.Transaction('Sheet Set Manager - Generate Views, Sheets, and Viewports'):
-
-            created_views = []
-            created_sheets = []
-
-            # Create Views, Sheets, and Viewports for each combination of level and scope box
-            for level in levels:
-                for scope_box in scope_boxes:
-
-                        # safely expose the level and scope box names for use in naming templates
-                        level_name = level.Name
-                        scope_box_name = scope_box.Name
-
-                        # Create View
-                        new_view = ViewPlan.Create(self.main.doc, view_family_type.Id, level.Id)
-                        new_view.Name = eval(view_name_template_str)
-                        new_view.LookupParameter('Scope Box').Set(scope_box.Id)
-                        created_views.append(new_view)
-                        
-                        # Create Sheet
-                        new_sheet = ViewSheet.Create(self.main.doc, title_block.Id)
-                        new_sheet.SheetNumber = eval(sheet_number_template_str)
-                        new_sheet.Name = eval(sheet_name_template_str)
-                        created_sheets.append(new_sheet)
-                        
-                        # Create Viewport
-                        new_viewport = Viewport.Create(self.main.doc, new_sheet.Id, new_view.Id, tb_center)
-
-
-        with revit.Transaction('Sheet Set Manager - Align Viewport to Title Block'):
-            
-            # Align Viewport to Title Block
-            for sheet in created_sheets:
-                vp = self.main.doc.GetElement(sheet.GetAllViewports()[0])
-                vp_view = self.main.doc.GetElement(vp.ViewId)
-                vp_view.AreAnnotationCategoriesHidden = True
-                vp.SetBoxCenter(tb_center)
-                vp_view.AreAnnotationCategoriesHidden = False
-                vp_view.LookupParameter('Annotation Crop').Set(True)  # Enable annotation crop
-
-
 
         # Cache Sheet Group data in main window object. It will be committed to storage from there.
         self.main.sheet_groups[name] = {
             'name': name,
             'sector_group_name': sector_group_name,
             'view_type_id': view_family_type.Id.IntegerValue,
-            'level_ids': [level.Id.IntegerValue for level in levels],
-            'scope_box_ids': [scope_box.Id.IntegerValue for scope_box in scope_boxes],
             'view_name_template_str': view_name_template_str,
             'sheet_number_template_str': sheet_number_template_str,
             'sheet_name_template_str': sheet_name_template_str,
-            'view_ids': [view.Id.IntegerValue for view in created_views],
-            'sheet_ids': [sheet.Id.IntegerValue for sheet in created_sheets]
+            'view_ids': [],
+            'sheet_ids': []
             }
 
         self.DialogResult = True

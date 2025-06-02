@@ -15,78 +15,66 @@ class EditSectorGroupWindow(forms.WPFWindow):
         self.parent = parent
         self.main = parent.main
 
-        self.ui_fields = {
+        # Initialize UI fields with Sector Group data
+        self.name = self.main.SectorGroupsListBox.SelectedItem
+        self.data = self.main.sector_groups[self.name]
 
-            self.main.SectorGroupDetails_TitleBlockFamily:
-                lambda sector_group_data: str(
-                    self.main.get_element(sector_group_data['title_block_id']).FamilyName
-                    ),
-
-            self.main.SectorGroupDetails_TitleBlockType:
-                lambda sector_group_data: str(
-                    self.main.get_element(sector_group_data['title_block_id']).LookupParameter('Type Name').AsString()
-                    ),
-
-            self.main.SectorGroupDetails_OverallScopeBox:
-                lambda sector_group_data: str(
-                    self.main.get_element(sector_group_data['overall_scope_box_id']).Name
-                    ),
-
-            self.main.SectorGroupDetails_OverallViewScale:
-                lambda sector_group_data: str(
-                    '1 : {}'.format(sector_group_data['overall_view_scale'])
-                    ),
-
-            self.main.SectorGroupDetails_SectorScopeBoxes:
-                lambda sector_group_data: str(
-                    ', '.join([ self.main.get_element(sb_id).Name for sb_id in sector_group_data['sector_scope_box_ids'] ])
-                    ),
-
-            self.main.SectorGroupDetails_SectorViewScale:
-                lambda sector_group_data: str(
-                    '1 : {}'.format(sector_group_data['sector_view_scale'])
-                    ),
-
-            self.main.SectorGroupDetails_Levels:
-                lambda sector_group_data: str(
-                    ', '.join([ self.main.get_element(level_id).Name for level_id in sector_group_data['level_ids'] ])
-                    ),
-
-            self.main.SectorGroupDetails_ReferencePlaneIds:
-                lambda sector_group_data: str(
-                    ', '.join([ str(rp_id) for rp_id in sector_group_data['reference_plane_ids'] ])
-                    ),
-            
-            }
+        self.title_block = self.main.get_element(self.data['title_block_id'])
+        self.overall_scope_box = self.main.get_element(self.data['overall_scope_box_id'])
+        self.overall_view_scale = self.data['overall_view_scale']
+        self.sector_scope_boxes = [ self.main.get_element(id) for id in self.data['sector_scope_box_ids'] ]
+        self.sector_view_scale = self.data['sector_view_scale']
+        self.levels = [ self.main.get_element(id) for id in self.data['level_ids'] ]
+        if self.data['reference_plane_ids']:
+            self.reference_planes = [ self.main.get_element(id) for id in self.data['reference_plane_ids'] ]
+        else:
+            self.reference_planes = []
 
 
-        sg_name = self.main.SectorGroupsListBox.SelectedItem
-        sg_data = self.main.sector_groups[sg_name]
+        #   Name
+        self.NameTextBox.Text = self.name
+        self.NameTextBox.IsEnabled = False
 
-        # Initialize lists
+        #   Title Block
         self.TitleBlockComboBox.ItemsSource = sorted(self.main.configured_title_blocks.keys())
-        self.TitleBlockComboBox.SelectedItem = sg_data['title_block_id']
+        self.TitleBlockComboBox.SelectedItem = self.main.display_name(self.title_block)
+
+        #   Overall Scope Box
         self.OverallScopeBoxComboBox.ItemsSource = sorted(self.main.scope_boxes.keys())
-        self.OverallScopeBoxComboBox.OnSelectionChanged += self.update_sector_scope_boxes_list
-        self.SectorScopeBoxesListBox.ItemsSource = []
+        self.OverallScopeBoxComboBox.SelectedItem = self.overall_scope_box.Name
+        self.OverallScopeBoxComboBox.SelectionChanged += self.update_sector_scope_boxes_list
+
+        #   Overall View Scale
+        self.OverallViewScaleTextBox.Text = str(self.overall_view_scale)
+
+        #   Sector Scope Boxes
+        self.SectorScopeBoxesListBox.ItemsSource = sorted([ sb_name for sb_name in self.main.scope_boxes.keys() if sb_name != self.overall_scope_box.Name ])
+        # for i, sb_name in enumerate(self.SectorScopeBoxesListBox.Items):
+        #     if sb_name in [ sb.Name for sb in self.sector_scope_boxes ]:
+                # self.SectorScopeBoxesListBox.SetSelected(i, True)
+
+        #   Sector View Scale
+        self.SectorViewScaleTextBox.Text = str(self.sector_view_scale)
+
+        #   Levels
         self.LevelsListBox.ItemsSource = sorted(self.main.levels.keys())
+        # for i, level_name in enumerate(self.LevelsListBox.Items):
+        #     if level_name in [ level.Name for level in self.levels ]:
+        #         self.LevelsListBox.SetSelected(i, True)
+
 
         # Register UI Event Handlers
         self.OkButton.Click += self.ok_clicked
         self.CancelButton.Click += self.cancel_clicked
 
         return
-
+    
 
     #### Input Validation ####
 
 
     def get_name(self):
         name = self.NameTextBox.Text.strip()
-
-        if name in self.main.sector_groups:
-            forms.alert('A sector group with this name already exists.')
-            return None
 
         return name
 
@@ -189,14 +177,16 @@ class EditSectorGroupWindow(forms.WPFWindow):
         title_block = self.get_title_block()
         overall_scope_box = self.get_overall_scope_box()
         overall_view_scale = self.get_overall_view_scale()
+        sector_scope_boxes = self.get_sector_scope_boxes()
         sector_view_scale = self.get_sector_view_scale()
+        levels = self.get_levels()
         create_ref_planes = self.get_create_ref_planes()
 
         # If user checked 'Create Reference Planes', create the reference planes
         # Otherwise, store an empty list
-        reference_planes = []
+        reference_planes = self.reference_planes
         if create_ref_planes:
-
+            reference_planes = []
             # Do geometry calculations
             tb_data = self.main.title_blocks_tab.get_data(title_block)
             paper_space_vp_width = tb_data['width']
@@ -245,10 +235,10 @@ class EditSectorGroupWindow(forms.WPFWindow):
             'title_block_id': title_block.Id.IntegerValue,
             'overall_scope_box_id': overall_scope_box.Id.IntegerValue,
             'overall_view_scale': overall_view_scale,
-            'sector_scope_box_ids': [],
+            'sector_scope_box_ids': [ sb.Id.IntegerValue for sb in sector_scope_boxes ],
             'sector_view_scale': sector_view_scale,
-            'level_ids': [],
-            'reference_plane_ids': [rp.Id.IntegerValue for rp in reference_planes],
+            'level_ids': [ level.Id.IntegerValue for level in levels ],
+            'reference_plane_ids': [ rp.Id.IntegerValue for rp in reference_planes ],
             }
         
         self.DialogResult = True

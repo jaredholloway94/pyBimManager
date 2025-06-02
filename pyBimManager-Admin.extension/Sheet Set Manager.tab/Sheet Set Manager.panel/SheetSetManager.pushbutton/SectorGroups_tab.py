@@ -20,7 +20,7 @@ class SectorGroupsTab(object):
 
         # Register UI Event Handlers
         self.main.NewSectorGroup.Click += self.new_sector_group
-        # self.main.RenameSectorGroup.Click += self.rename_sector_group
+        self.main.RenameSectorGroup.Click += self.rename_sector_group
         # self.main.AssociateScopeBoxes.Click += self.associate_scope_boxes
         # self.main.AssociateLevels.Click += self.associate_levels
         self.main.EditSectorGroup.Click += self.edit_sector_group
@@ -138,7 +138,8 @@ class SectorGroupsTab(object):
         sg_data = self.main.sector_groups[sg_name]
 
         for field,value in self.ui_fields.items():
-            field.Text = value(sg_data) if value(sg_data) else ''
+            try: field.Text = value(sg_data)
+            except: field.Text = ''
             
         return None
 
@@ -233,40 +234,40 @@ class SectorGroupsTab(object):
 
             self.set_data()
 
+        self.main.SectorGroupsListBox.SelectedItem = None
         self.update_lists()
-        self.main.SectorGroupsListBox.SelectedIndex = -1
         self.update_details(sender, args)
 
         return None
     
 
-    # def rename_sector_group(self, sender, args): 
+    def rename_sector_group(self, sender, args): 
 
-    #     sg_name = self.main.SectorGroupsListBox.SelectedItem
-    #     sg_data = self.main.sector_groups[sg_name]
+        sg_name = self.main.SectorGroupsListBox.SelectedItem
+        sg_data = self.main.sector_groups[sg_name]
 
-    #     new_name = forms.ask_for_string(
-    #         prompt='Enter a new name for the Sector Group "{}":'.format(sg_name),
-    #         default=sg_name,
-    #         title='Rename Sector Group'
-    #         )
+        new_name = forms.ask_for_string(
+            prompt='Enter a new name for the Sector Group "{}":'.format(sg_name),
+            default=sg_name,
+            title='Rename Sector Group'
+            )
         
-    #     if not new_name:
-    #         forms.alert('You must enter a name for the Sector Group.')
-    #         return None
+        if not new_name:
+            forms.alert('You must enter a name for the Sector Group.')
+            return None
         
-    #     if new_name in self.main.sector_groups:
-    #         forms.alert('A Sector Group with the name "{}" already exists.'.format(new_name))
-    #         return None
+        if new_name in self.main.sector_groups:
+            forms.alert('A Sector Group with the name "{}" already exists.'.format(new_name))
+            return None
         
-    #     self.main.sector_groups[new_name] = self.main.sector_groups.pop(sg_name)
+        self.main.sector_groups[new_name] = self.main.sector_groups.pop(sg_name)
 
-    #     self.set_data()
-    #     self.update_lists()
-    #     self.main.SectorGroupsListBox.SelectedItem = new_name
-    #     self.update_details(sender, args)
+        self.set_data()
+        self.update_lists()
+        self.main.SectorGroupsListBox.SelectedItem = new_name
+        self.update_details(sender, args)
 
-    #     return None
+        return None
 
 
     # def associate_scope_boxes(self, sender, args):

@@ -1,6 +1,7 @@
 from pyrevit import revit, forms
 from Autodesk.Revit.DB import FilteredElementCollector, BuiltInCategory, ViewFamilyType, ElementId
 from Autodesk.Revit.DB.ExtensibleStorage import Schema, SchemaBuilder, AccessLevel, Entity
+from collections import OrderedDict
 from System import Guid
 import json
 
@@ -84,6 +85,71 @@ class SheetSetManagerWindow(forms.WPFWindow):
             if view_family not in self.view_family_types:
                 self.view_family_types[view_family] = {}
             self.view_family_types[view_family][vft.Name] = vft
+        
+        # View Scales
+        self.view_scales = OrderedDict({
+            "12\" = 1\'"     : 1,
+            "6\" = 1\'"      : 2,
+            "3\" = 1\'"      : 4,
+            "1 1/2\" = 1\'"  : 8,
+            "1\" = 1\'"      : 12,
+            "3/4\" = 1\'"    : 16,
+            "1/2\" = 1\'"    : 24,
+            "3/8\" = 1\'"    : 32,
+            "1/4\" = 1\'"    : 48,
+            "3/16\" = 1\'"   : 64,
+            "1/8\" = 1\'"    : 96,
+            "1\" = 10\'"     : 120,
+            "3/32\" = 1\'"   : 128,
+            "1/16\" = 1\'"   : 192,
+            "1\" = 20\'"     : 240,
+            "3/64\" = 1\'"   : 256,
+            "1\" = 30\'"     : 360,
+            "1/32\" = 1\'"   : 384,
+            "1\" = 40\'"     : 480,
+            "1\" = 50\'"     : 600,
+            "1\" = 60\'"     : 720,
+            "1/64\" = 1\'"   : 768,
+            "1\" = 80\'"     : 960,
+            "1\" = 100\'"    : 1200,
+            "1\" = 160\'"    : 1920,
+            "1\" = 200\'"    : 2400,
+            "1\" = 300\'"    : 3600,
+            "1\" = 400\'"    : 4800,
+        })
+
+        # View Scales (as a list to preserve order)
+        self.view_scales_list = [
+            "12\" = 1\'",
+            "6\" = 1\'",
+            "3\" = 1\'",
+            "1 1/2\" = 1\'",
+            "1\" = 1\'",
+            "3/4\" = 1\'",
+            "1/2\" = 1\'",
+            "3/8\" = 1\'",
+            "1/4\" = 1\'",
+            "3/16\" = 1\'",
+            "1/8\" = 1\'",
+            "1\" = 10\'",
+            "3/32\" = 1\'",
+            "1/16\" = 1\'",
+            "1\" = 20\'",
+            "3/64\" = 1\'",
+            "1\" = 30\'",
+            "1/32\" = 1\'",
+            "1\" = 40\'",
+            "1\" = 50\'",
+            "1\" = 60\'",
+            "1/64\" = 1\'",
+            "1\" = 80\'",
+            "1\" = 100\'",
+            "1\" = 160\'",
+            "1\" = 200\'",
+            "1\" = 300\'",
+            "1\" = 400\'",
+            'Custom'
+        ]
 
         # Register UI Tabs
         self.title_blocks_tab = TitleBlocksTab(self)

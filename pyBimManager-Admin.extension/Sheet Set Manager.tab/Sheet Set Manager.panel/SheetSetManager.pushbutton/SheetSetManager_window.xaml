@@ -47,6 +47,7 @@
                                     <RowDefinition Height="Auto" MinHeight="22" />
                                     <RowDefinition Height="Auto" MinHeight="22" />
                                     <RowDefinition Height="Auto" MinHeight="22" />
+                                    <RowDefinition Height="Auto" MinHeight="22" />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
@@ -58,19 +59,23 @@
                                 <Border Grid.Row="1" Grid.ColumnSpan="2" Background="#F3F3F3"/>
                                 <Border Grid.Row="2" Grid.ColumnSpan="2" Background="#FFF"/>
                                 <Border Grid.Row="3" Grid.ColumnSpan="2" Background="#F3F3F3"/>
+                                <Border Grid.Row="2" Grid.ColumnSpan="2" Background="#FFF"/>
 
                                 <!-- Actual Table Content for Details -->
-                                <TextBlock Grid.Row="0" Grid.Column="0" Text="Width" Margin="5,5,5,5" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="0" Grid.Column="1" Name="TitleBlockDetails_Width" Margin="5,5,5,5" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="Width" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="0" Grid.Column="1" Name="TitleBlockDetails_Width" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="1" Grid.Column="0" Text="Height" Margin="5,5,5,5" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="1" Grid.Column="1" Name="TitleBlockDetails_Height" Margin="5,5,5,5" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="Height" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="1" Grid.Column="1" Name="TitleBlockDetails_Height" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="2" Grid.Column="0" Text="Center X" Margin="5,5,5,5" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="2" Grid.Column="1" Name="TitleBlockDetails_CenterX" Margin="5,5,5,5" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="2" Grid.Column="0" Text="Center X" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="2" Grid.Column="1" Name="TitleBlockDetails_CenterX" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="3" Grid.Column="0" Text="Center Y" Margin="5,5,5,5" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="3" Grid.Column="1" Name="TitleBlockDetails_CenterY" Margin="5,5,5,5" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="3" Grid.Column="0" Text="Center Y" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="3" Grid.Column="1" Name="TitleBlockDetails_CenterY" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+
+                                <TextBlock Grid.Row="4" Grid.Column="0" Text="Margin" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="4" Grid.Column="1" Name="TitleBlockDetails_Margin" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
                             </Grid>
                         </ScrollViewer>
@@ -95,8 +100,8 @@
                     <!-- Buttons -->
                     <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,2,0,2">
                         <Button Name="NewSectorGroup" Content="New" Margin="0,0,5,0" Width="75" Height="23" />
-                        <!--
                         <Button Name="RenameSectorGroup" Content="Rename" Margin="0,0,5,0" Width="75" Height="23" />
+                        <!--
                         <Button Name="AssociateScopeBoxes" Content="Associate Scope Boxes" Margin="0,0,5,0" Width="150" Height="23" />
                         <Button Name="AssociateLevels" Content="Associate Levels" Margin="0,0,5,0" Width="150" Height="23" />
                         -->
@@ -187,10 +192,11 @@
                         <Button Name="RenameSheetGroup" Content="Rename" Margin="0,0,5,0" Width="75" Height="23" />
                         <Button Name="EditSheetGroup" Content="Edit" Margin="0,0,5,0" Width="75" Height="23" />
                         <Button Name="DeleteSheetGroup" Content="Delete" Margin="0,0,5,0" Width="75" Height="23" />
+                        <Button Name="CreateViewsSheets" Content="Create Views and Sheets" Margin="0,0,5,0" Width="150" Height="23" />
                     </StackPanel>
 
                     <!-- Details Pane for Sheet Groups (already correct, just update height) -->
-                    <Border Grid.Row="2" BorderBrush="Gray" BorderThickness="1" Margin="10" Height="300" Width="Auto">
+                    <Border Grid.Row="2" BorderBrush="Gray" BorderThickness="1" Margin="10" Height="Auto" Width="Auto">
                         <ScrollViewer VerticalScrollBarVisibility="Auto">
                             <Grid>
                                 
@@ -206,11 +212,10 @@
                                     <RowDefinition Height="Auto" MinHeight="22" />
                                     <RowDefinition Height="Auto" MinHeight="22" />
                                     <RowDefinition Height="Auto" MinHeight="22" />
-                                    <!--
-                                    <RowDefinition Height="22" />
-                                    <RowDefinition Height="22" />
-                                    <RowDefinition Height="22" />
-                                    -->
+                                    <RowDefinition Height="Auto" MinHeight="22" />
+                                    <RowDefinition Height="Auto" MinHeight="22" />
+                                    <RowDefinition Height="Auto" MinHeight="22" />
+                                    <RowDefinition Height="Auto" MinHeight="22" />
                                 </Grid.RowDefinitions>
                                 
                                 <Grid.ColumnDefinitions>
@@ -219,64 +224,68 @@
                                 </Grid.ColumnDefinitions>
 
                                 <!-- Alternating row backgrounds -->
-                                <Border Grid.Row="1" Grid.ColumnSpan="2" Background="#FFF"/>
-                                <Border Grid.Row="2" Grid.ColumnSpan="2" Background="#F3F3F3"/>
-                                <Border Grid.Row="3" Grid.ColumnSpan="2" Background="#FFF"/>
-                                <Border Grid.Row="4" Grid.ColumnSpan="2" Background="#F3F3F3"/>
-                                <Border Grid.Row="5" Grid.ColumnSpan="2" Background="#FFF"/>
-                                <Border Grid.Row="6" Grid.ColumnSpan="2" Background="#F3F3F3"/>
-                                <Border Grid.Row="7" Grid.ColumnSpan="2" Background="#FFF"/>
-                                <Border Grid.Row="8" Grid.ColumnSpan="2" Background="#F3F3F3"/>
-                                <Border Grid.Row="9" Grid.ColumnSpan="2" Background="#FFF"/>
-                                <Border Grid.Row="10" Grid.ColumnSpan="2" Background="#F3F3F3"/>
-                                <!--
-                                <Border Grid.Row="11" Grid.ColumnSpan="2" Background="#F3F3F3" />
-                                <Border Grid.Row="12" Grid.ColumnSpan="2" Background="#FFF" />
-                                <Border Grid.Row="13" Grid.ColumnSpan="2" Background="#F3F3F3" />
-                                -->
+                                <Border Grid.Row="00" Grid.ColumnSpan="2" Background="#FFF"/>
+                                <Border Grid.Row="01" Grid.ColumnSpan="2" Background="#F3F3F3"/>
+                                <Border Grid.Row="02" Grid.ColumnSpan="2" Background="#FFF"/>
+                                <Border Grid.Row="03" Grid.ColumnSpan="2" Background="#F3F3F3"/>
+                                <Border Grid.Row="04" Grid.ColumnSpan="2" Background="#FFF"/>
+                                <Border Grid.Row="05" Grid.ColumnSpan="2" Background="#F3F3F3"/>
+                                <Border Grid.Row="06" Grid.ColumnSpan="2" Background="#FFF"/>
+                                <Border Grid.Row="07" Grid.ColumnSpan="2" Background="#F3F3F3"/>
+                                <Border Grid.Row="08" Grid.ColumnSpan="2" Background="#FFF"/>
+                                <Border Grid.Row="09" Grid.ColumnSpan="2" Background="#F3F3F3"/>
+                                <Border Grid.Row="10" Grid.ColumnSpan="2" Background="#F3F3F3" />
+                                <Border Grid.Row="11" Grid.ColumnSpan="2" Background="#FFF" />
+                                <Border Grid.Row="12" Grid.ColumnSpan="2" Background="#F3F3F3" />
+                                <Border Grid.Row="13" Grid.ColumnSpan="2" Background="#FFF" />
+                                <Border Grid.Row="14" Grid.ColumnSpan="2" Background="#F3F3F3" />
 
                                 
                                 <!-- Table Data -->
-                                <TextBlock Grid.Row="01"  Grid.Column="0" Text="Sector Group" Margin="5,8,5,8" VerticalAlignment="Center" />
-                                <TextBlock Grid.Row="01"  Grid.Column="1" Name="SheetGroupDetails_SectorGroup" Margin="5,8,5,8" VerticalAlignment="Center" />
+                                <TextBlock Grid.Row="00"  Grid.Column="0" Text="Sector Group" Margin="5,8,5,8" VerticalAlignment="Center" />
+                                <TextBlock Grid.Row="00"  Grid.Column="1" Name="SheetGroupDetails_SectorGroup" Margin="5,8,5,8" VerticalAlignment="Center" />
 
-                                <!--
-                                <TextBlock Grid.Row="02"  Grid.Column="0" Text="Title Block Family" Margin="5,0" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="02"  Grid.Column="1" Name="SheetGroupDetails_TitleBlockFamily" Margin="5,0" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="01"  Grid.Column="0" Text="Title Block Family (from Sector Group)" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="01"  Grid.Column="1" Name="SheetGroupDetails_TitleBlockFamily" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="03"  Grid.Column="0" Text="Title Block Type" Margin="5,0" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="03"  Grid.Column="1" Name="SheetGroupDetails_TitleBlockType" Margin="5,0" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="02"  Grid.Column="0" Text="Title Block Type (from Sector Group)" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="02"  Grid.Column="1" Name="SheetGroupDetails_TitleBlockType" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="04"  Grid.Column="0" Text="View Scale" Margin="5,0" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="04"  Grid.Column="1" Name="SheetGroupDetails_ViewScale" Margin="5,0" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                -->
+                                <TextBlock Grid.Row="03"  Grid.Column="0" Text="Overall Scope Box (from Sector Group)" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="03"  Grid.Column="1" Name="SheetGroupDetails_OverallScopeBox" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="02"  Grid.Column="0" Text="View Family" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="02"  Grid.Column="1" Name="SheetGroupDetails_ViewFamily" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="04"  Grid.Column="0" Text="Overall View Scale (from Sector Group)" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="04"  Grid.Column="1" Name="SheetGroupDetails_OverallViewScale" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="03"  Grid.Column="0" Text="View Type" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="03"  Grid.Column="1" Name="SheetGroupDetails_ViewType" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="05"  Grid.Column="0" Text="Sector Scope Boxes (from Sector Group)" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="05"  Grid.Column="1" Name="SheetGroupDetails_SectorScopeBoxes" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="04"  Grid.Column="0" Text="Levels" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="04"  Grid.Column="1" Name="SheetGroupDetails_Levels" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="06"  Grid.Column="0" Text="Sector View Scale (from Sector Group)" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="06"  Grid.Column="1" Name="SheetGroupDetails_SectorViewScale" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="05"  Grid.Column="0" Text="Scope Boxes" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="05"  Grid.Column="1" Name="SheetGroupDetails_ScopeBoxes" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="07"  Grid.Column="0" Text="Levels (from Sector Group)" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="07"  Grid.Column="1" Name="SheetGroupDetails_Levels" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="06"  Grid.Column="0" Text="View Name Template" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="06"  Grid.Column="1" Name="SheetGroupDetails_ViewNameTemplate" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="08"  Grid.Column="0" Text="View Family" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="08"  Grid.Column="1" Name="SheetGroupDetails_ViewFamily" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="07" Grid.Column="0" Text="Sheet Number Template" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="07" Grid.Column="1" Name="SheetGroupDetails_SheetNumberTemplate" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="09"  Grid.Column="0" Text="View Type" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="09"  Grid.Column="1" Name="SheetGroupDetails_ViewType" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="08" Grid.Column="0" Text="Sheet Name Template" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="08" Grid.Column="1" Name="SheetGroupDetails_SheetNameTemplate" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="10"  Grid.Column="0" Text="View Name Template" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="10"  Grid.Column="1" Name="SheetGroupDetails_ViewNameTemplate" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="09" Grid.Column="0" Text="Views" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="09" Grid.Column="1" Name="SheetGroupDetails_Views" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="11" Grid.Column="0" Text="Sheet Number Template" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="11" Grid.Column="1" Name="SheetGroupDetails_SheetNumberTemplate" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="10" Grid.Column="0" Text="Sheets" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="10" Grid.Column="1" Name="SheetGroupDetails_Sheets" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="12" Grid.Column="0" Text="Sheet Name Template" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="12" Grid.Column="1" Name="SheetGroupDetails_SheetNameTemplate" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+
+                                <TextBlock Grid.Row="13" Grid.Column="0" Text="Views" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="13" Grid.Column="1" Name="SheetGroupDetails_Views" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+
+                                <TextBlock Grid.Row="14" Grid.Column="0" Text="Sheets" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="14" Grid.Column="1" Name="SheetGroupDetails_Sheets" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
                             </Grid>
                         </ScrollViewer>
