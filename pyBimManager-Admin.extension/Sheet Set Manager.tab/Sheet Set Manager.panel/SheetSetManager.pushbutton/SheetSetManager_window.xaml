@@ -12,9 +12,9 @@
             <TabItem Header="Title Blocks">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" MinHeight="300"/>
                         <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" MinHeight="300"/>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
@@ -86,7 +86,7 @@
             <TabItem Header="Sector Groups">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*" /> <!-- ListBox -->
+                        <RowDefinition Height="*" MinHeight="300"/> <!-- ListBox -->
                         <RowDefinition Height="Auto" /> <!-- Buttons -->
                         <RowDefinition Height="Auto" /> <!-- Details Pane -->
                     </Grid.RowDefinitions>
@@ -175,7 +175,7 @@
             <TabItem Header="Sheet Groups">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*" /> <!-- ListBox -->
+                        <RowDefinition Height="*" MinHeight="300"/> <!-- ListBox -->
                         <RowDefinition Height="Auto" /> <!-- Buttons -->
                         <RowDefinition Height="Auto" /> <!-- Details Pane -->
                     </Grid.RowDefinitions>

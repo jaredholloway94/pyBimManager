@@ -309,38 +309,46 @@ class SheetGroupsTab(object):
             created_sheets = []
 
             # Create Views, Sheets, and Viewports for each combination of level and scope box
-            for level in levels:
-                for scope_box in sector_scope_boxes:
+            for i, level in enumerate(levels):
+                for j, scope_box in enumerate(sector_scope_boxes):
 
-                        # safely expose the level and scope box names for use in naming templates
-                        level_name = level.Name
-                        scope_box_name = scope_box.Name
+                    # safely expose the level and scope box names for use in naming templates
+                    level_name = level.Name
+                    scope_box_name = scope_box.Name
+                    
+                    current = (len(sector_scope_boxes) * i) + j + 1
+                    total = (len(levels) * len(sector_scope_boxes))
 
-                        # Create View
-                        new_view = ViewPlan.Create(self.main.doc, view_family_type.Id, level.Id)
-                        new_view.Name = eval(view_name_template_str)
-                        new_view.LookupParameter('Scope Box').Set(scope_box.Id)
-                        created_views.append(new_view)
-                        # Set the View's scale
-                        new_view.Scale = sector_view_scale
-                        # Enable annotation crop
-                        new_view.LookupParameter('Annotation Crop').Set(True)  # Enable annotation crop
-                        # Hide annotations temporarily to set the viewport box center
-                        new_view.AreAnnotationCategoriesHidden = True
+                    # Create View
+                    new_view = ViewPlan.Create(self.main.doc, view_family_type.Id, level.Id)
+                    new_view.Name = eval(view_name_template_str)
+                    new_view.LookupParameter('Scope Box').Set(scope_box.Id)
+                    new_view.Scale = sector_view_scale
+                    new_view.LookupParameter('Annotation Crop').Set(True)
+                    new_view.CropBoxVisible = False
+                    new_view.AreAnnotationCategoriesHidden = True
+                    created_views.append(new_view)
 
-                        # Create Sheet
-                        new_sheet = ViewSheet.Create(self.main.doc, title_block.Id)
-                        new_sheet.SheetNumber = eval(sheet_number_template_str)
-                        new_sheet.Name = eval(sheet_name_template_str)
-                        created_sheets.append(new_sheet)
-                        
-                        # Create Viewport
-                        new_viewport = Viewport.Create(self.main.doc, new_sheet.Id, new_view.Id, tb_center)
+                    print('Created View: {} [{}/{}]'.format(new_view.Name, current, total))
+
+                    # Create Sheet
+                    new_sheet = ViewSheet.Create(self.main.doc, title_block.Id)
+                    new_sheet.SheetNumber = eval(sheet_number_template_str)
+                    new_sheet.Name = eval(sheet_name_template_str)
+                    created_sheets.append(new_sheet)
+
+                    print('Created Sheet: {} [{}/{}]'.format(new_sheet.Name, current, total))
+                    
+                    # Create Viewport
+                    new_viewport = Viewport.Create(self.main.doc, new_sheet.Id, new_view.Id, tb_center)
+
+                    print('Created Viewport: {} [{}/{}]'.format(new_sheet.Name, current, total))
 
         with revit.Transaction('Sheet Set Manager - Align Viewport to Title Block'):
             
             # Align Viewport to Title Block
-            for sheet in created_sheets:
+            for k,sheet in enumerate(created_sheets):
+
                 # Get the first viewport of the sheet
                 vp = self.main.doc.GetElement(sheet.GetAllViewports()[0])
                 # Get the View associated with the Viewport
@@ -349,6 +357,8 @@ class SheetGroupsTab(object):
                 vp.SetBoxCenter(tb_center)
                 # Restore annotation visibility
                 vp_view.AreAnnotationCategoriesHidden = False
+
+                print('Aligned Viewport to Title Block for Sheet: {} [{}/{}]'.format(sheet.Name, k+1, len(created_sheets)))
 
         self.main.sheet_groups[name]['view_ids'] = [ v.Id.IntegerValue for v in created_views ]
         self.main.sheet_groups[name]['sheet_ids'] = [ s.Id.IntegerValue for s in created_sheets ]
