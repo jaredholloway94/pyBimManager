@@ -1,6 +1,7 @@
 from pyrevit import revit, forms
 from Autodesk.Revit.DB import ElementId, ViewPlan, ViewSheet, Viewport, XYZ
 from NewSheetGroup_window import NewSheetGroupWindow
+from datetime import datetime
 
 
 class SheetGroupsTab(object):
@@ -175,7 +176,10 @@ class SheetGroupsTab(object):
         sg_data = self.main.sheet_groups[sg_name]
 
         for field,value in self.ui_fields.items():
-            field.Text = value(sg_data) if value(sg_data) else ''
+            try:
+                field.Text = value(sg_data)
+            except:
+                field.Text = 'Error!'
             
         return None
 
@@ -279,6 +283,7 @@ class SheetGroupsTab(object):
 
     def create_views_sheets(self, sender, args):
         
+        # Get data
         name = self.main.SheetGroupsListBox.SelectedItem
         data = self.main.sheet_groups[name]
 
@@ -302,13 +307,13 @@ class SheetGroupsTab(object):
         sheet_number_template_str = data['sheet_number_template_str']
         sheet_name_template_str = data['sheet_name_template_str']
         
-        # Wrap document modifications in a transaction
-        with revit.Transaction('Sheet Set Manager - Generate Views, Sheets, and Viewports'):
+
+        # Create Views, Sheets, and Viewports
+        with revit.Transaction('Sheet Set Manager - Create Views, Sheets, and Viewports'):
 
             created_views = []
             created_sheets = []
 
-            # Create Views, Sheets, and Viewports for each combination of level and scope box
             for i, level in enumerate(levels):
                 for j, scope_box in enumerate(sector_scope_boxes):
 
@@ -344,9 +349,9 @@ class SheetGroupsTab(object):
 
                     print('Created Viewport: {} [{}/{}]'.format(new_sheet.Name, current, total))
 
-        with revit.Transaction('Sheet Set Manager - Align Viewport to Title Block'):
-            
-            # Align Viewport to Title Block
+        # Align Viewports to Title Blocks
+        with revit.Transaction('Sheet Set Manager - Align Viewports to Title Blocks'):
+
             for k,sheet in enumerate(created_sheets):
 
                 # Get the first viewport of the sheet
@@ -360,6 +365,7 @@ class SheetGroupsTab(object):
 
                 print('Aligned Viewport to Title Block for Sheet: {} [{}/{}]'.format(sheet.Name, k+1, len(created_sheets)))
 
+        # Set data
         self.main.sheet_groups[name]['view_ids'] = [ v.Id.IntegerValue for v in created_views ]
         self.main.sheet_groups[name]['sheet_ids'] = [ s.Id.IntegerValue for s in created_sheets ]
 

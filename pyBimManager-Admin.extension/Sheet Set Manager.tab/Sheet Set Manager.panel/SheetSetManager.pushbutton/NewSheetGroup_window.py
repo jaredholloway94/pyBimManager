@@ -28,9 +28,9 @@ class NewSheetGroupWindow(forms.WPFWindow):
         # self.ViewTypeComboBox.ItemsSource = []
         # self.ViewTypeComboBox.SelectedItem = None
 
-        self.ViewNameTemplateTextBox.Text = 'level_name  +  " - "  +  scope_box_name'
-        self.SheetNumberTemplateTextBox.Text = '"A1-"  +  level_name[0:3]  +  scope_box_name[-1]'
-        self.SheetNameTemplateTextBox.Text = '"FLOOR PLAN - "  +  level_name  +  " - "  +  scope_box_name'
+        self.ViewNameTemplateTextBox.Text = '"_VIEW TYPE_ - "  +  level_name.upper()  +  " - "  +  scope_box_name.upper()'
+        self.SheetNumberTemplateTextBox.Text = '"_SHEET GROUP PREFIX_-"  +  level_name[0:3]  +  scope_box_name[-1]'
+        self.SheetNameTemplateTextBox.Text = '"_VIEW TYPE_ - "  +  level_name.upper()  +  " - "  +  scope_box_name.upper()'
 
         # Register UI Event Handlers
         self.OkButton.Click += self.ok_clicked
@@ -74,7 +74,7 @@ class NewSheetGroupWindow(forms.WPFWindow):
             forms.alert("Please select a View Family and View Type.")
 
         if view_family_name not in self.main.view_family_types:
-            forms.alert(f"View Family '{view_family_name}' not found.")
+            forms.alert("View Family '{}' not found.".format(view_family_name))
 
         view_family_type = self.main.view_family_types[view_family_name][view_type_name]
 

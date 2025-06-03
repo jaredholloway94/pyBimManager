@@ -61,16 +61,18 @@ class SheetSetManagerWindow(forms.WPFWindow):
                     .WhereElementIsNotElementType()
                 )
             )
-        
-        # sort view templates by ViewType
+
+        # sort view templates by ViewType (equivalent to ViewFamily)
         self.view_templates = {}
         for vt in self.view_template_collector:
-            view_family = str(vt.ViewType)
-            if view_family not in self.view_templates:
-                self.view_templates[view_family] = {}
-            self.view_templates[view_family][vt.Name] = vt
+            view_family_name = str(vt.ViewType)
+            # if the view family name is not in the dictionary, create a new entry
+            if view_family_name not in self.view_templates:
+                self.view_templates[view_family_name] = {}
+            # add the view template to the corresponding view family
+            self.view_templates[view_family_name][vt.Name] = vt
+            
 
-        
         self.view_family_type_collector = list(
             (
                 FilteredElementCollector(self.doc)
@@ -78,14 +80,18 @@ class SheetSetManagerWindow(forms.WPFWindow):
                 )
             )
         
-        # sort view family types by ViewFamily
+        # sort view family types by ViewFamily (equivalent to ViewType)
         self.view_family_types = {}
         for vft in self.view_family_type_collector:
-            view_family = str(vft.ViewFamily)
-            if view_family not in self.view_family_types:
-                self.view_family_types[view_family] = {}
-            self.view_family_types[view_family][vft.Name] = vft
-        
+            view_family_name = str(vft.ViewFamily)
+            # if the view family name is not in the dictionary, create a new entry
+            if view_family_name not in self.view_family_types:
+                self.view_family_types[view_family_name] = {}
+            # add the view family type to the corresponding view family
+            self.view_family_types[view_family_name][vft.Name] = vft
+                
+            
+
         # View Scales
         self.view_scales = OrderedDict({
             "12\" = 1\'"     : 1,
