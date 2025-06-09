@@ -172,7 +172,7 @@ class SectorGroupsTab(object):
                 title='Sector Group Created',
                 msg='Sector Group "{}" created successfully.\n'.format(dlg.NameTextBox.Text.strip()),
                 sub_msg =
-                    'Due to limitations in the Revit API, this tool cannot create Scope Boxes for you.\n\n' +
+                    'Due to limitations in the Revit API, this tool cannot create or modify Scope Boxes for you.\n\n' +
                     'After leaving this dialog, please click OK in the main window to save your changes and close the main window, then manually create and name Scope Boxes for this Sector group.\n\n' +
                     'If you chose to create Reference Planes in the last window, you can use them as guides for the Scope Box boundaries.\n\n' +
                     'When you are done, return to this window to Associate the Scope Boxes with this new Sector Group.\n\n'
@@ -195,7 +195,7 @@ class SectorGroupsTab(object):
                 title='Sector Group Updated',
                 msg='Sector Group "{}" updated successfully.\n'.format(dlg.NameTextBox.Text.strip()),
                 sub_msg =
-                    'Due to limitations in the Revit API, this tool cannot modify Scope Boxes for you.\n\n' +
+                    'Due to limitations in the Revit API, this tool cannot create or modify Scope Boxes for you.\n\n' +
                     'After leaving this dialog, please click OK in the main window to save your changes and close the main window, then manually create and name Scope Boxes for this Sector group.\n\n' +
                     'If you chose to create Reference Planes in the last window, you can use them as guides for the Scope Box boundaries.\n\n' +
                     'When you are done, return to this window to Associate the Scope Boxes with this new Sector Group.\n\n'
