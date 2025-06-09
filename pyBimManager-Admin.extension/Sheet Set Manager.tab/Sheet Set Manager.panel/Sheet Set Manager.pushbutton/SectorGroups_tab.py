@@ -21,9 +21,9 @@ class SectorGroupsTab(object):
         # Register UI Event Handlers
         self.main.NewSectorGroup.Click += self.new_sector_group
         self.main.RenameSectorGroup.Click += self.rename_sector_group
-        # self.main.AssociateScopeBoxes.Click += self.associate_scope_boxes
-        # self.main.AssociateLevels.Click += self.associate_levels
-        self.main.EditSectorGroup.Click += self.edit_sector_group
+        self.main.AddSectorScopeBoxes.Click += self.add_sector_scope_boxes
+        self.main.AddSectorLevels.Click += self.add_sector_levels
+        # self.main.EditSectorGroup.Click += self.edit_sector_group
         self.main.DeleteSectorGroup.Click += self.delete_sector_group
         
         self.main.SectorGroupsListBox.SelectionChanged += self.update_details
@@ -181,27 +181,27 @@ class SectorGroupsTab(object):
         return None
 
 
-    def edit_sector_group(self, sender, args):
+    # def edit_sector_group(self, sender, args):
 
-        dlg = EditSectorGroupWindow('EditSectorGroup_window.xaml', self)
-        result = dlg.show_dialog()
+    #     dlg = EditSectorGroupWindow('EditSectorGroup_window.xaml', self)
+    #     result = dlg.show_dialog()
 
-        if result:
-            self.set_data()
-            self.update_lists()
-            self.update_details(sender, args)
+    #     if result:
+    #         self.set_data()
+    #         self.update_lists()
+    #         self.update_details(sender, args)
 
-            forms.alert(
-                title='Sector Group Updated',
-                msg='Sector Group "{}" updated successfully.\n'.format(dlg.NameTextBox.Text.strip()),
-                sub_msg =
-                    'Due to limitations in the Revit API, this tool cannot create or modify Scope Boxes for you.\n\n' +
-                    'After leaving this dialog, please click OK in the main window to save your changes and close the main window, then manually create and name Scope Boxes for this Sector group.\n\n' +
-                    'If you chose to create Reference Planes in the last window, you can use them as guides for the Scope Box boundaries.\n\n' +
-                    'When you are done, return to this window to Associate the Scope Boxes with this new Sector Group.\n\n'
-                )
+    #         forms.alert(
+    #             title='Sector Group Updated',
+    #             msg='Sector Group "{}" updated successfully.\n'.format(dlg.NameTextBox.Text.strip()),
+    #             sub_msg =
+    #                 'Due to limitations in the Revit API, this tool cannot create or modify Scope Boxes for you.\n\n' +
+    #                 'After leaving this dialog, please click OK in the main window to save your changes and close the main window, then manually create and name Scope Boxes for this Sector group.\n\n' +
+    #                 'If you chose to create Reference Planes in the last window, you can use them as guides for the Scope Box boundaries.\n\n' +
+    #                 'When you are done, return to this window to Associate the Scope Boxes with this new Sector Group.\n\n'
+    #             )
 
-        return None
+    #     return None
 
 
     def delete_sector_group(self, sender, args):
@@ -270,71 +270,71 @@ class SectorGroupsTab(object):
         return None
 
 
-    # def associate_scope_boxes(self, sender, args):
+    def add_sector_scope_boxes(self, sender, args):
 
-    #     try:
-    #         assert self.main.SectorGroupsListBox.SelectedItem, "No Sector Group selected."
-    #     except AssertionError as e:
-    #         forms.alert(str(e))
-    #         return None
+        try:
+            assert self.main.SectorGroupsListBox.SelectedItem, "No Sector Group selected."
+        except AssertionError as e:
+            forms.alert(str(e))
+            return None
 
-    #     # Get the selected Sector Group and its data
-    #     sg_name = self.main.SectorGroupsListBox.SelectedItem
-    #     sg_data = self.main.sector_groups[sg_name]
+        # Get the selected Sector Group and its data
+        sg_name = self.main.SectorGroupsListBox.SelectedItem
+        sg_data = self.main.sector_groups[sg_name]
 
-    #     # Filter out the Sector Group's overall scope box from the list of available scope boxes
-    #     overall_scope_box = self.main.get_element(sg_data['overall_scope_box_id'])
-    #     available_scope_boxes = [ sb_name for sb_name in self.main.scope_boxes if sb_name != overall_scope_box.Name ]
+        # Filter out the Sector Group's overall scope box from the list of available scope boxes
+        overall_scope_box = self.main.get_element(sg_data['overall_scope_box_id'])
+        available_scope_boxes = [ sb_name for sb_name in self.main.scope_boxes if sb_name != overall_scope_box.Name ]
 
-    #     # Show a dialog to select Scope Boxes to associate with the Sector Group
-    #     selected_scope_boxes = forms.SelectFromList.show(
-    #         sorted(available_scope_boxes),
-    #         title='Select Scope Boxes',
-    #         multiselect=True,
-    #     )
+        # Show a dialog to select Scope Boxes to associate with the Sector Group
+        selected_scope_boxes = forms.SelectFromList.show(
+            sorted(available_scope_boxes),
+            title='Select Scope Boxes',
+            multiselect=True,
+        )
 
-    #     if not selected_scope_boxes:
-    #         forms.alert('No Scope Boxes selected.')
-    #         return None
+        if not selected_scope_boxes:
+            forms.alert('No Scope Boxes selected.')
+            return None
         
-    #     sg_data['sector_scope_box_ids'] = [ self.main.scope_boxes[sb_name].Id.IntegerValue for sb_name in selected_scope_boxes ]
+        sg_data['sector_scope_box_ids'] = [ self.main.scope_boxes[sb_name].Id.IntegerValue for sb_name in selected_scope_boxes ]
 
-    #     self.set_data()
-    #     self.update_lists()
-    #     self.update_details(sender, args)
+        self.set_data()
+        self.update_lists()
+        self.update_details(sender, args)
 
-    #     return None
+        return None
 
 
-    # def associate_levels(self, sender, args):
+    def add_sector_levels(self, sender, args):
 
-    #     try:
-    #         assert self.main.SectorGroupsListBox.SelectedItem, "No Sector Group selected."
-    #     except AssertionError as e:
-    #         forms.alert(str(e))
-    #         return None
+        try:
+            assert self.main.SectorGroupsListBox.SelectedItem, "No Sector Group selected."
+        except AssertionError as e:
+            forms.alert(str(e))
+            return None
 
-    #     # Get the selected Sector Group and its data
-    #     sg_name = self.main.SectorGroupsListBox.SelectedItem
-    #     sg_data = self.main.sector_groups[sg_name]
+        # Get the selected Sector Group and its data
+        sg_name = self.main.SectorGroupsListBox.SelectedItem
+        sg_data = self.main.sector_groups[sg_name]
 
-    #     # Show a dialog to select Scope Boxes to associate with the Sector Group
-    #     selected_levels = forms.SelectFromList.show(
-    #         sorted(self.main.levels.keys()),
-    #         title='Select Levels',
-    #         multiselect=True,
-    #     )
+        # Show a dialog to select Scope Boxes to associate with the Sector Group
+        selected_levels = forms.SelectFromList.show(
+            sorted(self.main.levels.keys()),
+            title='Select Levels',
+            multiselect=True,
+        )
 
-    #     if not selected_levels:
-    #         forms.alert('No Levels selected.')
-    #         return None
+        if not selected_levels:
+            forms.alert('No Levels selected.')
+            return None
 
-    #     sg_data['level_ids'] = [ self.main.levels[level_name].Id.IntegerValue for level_name in selected_levels ]
+        sg_data['level_ids'] = [ self.main.levels[level_name].Id.IntegerValue for level_name in selected_levels ]
 
-    #     self.set_data()
-    #     self.update_lists()
-    #     self.update_details(sender, args)
+        self.set_data()
+        self.update_lists()
+        self.update_details(sender, args)
 
-    #     return None
+        return None
 
 

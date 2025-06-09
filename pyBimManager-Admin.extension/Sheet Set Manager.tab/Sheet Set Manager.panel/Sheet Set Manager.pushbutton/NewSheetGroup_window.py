@@ -1,5 +1,6 @@
 from pyrevit import forms
-
+from safe_eval import safe_eval
+from System.Drawing import Color
 
 class NewSheetGroupWindow(forms.WPFWindow):
 
@@ -10,11 +11,22 @@ class NewSheetGroupWindow(forms.WPFWindow):
         self.parent = parent
         self.main = parent.main
 
+        self.default_view_name_template_str = '"_VIEW TYPE_ - "  +  level_name.upper()  +  " - "  +  scope_box_name.upper()'
+        self.default_sheet_number_template_str = '"_SHEET GROUP PREFIX_-"  +  level_name[0:3]  +  scope_box_name[-1]'
+        self.default_sheet_name_template_str = '"_VIEW TYPE_ - "  +  level_name.upper()  +  " - "  +  scope_box_name.upper()'
+
+        self.ViewNameTemplateTextBox.Text = self.default_view_name_template_str
+        self.SheetNumberTemplateTextBox.Text = self.default_sheet_number_template_str
+        self.SheetNameTemplateTextBox.Text = self.default_sheet_name_template_str
+
         # Initialize lists
         self.NameTextBox.Text = None
 
         self.SectorGroupComboBox.ItemsSource = sorted(self.main.sector_groups.keys())
         self.SectorGroupComboBox.SelectedItem = None
+        self.SectorGroupComboBox.SelectionChanged += self.update_view_name_template_example
+        self.SectorGroupComboBox.SelectionChanged += self.update_sheet_number_template_example
+        self.SectorGroupComboBox.SelectionChanged += self.update_sheet_name_template_example
 
         self.ViewFamilyComboBox.ItemsSource = sorted(list(filter(
             lambda x: 'Plan' in x,
@@ -25,12 +37,15 @@ class NewSheetGroupWindow(forms.WPFWindow):
         self.ViewFamilyComboBox.SelectionChanged += self.update_view_family_types_list
 
         self.update_view_family_types_list(None, None)
-        # self.ViewTypeComboBox.ItemsSource = []
-        # self.ViewTypeComboBox.SelectedItem = None
+        
+        self.ViewNameTemplateTextBox.TextChanged += self.update_view_name_template_example
+        self.ViewNameTemplateResetButton.Click += self.reset_view_name_template_str
 
-        self.ViewNameTemplateTextBox.Text = '"_VIEW TYPE_ - "  +  level_name.upper()  +  " - "  +  scope_box_name.upper()'
-        self.SheetNumberTemplateTextBox.Text = '"_SHEET GROUP PREFIX_-"  +  level_name[0:3]  +  scope_box_name[-1]'
-        self.SheetNameTemplateTextBox.Text = '"_VIEW TYPE_ - "  +  level_name.upper()  +  " - "  +  scope_box_name.upper()'
+        self.SheetNumberTemplateTextBox.TextChanged += self.update_sheet_number_template_example
+        self.SheetNumberTemplateResetButton.Click += self.reset_sheet_number_template_str
+
+        self.SheetNameTemplateTextBox.TextChanged += self.update_sheet_name_template_example
+        self.SheetNameTemplateResetButton.Click += self.reset_sheet_name_template_str
 
         # Register UI Event Handlers
         self.OkButton.Click += self.ok_clicked
@@ -43,6 +58,63 @@ class NewSheetGroupWindow(forms.WPFWindow):
         view_family = self.ViewFamilyComboBox.SelectedItem
         if view_family in self.main.view_family_types:
             self.ViewTypeComboBox.ItemsSource = sorted(self.main.view_family_types[view_family].keys())
+
+
+    def update_example_text(self, template_text_box, example_text_block):
+        levels = self.get_levels()
+        if not levels:
+            level_name = 'LEVEL NAME'
+        else:
+            level_name = levels[0].Name
+
+        scope_boxes = self.get_sector_scope_boxes()
+        if not scope_boxes:
+            scope_box_name = 'SCOPE BOX NAME'
+        else:
+            scope_box_name = scope_boxes[0].Name
+
+        template_str = template_text_box.Text.strip()
+
+        context = {
+            'level_name': level_name,
+            'scope_box_name': scope_box_name
+            }
+
+        try:
+            example_text = safe_eval(template_str, context)
+        except Exception as e:
+            example_text = '{}'.format(e)
+
+        example_text_block.Text = example_text
+    
+
+    def update_view_name_template_example(self, sender, args):
+        self.update_example_text(self.ViewNameTemplateTextBox, self.ViewNameTemplateExampleTextBlock)
+
+
+    def update_sheet_number_template_example(self, sender, args):
+        self.update_example_text(self.SheetNumberTemplateTextBox, self.SheetNumberTemplateExampleTextBlock)
+
+
+    def update_sheet_name_template_example(self, sender, args):
+        self.update_example_text(self.SheetNameTemplateTextBox, self.SheetNameTemplateExampleTextBlock)
+
+
+    def reset_view_name_template_str(self, sender, args):
+        self.ViewNameTemplateTextBox.Text = self.default_view_name_template_str
+        self.update_view_name_template_example(sender, args)
+
+
+    def reset_sheet_number_template_str(self, sender, args):
+        self.SheetNumberTemplateTextBox.Text = self.default_sheet_number_template_str
+        self.update_sheet_number_template_example(sender, args)
+
+
+    def reset_sheet_name_template_str(self, sender, args):
+        self.SheetNameTemplateTextBox.Text = self.default_sheet_name_template_str
+        self.update_sheet_name_template_example(sender, args)
+
+
 
 
     def get_name(self):
@@ -81,24 +153,28 @@ class NewSheetGroupWindow(forms.WPFWindow):
         return view_family_type
 
 
-    # def get_levels(self):
-    #     level_names = self.LevelsListBox.SelectedItems
-    #     levels = [self.main.levels[name] for name in level_names]
+    def get_levels(self):
+        sector_group_name = self.get_sector_group_name()
+        sg_data = self.main.sector_groups[sector_group_name]
 
-    #     if not levels:
-    #         forms.alert("Please select at least one level.")
+        try:
+            levels = [ self.main.get_element(level_id) for level_id in sg_data['level_ids'] ]
+        except:
+            levels = []
 
-    #     return levels
+        return levels
     
 
-    # def get_scope_boxes(self):
-    #     scope_box_names = self.ScopeBoxesListBox.SelectedItems
-    #     scope_boxes = [self.main.scope_boxes[name] for name in scope_box_names]
+    def get_sector_scope_boxes(self):
+        sector_group_name = self.get_sector_group_name()
+        sg_data = self.main.sector_groups[sector_group_name]
 
-    #     if not scope_boxes:
-    #         forms.alert("Please select at least one Scope Box.")
+        try:
+            sector_scope_boxes = [ self.main.get_element(sector_scope_box_id) for sector_scope_box_id in sg_data['sector_scope_box_ids'] ]
+        except:
+            sector_scope_boxes = []
 
-    #     return scope_boxes
+        return sector_scope_boxes
 
 
     def get_view_name_template_str(self):
