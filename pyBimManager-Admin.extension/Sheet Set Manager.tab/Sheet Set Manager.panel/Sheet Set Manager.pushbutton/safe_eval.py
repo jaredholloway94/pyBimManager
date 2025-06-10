@@ -6,6 +6,7 @@ ALLOWED_METHODS = {'upper', 'lower', 'strip', 'replace', 'capitalize', 'title', 
 # Allowed variable names
 ALLOWED_NAMES = {'level_name', 'scope_box_name'}
 
+
 class SafeEvalVisitor(ast.NodeVisitor):
     def visit_Expression(self, node):
         self.visit(node.body)
@@ -13,11 +14,9 @@ class SafeEvalVisitor(ast.NodeVisitor):
     def visit_Name(self, node):
         if node.id not in ALLOWED_NAMES:
             raise ValueError(f"Use of variable '{node.id}' is not allowed")
-    
+
     def visit_Attribute(self, node):
-        self.visit(node.value)
-        if not isinstance(node.value, ast.Name):
-            raise ValueError("Chained attributes are not allowed")
+        self.visit(node.value)  # Allow chained attributes
         if node.attr not in ALLOWED_METHODS:
             raise ValueError(f"Method '{node.attr}' is not allowed")
 
@@ -38,23 +37,33 @@ class SafeEvalVisitor(ast.NodeVisitor):
         self.visit(node.value)
         self.visit(node.slice)
 
-    def visit_Index(self, node):
-        self.visit(node.value)
-
     def visit_Slice(self, node):
         if node.lower: self.visit(node.lower)
         if node.upper: self.visit(node.upper)
         if node.step: self.visit(node.step)
 
-    def visit_Constant(self, node):
-        if not isinstance(node.value, str):
-            raise ValueError("Only string constants are allowed")
+    def visit_Index(self, node):  # Python <3.9
+        self.visit(node.value)
 
-    def visit_Str(self, node):  # For Python < 3.8
+    def visit_Constant(self, node):  # Python 3.8+
+        if not isinstance(node.value, (str, int)):
+            raise ValueError("Only string or integer constants are allowed")
+
+    def visit_Num(self, node):  # Python <3.8
+        pass  # Allow integer indexing
+
+    def visit_Str(self, node):  # Python <3.8
         pass
+
+    def visit_UnaryOp(self, node):
+        if isinstance(node.op, ast.USub):  # allow negative indexes like [-1]
+            self.visit(node.operand)
+        else:
+            raise ValueError("Only unary minus is allowed in indexing")
 
     def generic_visit(self, node):
         raise ValueError(f"Unsupported operation: {type(node).__name__}")
+
 
 def safe_eval(expr, context):
     tree = ast.parse(expr, mode='eval')
