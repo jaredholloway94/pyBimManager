@@ -1,6 +1,6 @@
 from pyrevit import forms
 from safe_eval import safe_eval
-from System.Drawing import Color
+
 
 class NewSheetGroupWindow(forms.WPFWindow):
 
@@ -11,16 +11,17 @@ class NewSheetGroupWindow(forms.WPFWindow):
         self.parent = parent
         self.main = parent.main
 
-        self.default_view_name_template_str = '"_VIEW TYPE_ - "  +  level_name.upper()  +  " - "  +  scope_box_name.upper()'
-        self.default_sheet_number_template_str = '"_SHEET GROUP PREFIX_-"  +  level_name[0:3]  +  scope_box_name[-1]'
-        self.default_sheet_name_template_str = '"_VIEW TYPE_ - "  +  level_name.upper()  +  " - "  +  scope_box_name.upper()'
+        self.default_view_name_template_str = 'view_type_name.upper()+" - "+level_name.upper()+" - "+scope_box_name.upper()'
+        self.default_sheet_number_template_str = 'sheet_group_name[0:2]+"-"+level_name[0:3]+scope_box_name[-1]'
+        self.default_sheet_name_template_str = 'view_type_name.upper()+" - "+level_name.upper()+" - "+scope_box_name.upper()'
 
         self.ViewNameTemplateTextBox.Text = self.default_view_name_template_str
         self.SheetNumberTemplateTextBox.Text = self.default_sheet_number_template_str
         self.SheetNameTemplateTextBox.Text = self.default_sheet_name_template_str
 
-        # Initialize lists
-        self.NameTextBox.Text = None
+        self.NameTextBox.TextChanged += self.update_view_name_template_example
+        self.NameTextBox.TextChanged += self.update_sheet_number_template_example
+        self.NameTextBox.TextChanged += self.update_sheet_name_template_example
 
         self.SectorGroupComboBox.ItemsSource = sorted(self.main.sector_groups.keys())
         self.SectorGroupComboBox.SelectedItem = None
@@ -28,15 +29,15 @@ class NewSheetGroupWindow(forms.WPFWindow):
         self.SectorGroupComboBox.SelectionChanged += self.update_sheet_number_template_example
         self.SectorGroupComboBox.SelectionChanged += self.update_sheet_name_template_example
 
-        self.ViewFamilyComboBox.ItemsSource = sorted(list(filter(
-            lambda x: 'Plan' in x,
-            self.main.view_family_types.keys()
-            )))
-        
-        self.ViewFamilyComboBox.SelectedItem = None
+        self.ViewFamilyComboBox.ItemsSource = sorted(list(filter( lambda x: 'Plan' in x, self.main.view_family_types.keys() )))
         self.ViewFamilyComboBox.SelectionChanged += self.update_view_family_types_list
+        self.ViewFamilyComboBox.SelectionChanged += self.update_view_name_template_example
+        self.ViewFamilyComboBox.SelectionChanged += self.update_sheet_number_template_example
+        self.ViewFamilyComboBox.SelectionChanged += self.update_sheet_name_template_example
 
-        self.update_view_family_types_list(None, None)
+        self.ViewTypeComboBox.SelectionChanged += self.update_view_name_template_example
+        self.ViewTypeComboBox.SelectionChanged += self.update_sheet_number_template_example
+        self.ViewTypeComboBox.SelectionChanged += self.update_sheet_name_template_example
         
         self.ViewNameTemplateTextBox.TextChanged += self.update_view_name_template_example
         self.ViewNameTemplateResetButton.Click += self.reset_view_name_template_str
@@ -52,6 +53,12 @@ class NewSheetGroupWindow(forms.WPFWindow):
         self.CancelButton.Click += self.cancel_clicked
 
         return None
+
+
+
+
+
+
 
     
     def update_view_family_types_list(self, sender, args):
@@ -72,12 +79,18 @@ class NewSheetGroupWindow(forms.WPFWindow):
             scope_box_name = 'SCOPE BOX NAME'
         else:
             scope_box_name = scope_boxes[0].Name
-
+        
         template_str = template_text_box.Text.strip()
 
         context = {
+            'sheet_group_name': self.get_name(),
             'level_name': level_name,
-            'scope_box_name': scope_box_name
+            'level_counter': '1',
+            'scope_box_name': scope_box_name,
+            'scope_box_counter': '1',
+            'sheet_counter': '1',
+            'view_family_name': self.get_view_family_name(),
+            'view_type_name': self.get_view_type_name(),
             }
 
         try:
@@ -117,47 +130,61 @@ class NewSheetGroupWindow(forms.WPFWindow):
 
 
 
+
+
+
+
     def get_name(self):
-        name = self.NameTextBox.Text.strip()
-
-        if not name:
-            forms.alert("Please enter a name for the new Sheet Group.")
-
-        if name in self.main.sheet_groups:
-            forms.alert("A Sheet Group with the name '{}' already exists. Please choose a different name.".format(name))
+        try:
+            name = self.NameTextBox.Text.strip()
+        except:
+            name = ""
 
         return name
 
 
     def get_sector_group_name(self):
-        sector_group_name = self.SectorGroupComboBox.SelectedItem
-
-        if not sector_group_name:
-            forms.alert("Please select a Sector Group.")
+        try:
+            sector_group_name = self.SectorGroupComboBox.SelectedItem
+        except:
+            sector_group_name = ""
 
         return sector_group_name
     
     
+    def get_view_family_name(self):
+        try:
+            view_family_name = self.ViewFamilyComboBox.SelectedItem
+        except:
+            view_family_name = ""
+
+        return view_family_name
+    
+
+    def get_view_type_name(self):
+        try:
+            view_type_name = self.ViewTypeComboBox.SelectedItem
+        except:
+            view_type_name = ""
+        
+        return view_type_name
+    
+
     def get_view_family_type(self):
-        view_family_name = self.ViewFamilyComboBox.SelectedItem
-        view_type_name = self.ViewTypeComboBox.SelectedItem
-
-        if not view_family_name or not view_type_name:
-            forms.alert("Please select a View Family and View Type.")
-
-        if view_family_name not in self.main.view_family_types:
-            forms.alert("View Family '{}' not found.".format(view_family_name))
-
-        view_family_type = self.main.view_family_types[view_family_name][view_type_name]
+        try:
+            view_family_name = self.get_view_family_name()
+            view_type_name = self.get_view_type_name()
+            view_family_type = self.main.view_family_types[view_family_name][view_type_name]
+        except:
+            view_family_type = None
 
         return view_family_type
 
 
     def get_levels(self):
-        sector_group_name = self.get_sector_group_name()
-        sg_data = self.main.sector_groups[sector_group_name]
-
         try:
+            sector_group_name = self.get_sector_group_name()
+            sg_data = self.main.sector_groups[sector_group_name]
             levels = [ self.main.get_element(level_id) for level_id in sg_data['level_ids'] ]
         except:
             levels = []
@@ -166,10 +193,9 @@ class NewSheetGroupWindow(forms.WPFWindow):
     
 
     def get_sector_scope_boxes(self):
-        sector_group_name = self.get_sector_group_name()
-        sg_data = self.main.sector_groups[sector_group_name]
-
         try:
+            sector_group_name = self.get_sector_group_name()
+            sg_data = self.main.sector_groups[sector_group_name]
             sector_scope_boxes = [ self.main.get_element(sector_scope_box_id) for sector_scope_box_id in sg_data['sector_scope_box_ids'] ]
         except:
             sector_scope_boxes = []
@@ -178,28 +204,28 @@ class NewSheetGroupWindow(forms.WPFWindow):
 
 
     def get_view_name_template_str(self):
-        view_name_template_str = self.ViewNameTemplateTextBox.Text.strip()
-
-        if not view_name_template_str:
-            forms.alert("Please enter a View Name template.")
+        try:
+            view_name_template_str = self.ViewNameTemplateTextBox.Text.strip()
+        except:
+            view_name_template_str = ""
 
         return view_name_template_str
     
 
     def get_sheet_number_template_str(self):
-        sheet_number_template_str = self.SheetNumberTemplateTextBox.Text.strip()
-
-        if not sheet_number_template_str:
-            forms.alert("Please enter a Sheet Number template.")
+        try:
+            sheet_number_template_str = self.SheetNumberTemplateTextBox.Text.strip()
+        except:
+            sheet_number_template_str = ""
 
         return sheet_number_template_str
     
 
     def get_sheet_name_template_str(self):
-        sheet_name_template_str = self.SheetNameTemplateTextBox.Text.strip()
-
-        if not sheet_name_template_str:
-            forms.alert("Please enter a Sheet Name template.")
+        try:
+            sheet_name_template_str = self.SheetNameTemplateTextBox.Text.strip()
+        except:
+            sheet_name_template_str = ""
 
         return sheet_name_template_str
 
@@ -227,6 +253,12 @@ class NewSheetGroupWindow(forms.WPFWindow):
 
     #     return view_scale
     
+
+
+
+
+
+
 
     def ok_clicked(self, sender, args):
 

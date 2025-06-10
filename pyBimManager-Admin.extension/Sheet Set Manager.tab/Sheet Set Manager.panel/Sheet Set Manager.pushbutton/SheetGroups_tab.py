@@ -2,6 +2,7 @@ from pyrevit import revit, forms
 from Autodesk.Revit.DB import ElementId, ViewPlan, ViewSheet, Viewport, XYZ
 from NewSheetGroup_window import NewSheetGroupWindow
 from datetime import datetime
+from safe_eval import safe_eval
 
 
 class SheetGroupsTab(object):
@@ -314,19 +315,26 @@ class SheetGroupsTab(object):
             created_views = []
             created_sheets = []
 
-            for i, level in enumerate(levels):
-                for j, scope_box in enumerate(sector_scope_boxes):
+            for level_counter, level in enumerate(levels):
+                for scope_box_counter, scope_box in enumerate(sector_scope_boxes):
 
-                    # safely expose the level and scope box names for use in naming templates
-                    level_name = level.Name
-                    scope_box_name = scope_box.Name
-                    
-                    current = (len(sector_scope_boxes) * i) + j + 1
-                    total = (len(levels) * len(sector_scope_boxes))
+                    sheet_counter = (len(sector_scope_boxes) * level_counter) + scope_box_counter + 1
+                    total_sheets = (len(levels) * len(sector_scope_boxes))
+
+                    context = {
+                        'sheet_group_name': name,
+                        'level_name': level.Name,
+                        'level_counter': str(level_counter + 1),
+                        'scope_box_name': scope_box.Name,
+                        'scope_box_counter': str(scope_box_counter + 1),
+                        'sheet_counter': str(sheet_counter),
+                        'view_family_name': view_family_type.FamilyName,
+                        'view_type_name': view_family_type.Name,
+                        }
 
                     # Create View
                     new_view = ViewPlan.Create(self.main.doc, view_family_type.Id, level.Id)
-                    new_view.Name = eval(view_name_template_str)
+                    new_view.Name = safe_eval(view_name_template_str, context)
                     new_view.LookupParameter('Scope Box').Set(scope_box.Id)
                     new_view.Scale = sector_view_scale
                     new_view.LookupParameter('Annotation Crop').Set(True)
@@ -334,20 +342,20 @@ class SheetGroupsTab(object):
                     new_view.AreAnnotationCategoriesHidden = True
                     created_views.append(new_view)
 
-                    print('Created View: {} [{}/{}]'.format(new_view.Name, current, total))
+                    print('Created View: {} [{}/{}]'.format(new_view.Name, sheet_counter, total_sheets))
 
                     # Create Sheet
                     new_sheet = ViewSheet.Create(self.main.doc, title_block.Id)
-                    new_sheet.SheetNumber = eval(sheet_number_template_str)
-                    new_sheet.Name = eval(sheet_name_template_str)
+                    new_sheet.SheetNumber = safe_eval(sheet_number_template_str, context)
+                    new_sheet.Name = safe_eval(sheet_name_template_str, context)
                     created_sheets.append(new_sheet)
 
-                    print('Created Sheet: {} [{}/{}]'.format(new_sheet.Name, current, total))
+                    print('Created Sheet: {} [{}/{}]'.format(new_sheet.Name, sheet_counter, total_sheets))
                     
                     # Create Viewport
                     new_viewport = Viewport.Create(self.main.doc, new_sheet.Id, new_view.Id, tb_center)
 
-                    print('Created Viewport: {} [{}/{}]'.format(new_sheet.Name, current, total))
+                    print('Created Viewport: {} [{}/{}]'.format(new_sheet.Name, sheet_counter, total_sheets))
 
         # Align Viewports to Title Blocks
         with revit.Transaction('Sheet Set Manager - Align Viewports to Title Blocks'):
