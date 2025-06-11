@@ -101,12 +101,10 @@
                     <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,2,0,2">
                         <Button Name="NewSectorGroup" Content="New" Margin="0,0,5,0" Width="75" Height="23" />
                         <Button Name="RenameSectorGroup" Content="Rename" Margin="0,0,5,0" Width="75" Height="23" />
-                        <!--
-                        <Button Name="AssociateScopeBoxes" Content="Associate Scope Boxes" Margin="0,0,5,0" Width="150" Height="23" />
-                        <Button Name="AssociateLevels" Content="Associate Levels" Margin="0,0,5,0" Width="150" Height="23" />
-                        -->
-                        <Button Name="EditSectorGroup" Content="Edit" Margin="0,0,5,0" Width="75" Height="23" />
+                        <!-- <Button Name="EditSectorGroup" Content="Edit" Margin="0,0,5,0" Width="75" Height="23" /> -->
                         <Button Name="DeleteSectorGroup" Content="Delete" Margin="0,0,5,0" Width="75" Height="23" />
+                        <Button Name="AddSectorScopeBoxes" Content="Add Sector Scope Boxes" Margin="0,0,5,0" Width="150" Height="23" />
+                        <Button Name="AddSectorLevels" Content="Add Sector Levels" Margin="0,0,5,0" Width="150" Height="23" />
                     </StackPanel>
 
                     <!-- Details Pane for Sector Groups -->
@@ -245,25 +243,25 @@
                                 <TextBlock Grid.Row="00"  Grid.Column="0" Text="Sector Group" Margin="5,8,5,8" VerticalAlignment="Center" />
                                 <TextBlock Grid.Row="00"  Grid.Column="1" Name="SheetGroupDetails_SectorGroup" Margin="5,8,5,8" VerticalAlignment="Center" />
 
-                                <TextBlock Grid.Row="01"  Grid.Column="0" Text="Title Block Family (from Sector Group)" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="01"  Grid.Column="0" Text="        Title Block Family" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
                                 <TextBlock Grid.Row="01"  Grid.Column="1" Name="SheetGroupDetails_TitleBlockFamily" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="02"  Grid.Column="0" Text="Title Block Type (from Sector Group)" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="02"  Grid.Column="0" Text="        Title Block Type" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
                                 <TextBlock Grid.Row="02"  Grid.Column="1" Name="SheetGroupDetails_TitleBlockType" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="03"  Grid.Column="0" Text="Overall Scope Box (from Sector Group)" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="03"  Grid.Column="0" Text="        Overall Scope Box" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
                                 <TextBlock Grid.Row="03"  Grid.Column="1" Name="SheetGroupDetails_OverallScopeBox" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="04"  Grid.Column="0" Text="Overall View Scale (from Sector Group)" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="04"  Grid.Column="0" Text="        Overall View Scale" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
                                 <TextBlock Grid.Row="04"  Grid.Column="1" Name="SheetGroupDetails_OverallViewScale" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="05"  Grid.Column="0" Text="Sector Scope Boxes (from Sector Group)" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="05"  Grid.Column="0" Text="        Sector Scope Boxes" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
                                 <TextBlock Grid.Row="05"  Grid.Column="1" Name="SheetGroupDetails_SectorScopeBoxes" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="06"  Grid.Column="0" Text="Sector View Scale (from Sector Group)" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="06"  Grid.Column="0" Text="        Sector View Scale" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
                                 <TextBlock Grid.Row="06"  Grid.Column="1" Name="SheetGroupDetails_SectorViewScale" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                                <TextBlock Grid.Row="07"  Grid.Column="0" Text="Levels (from Sector Group)" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="07"  Grid.Column="0" Text="        Levels" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
                                 <TextBlock Grid.Row="07"  Grid.Column="1" Name="SheetGroupDetails_Levels" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
                                 <TextBlock Grid.Row="08"  Grid.Column="0" Text="View Family" Margin="5,8,5,8" VerticalAlignment="Center" TextWrapping="Wrap"/>

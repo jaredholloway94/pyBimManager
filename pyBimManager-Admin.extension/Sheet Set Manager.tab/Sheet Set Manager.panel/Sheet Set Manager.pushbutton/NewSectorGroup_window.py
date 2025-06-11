@@ -25,22 +25,16 @@ class NewSectorGroupWindow(forms.WPFWindow):
 
         self.OverallScopeBoxComboBox.ItemsSource = sorted(self.main.scope_boxes.keys())
         self.OverallScopeBoxComboBox.SelectionChanged += self.update_overall_view_scale
-        self.OverallScopeBoxComboBox.SelectionChanged += self.update_sector_scope_boxes_list
 
         self.OverallViewScaleComboBox.ItemsSource = self.main.view_scales_list
-        self.OverallViewScaleComboBox.IsEnabled = False
-        
+        self.OverallViewScaleComboBox.SelectionChanged += self.update_overall_view_scale_textbox
+
         self.OverallViewScaleTextBox.IsEnabled = False
 
-        self.SectorScopeBoxesListBox.ItemsSource = []
-
         self.SectorViewScaleComboBox.ItemsSource = self.main.view_scales_list
-        self.SectorViewScaleComboBox.SelectedItem = None
-
-        self.SectorViewScaleTextBox.IsEnabled = False
         self.SectorViewScaleComboBox.SelectionChanged += self.update_sector_view_scale_textbox
 
-        self.LevelsListBox.ItemsSource = sorted(self.main.levels.keys())
+        self.SectorViewScaleTextBox.IsEnabled = False
 
         # Register UI Event Handlers
         self.OkButton.Click += self.ok_clicked
@@ -84,17 +78,6 @@ class NewSectorGroupWindow(forms.WPFWindow):
             return None
 
         return overall_view_scale
-    
-
-    def get_sector_scope_boxes(self):
-        scope_box_names = self.SectorScopeBoxesListBox.SelectedItems
-        
-        if not scope_box_names:
-            return []
-
-        sector_scope_boxes = [self.main.scope_boxes[name] for name in scope_box_names]
-
-        return sector_scope_boxes
 
 
     def get_sector_view_scale(self):
@@ -105,17 +88,6 @@ class NewSectorGroupWindow(forms.WPFWindow):
             return None
 
         return sector_view_scale
-
-
-    def get_levels(self):
-        level_names = self.LevelsListBox.SelectedItems
-
-        if not level_names:
-            return []
-
-        levels = [self.main.levels[name] for name in level_names]
-
-        return levels
 
 
     def get_create_ref_planes(self):
@@ -149,14 +121,14 @@ class NewSectorGroupWindow(forms.WPFWindow):
                     break
 
 
-    def update_sector_scope_boxes_list(self, sender, args):
-        overall_scope_box = self.get_overall_scope_box()
-        if overall_scope_box:
-            self.SectorScopeBoxesListBox.ItemsSource = sorted(
-                [sb_name for sb_name in self.main.scope_boxes.keys() if sb_name != overall_scope_box.Name]
-            )
+    def update_overall_view_scale_textbox(self, sender, args):
+        vs_name = self.OverallViewScaleComboBox.SelectedItem
+        if vs_name == 'Custom':
+            self.OverallViewScaleTextBox.IsEnabled = True
+            self.OverallViewScaleTextBox.Text = None
         else:
-            self.SectorScopeBoxesListBox.ItemsSource = []
+            self.OverallViewScaleTextBox.IsEnabled = False
+            self.OverallViewScaleTextBox.Text = str(self.main.view_scales[vs_name])
 
 
     def update_sector_view_scale_textbox(self, sender, args):
@@ -176,9 +148,7 @@ class NewSectorGroupWindow(forms.WPFWindow):
         title_block = self.get_title_block()
         overall_scope_box = self.get_overall_scope_box()
         overall_view_scale = self.get_overall_view_scale()
-        sector_scope_boxes = self.get_sector_scope_boxes()
         sector_view_scale = self.get_sector_view_scale()
-        levels = self.get_levels()
         create_ref_planes = self.get_create_ref_planes()
 
         # If user checked 'Create Reference Planes', create the reference planes
@@ -234,9 +204,9 @@ class NewSectorGroupWindow(forms.WPFWindow):
             'title_block_id': title_block.Id.IntegerValue,
             'overall_scope_box_id': overall_scope_box.Id.IntegerValue,
             'overall_view_scale': overall_view_scale,
-            'sector_scope_box_ids': [sb.Id.IntegerValue for sb in sector_scope_boxes],
+            'sector_scope_box_ids': [],
             'sector_view_scale': sector_view_scale,
-            'level_ids': [level.Id.IntegerValue for level in levels],
+            'level_ids': [],
             'reference_plane_ids': [rp.Id.IntegerValue for rp in reference_planes],
             }
         
